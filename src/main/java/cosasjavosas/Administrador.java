@@ -38,5 +38,5 @@ public class Administrador {
     public String toString() {
         return "Administrador{" + "correo=" + correo + ", clave=" + clave + '}';
     }
-    
+    // A
 }
