@@ -18,7 +18,7 @@ public class Inmueble {
     private DatosInmueble datos;
     private String tipoPropiedad;
     private double precioNoche;
-    private ArrayList<String> servicios;
+    private ArrayList<String> servicios = new ArrayList<>();
     private String fotografia;
     private double calificacion;
 
