@@ -8,7 +8,7 @@ package clases;
  *
  * @author cojones
  */
-public class persona {
+public class Persona {
     String DNI;
     String nombre;
     String email;
@@ -47,7 +47,7 @@ public class persona {
         this.teléfono = teléfono;
     }
 
-    public persona(String DNI, String nombre, String email, String clave, String teléfono) {
+    public Persona(String DNI, String nombre, String email, String clave, String teléfono) {
         this.DNI = DNI;
         this.nombre = nombre;
         this.email = email;
