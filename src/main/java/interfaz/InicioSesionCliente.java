@@ -276,12 +276,12 @@ public class InicioSesionCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println(this.jTextFieldCorreo.getText());
+        /*System.out.println(this.jTextFieldCorreo.getText());
         System.out.println(this.jTextFieldClave.getText());
         if(this.admin.getCorreo().equals(this.jTextFieldCorreo.getText())
            && this.admin.getClave().equals(this.jTextFieldClave.getText())){
             System.out.println("Sesión iniciada.");
-        }
+        }*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
