@@ -13,7 +13,7 @@ import clases.Anfitrión;
  */
 public class InicioSesionCliente extends javax.swing.JFrame {
     Inicio inicio;
-    HashMap<String, Cliente>
+    HashMap<String, Cliente> lista_clientes= new HashMap<>();
     /**
      * Creates new form InicioSesionCliente
      */
