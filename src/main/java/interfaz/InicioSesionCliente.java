@@ -6,6 +6,7 @@ package interfaz;
 import java.util.HashMap;
 import clases.Cliente;
 import clases.Anfitrión;
+import clases.TarjetaDeCrédito;
 
 /**
  *
@@ -14,6 +15,9 @@ import clases.Anfitrión;
 public class InicioSesionCliente extends javax.swing.JFrame {
     Inicio inicio;
     HashMap<String, Cliente> lista_clientes= new HashMap<>();
+    HashMap<String, Anfitrión> lista_anfitriones= new HashMap<>();
+    TarjetaDeCrédito tarjeta = new TarjetaDeCrédito("tuvieja", "1", "11/09/2001");
+    Cliente cliente = new Cliente(tarjeta, false, "75234JIJIJIJA", "Jose", "cliente@javabnb.com", "cliente", "teléfono");
     /**
      * Creates new form InicioSesionCliente
      */
@@ -276,12 +280,16 @@ public class InicioSesionCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*System.out.println(this.jTextFieldCorreo.getText());
-        System.out.println(this.jTextFieldClave.getText());
-        if(this.admin.getCorreo().equals(this.jTextFieldCorreo.getText())
-           && this.admin.getClave().equals(this.jTextFieldClave.getText())){
-            System.out.println("Sesión iniciada.");
-        }*/
+        String correo = this.jTextFieldCorreo.getText();
+        String clave = this.jTextFieldClave.getText();
+        System.out.println(correo);
+        System.out.println(clave);
+        lista_clientes.put("cliente@javabnb.com", cliente);
+        if(lista_clientes.containsKey(correo)){
+            if(lista_clientes.get(correo).getClave().equals(clave)){
+                System.out.println("Sesión iniciada.");
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
