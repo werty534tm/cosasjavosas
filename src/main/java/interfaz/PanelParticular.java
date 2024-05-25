@@ -49,7 +49,7 @@ public class PanelParticular extends javax.swing.JFrame {
         jButton4.setText("<html><center><p>Consulta de</p>\n<p>reservas</p></center>");
 
         jButton5.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jButton5.setText("<html><center><p>Consulta de</p><p>datos personales</p></center>");
+        jButton5.setText("<html><center><p>Modificación de</p><p>datos personales</p></center>");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);

@@ -53,7 +53,7 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         jButton3.setText("<html><center><p>Consulta de</p><p>reservas</p></center>");
 
         jButton4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jButton4.setText("<html><center><p>Consulta de</p><p>datos personales</p></center>");
+        jButton4.setText("<html><center><p>Modificación de</p><p>datos personales</p></center>");
 
         jButton5.setText("Cerrar sesión");
 
