@@ -5,6 +5,7 @@
 package cosasjavosas;
 import interfaz.*;
 import clases.*;
+import java.util.HashMap;
 
 /**
  *

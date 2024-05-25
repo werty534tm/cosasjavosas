@@ -4,18 +4,38 @@
  */
 package interfaz;
 
+import clases.Anfitrión;
+import java.util.HashMap;
+import clases.Cliente;
+import java.util.ArrayList;
+
 /**
  *
  * @author luver
  */
-public class ConsultaClientes extends javax.swing.JFrame {
-    private PanelAdmin panel_admin;
+public class ConsultaClientes_Admin extends javax.swing.JFrame {
+    PanelAdmin panel_admin;
+    HashMap<String, Cliente> lista_clientes;
+    HashMap<String, Anfitrión> lista_anfitriones;
+    ArrayList<String> correos_clientes;
+    ArrayList<String> correos_anfitriones;
     /**
      * Creates new form ConsultaClientes
      */
-    public ConsultaClientes(PanelAdmin panel_admin) {
+    public ConsultaClientes_Admin(PanelAdmin panel_admin) {
         initComponents();
         this.panel_admin = panel_admin;
+        this.lista_clientes = this.panel_admin.inicio_admin.inicio.lista_clientes;
+        this.lista_anfitriones = this.panel_admin.inicio_admin.inicio.lista_anfitriones;
+        this.correos_clientes = this.panel_admin.inicio_admin.inicio.correos_clientes;
+        this.correos_clientes = this.panel_admin.inicio_admin.inicio.correos_anfitriones;
+        for(int i=0;i<this.lista_clientes.size();i++){
+            Cliente cliente = getCliente(i);
+            this.jTable1.setValueAt(cliente.getNombre(), i+1, 1);
+        }
+    }
+    public Cliente getCliente(int num){
+        return lista_clientes.get(correos_clientes.get(num));
     }
 
     /**
@@ -75,8 +95,18 @@ public class ConsultaClientes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("<html><center><p>Ver datos específicos del</p><p>cliente sleccionado</p></center>");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Volver al panel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +125,7 @@ public class ConsultaClientes extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel2))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +136,7 @@ public class ConsultaClientes extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,7 +144,17 @@ public class ConsultaClientes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.panel_admin.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

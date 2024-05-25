@@ -4,12 +4,20 @@
  */
 package interfaz;
 
+import clases.Anfitrión;
+import clases.Cliente;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  *
  * @author luver
  */
 public class Inicio extends javax.swing.JFrame {
-
+    HashMap<String, Cliente> lista_clientes = new HashMap<>();
+    HashMap<String, Anfitrión> lista_anfitriones = new HashMap<>();
+    ArrayList<String> correos_clientes = new ArrayList<>();
+    ArrayList<String> correos_anfitriones = new ArrayList<>();
     /**
      * Creates new form Inicio
      */

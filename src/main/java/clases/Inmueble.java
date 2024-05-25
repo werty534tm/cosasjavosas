@@ -15,7 +15,6 @@ public class Inmueble {
     
     private String titulo;
     private Direccion direccion;
-    private String ciudad;
     private DatosInmueble datos;
     private String tipoPropiedad;
     private double precioNoche;
