@@ -30,12 +30,9 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
         this.correos_clientes = this.panel_admin.inicio_admin.inicio.correos_clientes;
         this.correos_clientes = this.panel_admin.inicio_admin.inicio.correos_anfitriones;
         for(int i=0;i<this.lista_clientes.size();i++){
-            Cliente cliente = getCliente(i);
+            Cliente cliente = lista_clientes.get(correos_clientes.get(i));
             this.jTable1.setValueAt(cliente.getNombre(), i+1, 1);
         }
-    }
-    public Cliente getCliente(int num){
-        return lista_clientes.get(correos_clientes.get(num));
     }
 
     /**

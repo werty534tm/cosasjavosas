@@ -3,13 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+import cosasjavosas.Cosasjavosas;
+
+import clases.Cliente;
+import clases.TarjetaDeCrédito;
+import clases.Datos;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author luver
  */
 public class RegistroParticular extends javax.swing.JFrame {
-    
     InicioSesionCliente main;
     
     public RegistroParticular(InicioSesionCliente isc) {
@@ -89,7 +105,7 @@ public class RegistroParticular extends javax.swing.JFrame {
 
         jLabel10.setText("Fecha de caducidad");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/yy"))));
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
         jRadioButton1.setText("¿Registrarse como cliente V.I.P.?");
 
@@ -101,6 +117,11 @@ public class RegistroParticular extends javax.swing.JFrame {
         });
 
         jButton2.setText("Registrarse");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("C059", 0, 14)); // NOI18N
         jLabel11.setText("JavaBnB");
@@ -141,7 +162,7 @@ public class RegistroParticular extends javax.swing.JFrame {
                                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 23, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -221,12 +242,37 @@ public class RegistroParticular extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
+        main.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         main.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nombre = this.jTextField1.getText();
+        String DNI =this.jTextField2.getText();
+        String tel = this.jTextField3.getText();
+        String correo = this.jTextField4.getText();
+        String clave = this.jTextField5.getText();
+        String titular_tarjeta = this.jTextField6.getText();
+        String num_tarjeta = this.jTextField7.getText();
+        boolean vip = this.jRadioButton1.isSelected();
+        String fecha_texto = this.jFormattedTextField1.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try {
+            LocalDate caducidad = LocalDate.parse(fecha_texto, formatter);
+            TarjetaDeCrédito tarjeta = new TarjetaDeCrédito(titular_tarjeta, num_tarjeta, caducidad);
+            Cliente cliente = new Cliente(tarjeta, vip, DNI, nombre, correo, clave, tel);
+            Datos.lista_clientes.put(correo, cliente);
+            Datos.correos_clientes.add(correo);
+        } catch (DateTimeParseException ex) {
+            this.jFormattedTextField1.setText("yyyy-MM-dd");
+        }
+        System.out.println(Datos.lista_clientes);
+        System.out.println(Datos.correos_clientes);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

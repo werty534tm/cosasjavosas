@@ -14,16 +14,11 @@ import clases.TarjetaDeCrédito;
  */
 public class InicioSesionCliente extends javax.swing.JFrame {
     Inicio inicio;
-    HashMap<String, Cliente> lista_clientes= new HashMap<>();
-    HashMap<String, Anfitrión> lista_anfitriones= new HashMap<>();
-    TarjetaDeCrédito tarjeta = new TarjetaDeCrédito("tuvieja", "1", "11/09/2001");
-    Cliente cliente = new Cliente(tarjeta, false, "75234JIJIJIJA", "Jose", "cliente@javabnb.com", "cliente", "teléfono");
     /**
      * Creates new form InicioSesionCliente
      */
     public InicioSesionCliente(Inicio inicio) {
         initComponents();
-        this.inicio = inicio;
     }
 
     /**
@@ -184,17 +179,11 @@ public class InicioSesionCliente extends javax.swing.JFrame {
         String clave = this.jTextFieldClave.getText();
         System.out.println(correo);
         System.out.println(clave);
-        lista_clientes.put("cliente@javabnb.com", cliente);
-        if(lista_clientes.containsKey(correo)){
-            if(lista_clientes.get(correo).getClave().equals(clave)){
-                System.out.println("Sesión iniciada.");
-            }
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        RegistroParticular registro_particular = new RegistroParticular();
+        RegistroParticular registro_particular = new RegistroParticular(this);
         registro_particular.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

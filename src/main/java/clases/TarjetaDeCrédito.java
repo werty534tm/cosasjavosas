@@ -8,12 +8,12 @@ public class TarjetaDeCrédito {
     
     private String titular;
     private String número_tarjeta;
-    private String caducidad;
+    private LocalDate caducidad;
 
-    public String getCaducidad() {
+    public LocalDate getCaducidad() {
         return caducidad;
     }
-    public void setCaducidad(String caducidad) {
+    public void setCaducidad(LocalDate caducidad) {
         this.caducidad = caducidad;
     }
 
@@ -31,7 +31,7 @@ public class TarjetaDeCrédito {
         this.titular = titular;
     }
 
-    public TarjetaDeCrédito(String titular, String número_tarjeta, String caducidad) {
+    public TarjetaDeCrédito(String titular, String número_tarjeta, LocalDate caducidad) {
         this.titular = titular;
         this.número_tarjeta = número_tarjeta;
         this.caducidad = caducidad;

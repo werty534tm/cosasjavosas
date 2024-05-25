@@ -22,7 +22,7 @@ public class ConsultaDatosParticular_Admin extends javax.swing.JDialog {
         initComponents();
         this.jTextField2.setText(cliente.getNombre());
         this.jTextField3.setText(cliente.getTarjeta_de_crédito().getNúmero_tarjeta());
-        this.jTextField4.setText(cliente.getTarjeta_de_crédito().getCaducidad());
+        //this.jTextField4.setText(cliente.getTarjeta_de_crédito().getCaducidad());
     }
 
     /**
