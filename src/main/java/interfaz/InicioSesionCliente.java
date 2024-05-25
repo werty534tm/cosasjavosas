@@ -194,12 +194,16 @@ public class InicioSesionCliente extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        RegistroParticular rp = new RegistroParticular(this);
+        RegistroParticular registro_particular = new RegistroParticular();
+        registro_particular.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        RegistroAnfitrion ra = new RegistroAnfitrion(this);
+        RegistroAnfitrion registro_anfitrion = new RegistroAnfitrion();
+        registro_anfitrion.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

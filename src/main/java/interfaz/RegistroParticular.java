@@ -9,7 +9,7 @@ package interfaz;
  * @author luver
  */
 public class RegistroParticular extends javax.swing.JFrame {
-
+    
     InicioSesionCliente main;
     
     public RegistroParticular(InicioSesionCliente isc) {

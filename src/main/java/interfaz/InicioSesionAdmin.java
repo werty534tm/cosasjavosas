@@ -11,7 +11,7 @@ import clases.Administrador;
  */
 public class InicioSesionAdmin extends javax.swing.JFrame {
     
-    Inicio inicio;
+    private Inicio inicio;
     Administrador admin = new Administrador("admin@javabnb.com", "admin");
     /**
      * Creates new form InicioSesionAdmin
@@ -129,6 +129,11 @@ public class InicioSesionAdmin extends javax.swing.JFrame {
         if(this.admin.getCorreo().equals(this.jTextFieldCorreo.getText())
            && this.admin.getClave().equals(this.jTextFieldClave.getText())){
             System.out.println("Sesión iniciada.");
+            PanelAdmin panel_admin = new PanelAdmin(this);
+            panel_admin.setVisible(true);
+            this.setVisible(false);
+            this.jTextFieldCorreo.setText("");
+            this.jTextFieldClave.setText("");
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
