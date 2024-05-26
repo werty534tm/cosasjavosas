@@ -16,6 +16,7 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
     PanelAdmin panel_admin;
     /**
      * Creates new form ConsultaClientes
+     * @param panel_admin
      */
     public ConsultaClientes_Admin(PanelAdmin panel_admin) {
         initComponents();
