@@ -13,6 +13,7 @@ import clases.FuncionesImagenes;
 import clases.Inmueble;
 import clases.Direccion;
 import clases.DatosInmueble;
+import clases.Datos;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
@@ -427,7 +428,8 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                 Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, null, fotografia, 0);
                 System.out.println("¡Inmueble creado!");
                 System.out.println("Datos del inmueble creado: "+inmueble.toString());
-                // añadir a almacenamiento del programa
+                Datos.lista_inmuebles.add(inmueble);
+                System.out.println(Datos.lista_inmuebles);
             } else {
                 System.out.println("Faltan datos");
             }
