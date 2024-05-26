@@ -7,6 +7,7 @@ package interfaz;
 import clases.Anfitrión;
 import java.util.HashMap;
 import clases.Cliente;
+import clases.Datos;
 import java.util.ArrayList;
 
 /**
@@ -15,23 +16,21 @@ import java.util.ArrayList;
  */
 public class ConsultaClientes_Admin extends javax.swing.JFrame {
     PanelAdmin panel_admin;
-    HashMap<String, Cliente> lista_clientes;
-    HashMap<String, Anfitrión> lista_anfitriones;
-    ArrayList<String> correos_clientes;
-    ArrayList<String> correos_anfitriones;
     /**
      * Creates new form ConsultaClientes
      */
     public ConsultaClientes_Admin(PanelAdmin panel_admin) {
         initComponents();
         this.panel_admin = panel_admin;
-        this.lista_clientes = this.panel_admin.inicio_admin.inicio.lista_clientes;
-        this.lista_anfitriones = this.panel_admin.inicio_admin.inicio.lista_anfitriones;
-        this.correos_clientes = this.panel_admin.inicio_admin.inicio.correos_clientes;
-        this.correos_clientes = this.panel_admin.inicio_admin.inicio.correos_anfitriones;
-        for(int i=0;i<this.lista_clientes.size();i++){
-            Cliente cliente = lista_clientes.get(correos_clientes.get(i));
-            this.jTable1.setValueAt(cliente.getNombre(), i+1, 1);
+        for(int i=0;i<Datos.correos_clientes.size();i++){
+            Cliente cliente = Datos.lista_clientes.get(Datos.correos_clientes.get(i));
+            this.jTable1.setValueAt(cliente.getNombre(), i, 0);
+            this.jTable1.setValueAt(cliente.getDNI(), i, 1);
+            this.jTable1.setValueAt(cliente.getEmail(), i, 2);
+            this.jTable1.setValueAt(cliente.getClave(), i, 3);
+            this.jTable1.setValueAt(cliente.getTeléfono(), i, 4);
+            if(cliente.isVip()){this.jTable1.setValueAt("VIP", i, 5);}
+            else{this.jTable1.setValueAt("normal", i, 5);}
         }
     }
 
@@ -150,7 +149,13 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        String correo = this.jTable1.getValueAt(this.jTable1.getSelectedRow(), 2).toString();
+        System.out.println(correo);
+        if(Datos.correos_clientes.contains(correo)){
+            Cliente cliente = Datos.lista_clientes.get(correo);
+            ConsultaDatosParticular_Admin consulta_particular = new ConsultaDatosParticular_Admin(this, true, cliente);
+            consulta_particular.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
