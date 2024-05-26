@@ -5,10 +5,8 @@
 package interfaz;
 
 import clases.Anfitrión;
-import java.util.HashMap;
 import clases.Cliente;
 import clases.Datos;
-import java.util.ArrayList;
 
 /**
  *
@@ -29,8 +27,16 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
             this.jTable1.setValueAt(cliente.getEmail(), i, 2);
             this.jTable1.setValueAt(cliente.getClave(), i, 3);
             this.jTable1.setValueAt(cliente.getTeléfono(), i, 4);
-            if(cliente.isVip()){this.jTable1.setValueAt("VIP", i, 5);}
-            else{this.jTable1.setValueAt("normal", i, 5);}
+            this.jTable1.setValueAt("Particular", i, 5);
+        }
+        for(int i=0;i<Datos.correos_anfitriones.size();i++){
+            Anfitrión cliente = Datos.lista_anfitriones.get(Datos.correos_anfitriones.get(i));
+            this.jTable1.setValueAt(cliente.getNombre(), i, 0);
+            this.jTable1.setValueAt(cliente.getDNI(), i, 1);
+            this.jTable1.setValueAt(cliente.getEmail(), i, 2);
+            this.jTable1.setValueAt(cliente.getClave(), i, 3);
+            this.jTable1.setValueAt(cliente.getTeléfono(), i, 4);
+            this.jTable1.setValueAt("Anfitrión", i, 5);
         }
     }
 
@@ -60,6 +66,91 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -155,6 +246,11 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
             Cliente cliente = Datos.lista_clientes.get(correo);
             ConsultaDatosParticular_Admin consulta_particular = new ConsultaDatosParticular_Admin(this, true, cliente);
             consulta_particular.setVisible(true);
+        }
+        else if(Datos.correos_anfitriones.contains(correo)){
+            Anfitrión anfitrión = Datos.lista_anfitriones.get(correo);
+            ConsultaDatosAnfitrion_Admin consulta_anfitrión = new ConsultaDatosAnfitrion_Admin(this, true, anfitrión);
+            consulta_anfitrión.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

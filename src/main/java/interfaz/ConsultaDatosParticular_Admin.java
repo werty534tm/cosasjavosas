@@ -4,6 +4,8 @@
  */
 package interfaz;
 import clases.Cliente;
+import java.awt.Frame;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -16,13 +18,18 @@ import clases.Cliente;
 public class ConsultaDatosParticular_Admin extends javax.swing.JDialog {
     /**
      * Creates new form ConsultaClienteDatos
+     * @param parent
+     * @param modal
+     * @param cliente
      */
-    public ConsultaDatosParticular_Admin(java.awt.Frame parent, boolean modal, Cliente cliente) {
+    public ConsultaDatosParticular_Admin(Frame parent, boolean modal, Cliente cliente) {
         super(parent, modal);
         initComponents();
         this.jTextField2.setText(cliente.getNombre());
         this.jTextField3.setText(cliente.getTarjeta_de_crédito().getNúmero_tarjeta());
-        //this.jTextField4.setText(cliente.getTarjeta_de_crédito().getCaducidad());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fecha =cliente.getTarjeta_de_crédito().getCaducidad().format(formatter);
+        this.jTextField4.setText(fecha);
     }
 
     /**
@@ -59,7 +66,11 @@ public class ConsultaDatosParticular_Admin extends javax.swing.JDialog {
 
         jLabel4.setText("Número de tarjeta");
 
+        jTextField3.setEditable(false);
+
         jLabel5.setText("Fecha de caducidad");
+
+        jTextField4.setEditable(false);
 
         jButton1.setText("Cerrar ventana");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
