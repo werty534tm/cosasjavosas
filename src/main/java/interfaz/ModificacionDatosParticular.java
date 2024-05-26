@@ -271,6 +271,7 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
                         num_tarjeta, caducidad, vip);
         this.cliente = Datos.lista_clientes.get(this.jTextFieldEmail.getText());
         this.panel.cliente = this.cliente;
+        Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
