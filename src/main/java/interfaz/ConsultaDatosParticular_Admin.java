@@ -62,6 +62,11 @@ public class ConsultaDatosParticular_Admin extends javax.swing.JDialog {
         jLabel5.setText("Fecha de caducidad");
 
         jButton1.setText("Cerrar ventana");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("C059", 0, 18)); // NOI18N
         jLabel6.setText("JavaBnB");
@@ -130,6 +135,10 @@ public class ConsultaDatosParticular_Admin extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
