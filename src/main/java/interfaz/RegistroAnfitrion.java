@@ -195,13 +195,20 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
         String correo = this.jTextField4.getText();
         String clave = this.jTextField5.getText();
         LocalDate fecha_actual = LocalDate.now();
-        if(!nombre.equals("") && !DNI.equals("") && !tel.equals("")
-           && !correo.equals("") && !clave.equals("")){
-                Anfitrión anfitrión = new Anfitrión(fecha_actual, false,DNI, nombre, correo, clave, tel);
-                Datos.lista_anfitriones.put(correo, anfitrión);
-                Datos.correos_anfitriones.add(correo);
-            System.out.println(Datos.lista_anfitriones);
-            System.out.println(Datos.correos_anfitriones);
+        if(!Datos.correos_clientes.contains(correo)
+           && !Datos.correos_anfitriones.contains("correo"))if(!nombre.equals("") && !DNI.equals("") && !tel.equals("")
+                   && !correo.equals("") && !clave.equals("")){
+               Anfitrión anfitrión = new Anfitrión(fecha_actual, false,DNI, nombre, correo, clave, tel);
+               Datos.lista_anfitriones.put(correo, anfitrión);
+               Datos.correos_anfitriones.add(correo);
+               System.out.println(Datos.lista_anfitriones);
+               System.out.println(Datos.correos_anfitriones);
+           }
+           else{
+               System.out.println("Parámetros vacíos. Correo no registrado.");
+           }
+        else {
+            this.jTextField4.setText("Correo no disponible.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
