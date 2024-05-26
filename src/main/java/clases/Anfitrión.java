@@ -32,4 +32,13 @@ public class Anfitrión extends Persona{
     public String toString() {
         return "Anfitri\u00f3n{" + "fecha_de_registro=" + fecha_de_registro + ", superanfitri\u00f3n=" + superanfitrión + '}';
     }
+    
+    public void actualizarDatos(String nombre, String DNI, String teléfono,
+                                String correo, String contraseña){
+        this.setNombre(nombre);
+        this.setDNI(DNI);
+        this.setTeléfono(teléfono);
+        this.setClave(contraseña);
+        this.setEmail(correo);
+    }
 }

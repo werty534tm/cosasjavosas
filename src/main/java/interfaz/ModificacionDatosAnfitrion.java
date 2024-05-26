@@ -4,17 +4,44 @@
  */
 package interfaz;
 
+import clases.Anfitrión;
+import clases.Datos;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author luver
  */
 public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
-
+    PanelAnfitrion panel;
+    Anfitrión anfitrión;
     /**
      * Creates new form ConsultaDatosAnfitrion
      */
-    public ModificacionDatosAnfitrion() {
+    public ModificacionDatosAnfitrion(PanelAnfitrion panel, Anfitrión anfitrión) {
         initComponents();
+        this.anfitrión = anfitrión;
+        this.panel = panel;
+        this.jTextFieldNombre.setText(this.anfitrión.getNombre());
+        this.jTextFieldDNI.setText(this.anfitrión.getDNI());
+        this.jTextFieldEmail.setText(this.anfitrión.getEmail());
+        this.jTextFieldTelefono.setText(this.anfitrión.getTeléfono());
+        this.jPasswordFieldClave.setText(this.anfitrión.getClave());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fecha =this.anfitrión.getFecha().format(formatter);
+        this.jLabel11.setText(fecha);
+    }
+    
+    public void setup(){
+        this.jTextFieldNombre.setText(this.anfitrión.getNombre());
+        this.jTextFieldDNI.setText(this.anfitrión.getDNI());
+        this.jTextFieldEmail.setText(this.anfitrión.getEmail());
+        this.jTextFieldTelefono.setText(this.anfitrión.getTeléfono());
+        this.jPasswordFieldClave.setText(this.anfitrión.getClave());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fecha =this.anfitrión.getFecha().format(formatter);
+        this.jLabel11.setText(fecha);
     }
 
     /**
@@ -39,13 +66,13 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPasswordFieldClave = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
-        jFormattedTextFieldFechaRegistro = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextFieldTipo = new javax.swing.JTextField();
         jLabelMedia = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,8 +94,6 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
 
         jLabel8.setText("Fecha de registro");
 
-        jFormattedTextFieldFechaRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
         jLabel9.setText("Tipo de anfitrión");
 
         jLabel10.setText("Media de calificaciones:");
@@ -79,8 +104,18 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("Guardar cambios");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("<html><center><p>Cancelar y</p>velver al panel</p></center>");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,9 +149,9 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextFieldFechaRegistro))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
@@ -160,12 +195,12 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jPasswordFieldClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jFormattedTextFieldFechaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
@@ -175,7 +210,6 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabelMedia)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -185,48 +219,37 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!this.anfitrión.getEmail().equals(this.jTextFieldEmail.getText())){
+            Anfitrión c = Datos.lista_anfitriones.get(this.anfitrión.getEmail());
+            Datos.lista_anfitriones.remove(this.anfitrión.getEmail());
+            Datos.lista_anfitriones.put(this.jTextFieldEmail.getText(), c);
+            Datos.correos_anfitriones.remove(this.anfitrión.getEmail());
+            Datos.correos_anfitriones.add(this.jTextFieldEmail.getText());
         }
-        //</editor-fold>
-        //</editor-fold>
+        String nombre = this.jTextFieldNombre.getText();
+        String DNI = this.jTextFieldDNI.getText();
+        String teléfono = this.jTextFieldTelefono.getText();
+        String correo = this.jTextFieldEmail.getText();
+        String contraseña = this.jPasswordFieldClave.getText();
+        Datos.lista_anfitriones.get(this.jTextFieldEmail.getText()).actualizarDatos(
+                        nombre, DNI, teléfono, correo, contraseña);
+        this.anfitrión = Datos.lista_anfitriones.get(this.jTextFieldEmail.getText());
+        this.panel.anfitrión = this.anfitrión;
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModificacionDatosAnfitrion().setVisible(true);
-            }
-        });
-    }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.panel.setup();
+        this.panel.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextFieldFechaRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

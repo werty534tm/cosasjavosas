@@ -22,6 +22,8 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         this.anfitrión = anfitrión;
         this.jLabel3.setText(this.anfitrión.getNombre());
     }
+    
+    public void setup(){this.jLabel3.setText(this.anfitrión.getNombre());}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +62,11 @@ public class PanelAnfitrion extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton4.setText("<html><center><p>Modificación de</p><p>datos personales</p></center>");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Cerrar sesión");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +136,13 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         this.inicio_sesion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        ModificacionDatosAnfitrion modificar_datos = new ModificacionDatosAnfitrion(this, this.anfitrión);
+        modificar_datos.setVisible(true);
+        modificar_datos.setup();
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
