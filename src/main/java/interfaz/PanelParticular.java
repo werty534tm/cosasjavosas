@@ -4,18 +4,23 @@
  */
 package interfaz;
 
+import clases.Cliente;
+
 /**
  *
  * @author luver
  */
 public class PanelParticular extends javax.swing.JFrame {
     InicioSesionCliente inicio_cliente;
+    Cliente cliente;
     /**
      * Creates new form PanelParticular
      */
-    public PanelParticular(InicioSesionCliente inicio_sesión_cliente) {
+    public PanelParticular(InicioSesionCliente inicio_sesión_cliente, Cliente cliente) {
         initComponents();
         this.inicio_cliente = inicio_sesión_cliente;
+        this.cliente = cliente;
+        this.jLabel3.setText(this.cliente.getNombre());
     }
 
     /**
@@ -58,6 +63,11 @@ public class PanelParticular extends javax.swing.JFrame {
         });
 
         jButton3.setText("Cerrar sesión");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Usuario actual: (Nombre completo)");
 
@@ -116,6 +126,11 @@ public class PanelParticular extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.inicio_cliente.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

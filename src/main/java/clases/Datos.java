@@ -13,11 +13,10 @@ import java.util.HashMap;
  */
 public class Datos {
     public static HashMap<String, Cliente> lista_clientes = new HashMap<>();
-    public static HashMap<String, Anfitrión> lista_anfitriones;
+    public static HashMap<String, Anfitrión> lista_anfitriones = new HashMap<>();
     public static ArrayList<String> correos_clientes = new ArrayList<>();
-    public static ArrayList<String> correos_anfitriones;
+    public static ArrayList<String> correos_anfitriones = new ArrayList<>();
     public Datos(){
-        this.lista_clientes = new HashMap<>();
-        this.correos_clientes = new ArrayList<>();
+        //xd
     }
 }

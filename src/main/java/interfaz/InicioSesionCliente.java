@@ -184,11 +184,24 @@ public class InicioSesionCliente extends javax.swing.JFrame {
         if(Datos.correos_clientes.contains(correo)){
             if(Datos.lista_clientes.get(correo).getClave().equals(clave)){
                 System.out.println("Sesión iniciada.");
-                PanelParticular panel_particular= new PanelParticular(this);
+                PanelParticular panel_particular= new PanelParticular(this, Datos.lista_clientes.get(correo));
+                this.jTextFieldCorreo.setText("");
+                this.jTextFieldClave.setText("");
                 panel_particular.setVisible(true);
                 this.setVisible(false);
             }
         }
+        else if(Datos.correos_anfitriones.contains(correo)){
+            if(Datos.lista_anfitriones.get(correo).getClave().equals(clave)){
+                System.out.println("Sesión iniciada.");
+                PanelAnfitrion panel_anfitrión= new PanelAnfitrion(this, Datos.lista_anfitriones.get(correo));
+                this.jTextFieldCorreo.setText("");
+                this.jTextFieldClave.setText("");
+                panel_anfitrión.setVisible(true);
+                this.setVisible(false);
+            }
+        }
+        else{this.jTextFieldCorreo.setText("Correo no registrado.");}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -8,10 +8,10 @@ public class Anfitrión extends Persona{
     private LocalDate fecha_de_registro;
     private boolean superanfitrión;
     
-    public LocalDate Superanfitrión() {
+    public LocalDate getFecha() {
         return this.fecha_de_registro;
     }
-    public void setSuperanfitrión(LocalDate fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha_de_registro = fecha;
     }
     

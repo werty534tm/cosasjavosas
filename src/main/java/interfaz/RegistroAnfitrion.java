@@ -4,6 +4,10 @@
  */
 package interfaz;
 
+import clases.Anfitrión;
+import clases.Datos;
+import java.time.LocalDate;
+
 /**
  *
  * @author luver
@@ -86,6 +90,11 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
         });
 
         jButton2.setText("Registrarse");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("C059", 0, 14)); // NOI18N
         jLabel7.setText("JavaBnB");
@@ -178,6 +187,23 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
         // TODO add your handling code here:
         main.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nombre = this.jTextField1.getText();
+        String DNI =this.jTextField2.getText();
+        String tel = this.jTextField3.getText();
+        String correo = this.jTextField4.getText();
+        String clave = this.jTextField5.getText();
+        LocalDate fecha_actual = LocalDate.now();
+        if(!nombre.equals("") && !DNI.equals("") && !tel.equals("")
+           && !correo.equals("") && !clave.equals("")){
+                Anfitrión anfitrión = new Anfitrión(fecha_actual, false,DNI, nombre, correo, clave, tel);
+                Datos.lista_anfitriones.put(correo, anfitrión);
+                Datos.correos_anfitriones.add(correo);
+            System.out.println(Datos.lista_anfitriones);
+            System.out.println(Datos.correos_anfitriones);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

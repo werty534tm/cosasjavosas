@@ -3,23 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-import com.mycompany.cosasjavosas.Cosasjavosas;
 
 import clases.Cliente;
 import clases.TarjetaDeCrédito;
 import clases.Datos;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -260,18 +250,25 @@ public class RegistroParticular extends javax.swing.JFrame {
         String num_tarjeta = this.jTextField7.getText();
         boolean vip = this.jRadioButton1.isSelected();
         String fecha_texto = this.jFormattedTextField1.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        try {
-            LocalDate caducidad = LocalDate.parse(fecha_texto, formatter);
-            TarjetaDeCrédito tarjeta = new TarjetaDeCrédito(titular_tarjeta, num_tarjeta, caducidad);
-            Cliente cliente = new Cliente(tarjeta, vip, DNI, nombre, correo, clave, tel);
-            Datos.lista_clientes.put(correo, cliente);
-            Datos.correos_clientes.add(correo);
-        } catch (DateTimeParseException ex) {
-            this.jFormattedTextField1.setText("yyyy-MM-dd");
+        if(!nombre.equals("") && !DNI.equals("") && !tel.equals("")
+           && !correo.equals("") && !clave.equals("") && !titular_tarjeta.equals("")
+           && !fecha_texto.equals("")){
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            try {
+                LocalDate caducidad = LocalDate.parse(fecha_texto, formatter);
+                TarjetaDeCrédito tarjeta = new TarjetaDeCrédito(titular_tarjeta, num_tarjeta, caducidad);
+                Cliente cliente = new Cliente(tarjeta, vip, DNI, nombre, correo, clave, tel);
+                Datos.lista_clientes.put(correo, cliente);
+                Datos.correos_clientes.add(correo);
+            } catch (DateTimeParseException ex) {
+                this.jFormattedTextField1.setText("yyyy-MM-dd");
+            }
+            System.out.println(Datos.lista_clientes);
+            System.out.println(Datos.correos_clientes);
         }
-        System.out.println(Datos.lista_clientes);
-        System.out.println(Datos.correos_clientes);
+        else{
+            System.out.println("Parámetros vacíos. Usuario no registrado.");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

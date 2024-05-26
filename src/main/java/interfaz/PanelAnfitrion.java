@@ -4,17 +4,24 @@
  */
 package interfaz;
 
+import clases.Anfitrión;
+import clases.Datos;
+
 /**
  *
  * @author luver
  */
 public class PanelAnfitrion extends javax.swing.JFrame {
-
+    InicioSesionCliente inicio_sesion;
+    Anfitrión anfitrión;
     /**
      * Creates new form PanelAnfitrion
      */
-    public PanelAnfitrion() {
+    public PanelAnfitrion(InicioSesionCliente inicio_sesión_cliente, Anfitrión anfitrión) {
         initComponents();
+        this.inicio_sesion = inicio_sesión_cliente;
+        this.anfitrión = anfitrión;
+        this.jLabel3.setText(this.anfitrión.getNombre());
     }
 
     /**
@@ -56,6 +63,11 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         jButton4.setText("<html><center><p>Modificación de</p><p>datos personales</p></center>");
 
         jButton5.setText("Cerrar sesión");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Usuario actual: (Nombre completo)");
 
@@ -114,40 +126,10 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelAnfitrion().setVisible(true);
-            }
-        });
-    }
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.inicio_sesion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
