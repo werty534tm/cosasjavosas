@@ -1,4 +1,7 @@
 package clases;
+
+import java.time.LocalDate;
+
 /**
  *
  * @author cojones
@@ -31,5 +34,18 @@ public class Cliente extends Persona{
     @Override
     public String toString() {
         return "Cliente{" + "tarjeta_de_cr\u00e9dito=" + tarjeta_de_crédito + ", vip=" + vip + '}';
+    }
+    
+    public void actualizarDatos(String nombre, String DNI, String teléfono,
+                                String correo, String contraseña, String titular,
+                                String num_tarjeta, LocalDate caducidad, boolean vip){
+        TarjetaDeCrédito tarjeta = new TarjetaDeCrédito(titular, num_tarjeta, caducidad);
+        this.setTarjeta_de_crédito(tarjeta);
+        this.setNombre(nombre);
+        this.setDNI(DNI);
+        this.setTeléfono(teléfono);
+        this.setClave(contraseña);
+        this.setVip(vip);
+        this.setEmail(correo);
     }
 }

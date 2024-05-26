@@ -4,17 +4,47 @@
  */
 package interfaz;
 
+import clases.Cliente;
+import clases.Datos;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author luver
  */
 public class ModificacionDatosParticular extends javax.swing.JFrame {
-
+    PanelParticular panel;
+    Cliente cliente;
     /**
      * Creates new form ModificacionDatosParticular
      */
-    public ModificacionDatosParticular() {
+    public ModificacionDatosParticular(PanelParticular panel_particular, Cliente cliente) {
         initComponents();
+        this.panel = panel_particular;
+        this.cliente = cliente;
+        this.jTextFieldNombre.setText(this.cliente.getNombre());
+        this.jTextFieldDNI.setText(this.cliente.getDNI());
+        this.jTextFieldEmail.setText(this.cliente.getEmail());
+        this.jTextFieldTelefono.setText(this.cliente.getTeléfono());
+        this.jPasswordFieldClave.setText(this.cliente.getClave());
+        this.jTextField1.setText(this.cliente.getTarjeta_de_crédito().getTitular());
+        this.jTextField2.setText(this.cliente.getTarjeta_de_crédito().getNúmero_tarjeta());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fecha =this.cliente.getTarjeta_de_crédito().getCaducidad().format(formatter);
+        this.jFormattedTextField1.setText(fecha);
+    }
+    public void setup(){
+        this.jTextFieldNombre.setText(this.cliente.getNombre());
+        this.jTextFieldDNI.setText(this.cliente.getDNI());
+        this.jTextFieldEmail.setText(this.cliente.getEmail());
+        this.jTextFieldTelefono.setText(this.cliente.getTeléfono());
+        this.jPasswordFieldClave.setText(this.cliente.getClave());
+        this.jTextField1.setText(this.cliente.getTarjeta_de_crédito().getTitular());
+        this.jTextField2.setText(this.cliente.getTarjeta_de_crédito().getNúmero_tarjeta());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fecha =this.cliente.getTarjeta_de_crédito().getCaducidad().format(formatter);
+        this.jFormattedTextField1.setText(fecha);
     }
 
     /**
@@ -44,10 +74,10 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,8 +110,20 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("Guardar cambios");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("<html><center><p>Cancelar y</p>velver al panel</p></center>");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,15 +151,15 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(23, Short.MAX_VALUE))
+                        .addContainerGap(24, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel11)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField3)
-                                    .addGap(79, 79, 79))
+                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +227,7 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -199,44 +241,42 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosParticular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosParticular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosParticular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificacionDatosParticular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.panel.setup();
+        this.panel.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModificacionDatosParticular().setVisible(true);
-            }
-        });
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!this.cliente.getEmail().equals(this.jTextFieldEmail.getText())){
+            Cliente c = Datos.lista_clientes.get(this.cliente.getEmail());
+            Datos.lista_clientes.remove(this.cliente.getEmail());
+            Datos.lista_clientes.put(this.jTextFieldEmail.getText(), c);
+            Datos.correos_clientes.remove(this.cliente.getEmail());
+            Datos.correos_clientes.add(this.jTextFieldEmail.getText());
+        }
+        String nombre = this.jTextFieldNombre.getText();
+        String DNI = this.jTextFieldDNI.getText();
+        String teléfono = this.jTextFieldTelefono.getText();
+        String correo = this.jTextFieldEmail.getText();
+        String contraseña = this.jPasswordFieldClave.getText();
+        String titular = this.jTextField1.getText();
+        String num_tarjeta = this.jTextField2.getText();
+        String fecha = this.jFormattedTextField1.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate caducidad = LocalDate.parse(fecha, formatter);
+        boolean vip = this.jRadioButton1.isSelected();
+        Datos.lista_clientes.get(this.jTextFieldEmail.getText()).actualizarDatos(
+                        nombre, DNI, teléfono, correo, contraseña, titular,
+                        num_tarjeta, caducidad, vip);
+        this.cliente = Datos.lista_clientes.get(this.jTextFieldEmail.getText());
+        this.panel.cliente = this.cliente;
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -252,7 +292,6 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNombre;

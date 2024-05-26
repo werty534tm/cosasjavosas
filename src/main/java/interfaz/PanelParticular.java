@@ -22,6 +22,7 @@ public class PanelParticular extends javax.swing.JFrame {
         this.cliente = cliente;
         this.jLabel3.setText(this.cliente.getNombre());
     }
+    public void setup(){this.jLabel3.setText(this.cliente.getNombre());}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,7 +125,10 @@ public class PanelParticular extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        ModificacionDatosParticular modificar_datos = new ModificacionDatosParticular(this, this.cliente);
+        modificar_datos.setup();
+        modificar_datos.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
