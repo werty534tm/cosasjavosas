@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-import cosasjavosas.Cosasjavosas;
+import com.mycompany.cosasjavosas.Cosasjavosas;
 
 import clases.Cliente;
 import clases.TarjetaDeCrédito;

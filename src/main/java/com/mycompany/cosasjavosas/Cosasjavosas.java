@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package cosasjavosas;
+package com.mycompany.cosasjavosas;
 import clases.Anfitrión;
 import clases.Cliente;
 import interfaz.*;

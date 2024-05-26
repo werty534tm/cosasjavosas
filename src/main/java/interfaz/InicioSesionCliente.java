@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+import clases.Datos;
 import java.util.HashMap;
 import clases.Cliente;
 import clases.Anfitrión;
@@ -19,6 +20,7 @@ public class InicioSesionCliente extends javax.swing.JFrame {
      */
     public InicioSesionCliente(Inicio inicio) {
         initComponents();
+        this.inicio = inicio;
     }
 
     /**
@@ -179,6 +181,14 @@ public class InicioSesionCliente extends javax.swing.JFrame {
         String clave = this.jTextFieldClave.getText();
         System.out.println(correo);
         System.out.println(clave);
+        if(Datos.correos_clientes.contains(correo)){
+            if(Datos.lista_clientes.get(correo).getClave().equals(clave)){
+                System.out.println("Sesión iniciada.");
+                PanelParticular panel_particular= new PanelParticular(this);
+                panel_particular.setVisible(true);
+                this.setVisible(false);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -190,7 +200,7 @@ public class InicioSesionCliente extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        RegistroAnfitrion registro_anfitrion = new RegistroAnfitrion();
+        RegistroAnfitrion registro_anfitrion = new RegistroAnfitrion(this);
         registro_anfitrion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
