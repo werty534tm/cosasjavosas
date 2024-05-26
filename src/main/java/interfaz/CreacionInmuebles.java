@@ -9,10 +9,16 @@ package interfaz;
  * @author luver
  */
 
+import clases.FuncionesImagenes;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.*;
 
 public class CreacionInmuebles extends javax.swing.JFrame {
 
+    private File imgTemp;
+    private File imgGuardada;
+    
     /**
      * Creates new form CreacionInmuebles
      */
@@ -69,10 +75,12 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jTextFieldNombreImagen = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButtonSeleccImg = new javax.swing.JButton();
         jButtonCrearInmueble = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         jButton4 = new javax.swing.JButton();
+        jButtonGuardarImg = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,6 +134,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
 
         jLabel16.setText("Lista de servicios");
 
+        jListServicios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListServicios);
 
         jLabel17.setText("Servicio a añadir");
@@ -137,10 +146,12 @@ public class CreacionInmuebles extends javax.swing.JFrame {
 
         jLabel20.setText("Nombre de la imagen");
 
-        jButton2.setText("Seleccionar imagen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombreImagen.setEditable(false);
+
+        jButtonSeleccImg.setText("Seleccionar imagen");
+        jButtonSeleccImg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonSeleccImgActionPerformed(evt);
             }
         });
 
@@ -148,6 +159,15 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jButtonCrearInmueble.setText("Crear inmueble");
 
         jButton4.setText("Volver al panel");
+
+        jButtonGuardarImg.setText("Guardar imagen");
+        jButtonGuardarImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarImgActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("<html><center><p>Eliminar servicio</p><p>seleccionado</p></center>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,26 +187,25 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jFormattedTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jFormattedTextFieldNbaños, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jFormattedTextFieldNcamas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(23, 23, 23)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jFormattedTextFieldNhuespedes, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                                            .addComponent(jFormattedTextFieldNhabitaciones))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jFormattedTextFieldNbaños, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jFormattedTextFieldNcamas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel11)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel10)
+                                            .addGap(23, 23, 23)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jFormattedTextFieldNhuespedes, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                                        .addComponent(jFormattedTextFieldNhabitaciones)))
                                 .addComponent(jSeparator4))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
@@ -203,11 +222,12 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAñadirServicio)
+                                    .addComponent(jButtonAñadirServicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel17)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextFieldAñadirServicio)
-                                    .addComponent(jButtonAñadirServicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jButton3)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
@@ -219,8 +239,9 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldNombreImagen))))
+                                    .addComponent(jButtonSeleccImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldNombreImagen)
+                                    .addComponent(jButtonGuardarImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,28 +339,30 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldAñadirServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonAñadirServicio)))
+                                .addComponent(jButtonAñadirServicio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldNombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))))
+                                .addComponent(jButtonSeleccImg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonGuardarImg)
+                                .addGap(35, 35, 35))))
                     .addComponent(jSeparator3))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -347,11 +370,50 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonSeleccImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccImgActionPerformed
         // TODO add your handling code here:
         JFileChooser fc = new JFileChooser();
+        //FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("jpg", "jpeg", "png", "gif");
+        //fc.setFilter(imgFilter);
         int returnVal = fc.showOpenDialog(this);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            // Mostrar imagen
+            imgTemp = fc.getSelectedFile();
+            String img = imgTemp.getPath();
+            System.out.println(img);
+            FuncionesImagenes.cargarImagen(jLabel19, img);
+            // Mostrar ruta de imagen
+            jTextFieldNombreImagen.setText(img);
+        }
+    }//GEN-LAST:event_jButtonSeleccImgActionPerformed
+
+    private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
+        // TODO add your handling code here:
+        try {
+            imgGuardada = imgTemp;
+            String path = System.getProperty("user.dir")+"/imagenes/"+imgGuardada.getName();
+            System.out.println(path);
+            //Files.copy(imgTemp.toPath(), Paths.get(path)); // pene
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = new FileInputStream(imgTemp);
+                os = new FileOutputStream(path);
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = is.read(buffer)) > 0) {
+                    os.write(buffer, 0, length);
+                }
+            } finally {
+                is.close();
+                os.close();
+            }
+        } catch (IOException ioe) {
+            System.out.println("Error: " + ioe.toString());
+        } catch (NullPointerException npe) {
+            // popup diciendo que no se ha seleccionado una imagen
+        }
+    }//GEN-LAST:event_jButtonGuardarImgActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,10 +451,12 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAñadirServicio;
     private javax.swing.JButton jButtonCrearInmueble;
+    private javax.swing.JButton jButtonGuardarImg;
+    private javax.swing.JButton jButtonSeleccImg;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFormattedTextField jFormattedTextFieldNbaños;
