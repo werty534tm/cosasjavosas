@@ -5,7 +5,6 @@
 package interfaz;
 
 import clases.Anfitrión;
-import clases.Datos;
 
 /**
  *

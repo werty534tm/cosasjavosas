@@ -4,10 +4,6 @@
  */
 package interfaz;
 import clases.Datos;
-import java.util.HashMap;
-import clases.Cliente;
-import clases.Anfitrión;
-import clases.TarjetaDeCrédito;
 
 /**
  *
