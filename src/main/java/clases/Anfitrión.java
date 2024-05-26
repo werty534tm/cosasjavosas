@@ -25,12 +25,12 @@ public class Anfitrión extends Persona{
     public Anfitrión(LocalDate fecha_de_registro, boolean superanfitrión, String DNI, String nombre, String email, String clave, String teléfono) {
         super(DNI, nombre, email, clave, teléfono);
         this.fecha_de_registro = fecha_de_registro;
-        this.superanfitrión = superanfitrión;
+        this.superanfitrión = false;
     }
 
     @Override
     public String toString() {
-        return "Anfitri\u00f3n{" + "fecha_de_registro=" + fecha_de_registro + ", superanfitri\u00f3n=" + superanfitrión + '}';
+        return nombre+'-'+DNI+'-'+teléfono+'-'+email+'-'+clave+'-'+fecha_de_registro+'-'+superanfitrión;
     }
     
     public void actualizarDatos(String nombre, String DNI, String teléfono,

@@ -273,6 +273,7 @@ public class RegistroParticular extends javax.swing.JFrame {
         else {
             this.jTextField4.setText("Correo no disponible.");
         }
+        Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -33,7 +33,7 @@ public class Cliente extends Persona{
 
     @Override
     public String toString() {
-        return "Cliente{" + "tarjeta_de_cr\u00e9dito=" + tarjeta_de_crédito + ", vip=" + vip + '}';
+        return nombre+' '+DNI+' '+teléfono+' '+email+' '+clave+' '+tarjeta_de_crédito.getTitular()+' '+tarjeta_de_crédito.getNúmero_tarjeta()+' '+tarjeta_de_crédito.getCaducidad()+' '+vip;
     }
     
     public void actualizarDatos(String nombre, String DNI, String teléfono,
