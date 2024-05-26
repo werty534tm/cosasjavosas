@@ -9,10 +9,15 @@ package interfaz;
  * @author luver
  */
 
+import clases.FuncionesImagenes;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.*;
 
 public class EdicionInmuebles extends javax.swing.JFrame {
 
+    File imgTemp;
+    
     /**
      * Creates new form EdicionInmuebles
      */
@@ -73,9 +78,11 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextFieldNumero = new javax.swing.JTextField();
         jTextFieldNombreImagen = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jButtonGuardarImg = new javax.swing.JButton();
+        jButtonSeleccImg = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,16 +154,25 @@ public class EdicionInmuebles extends javax.swing.JFrame {
 
         jLabel11.setText("Número");
 
-        jButton2.setText("Seleccionar imagen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jLabel12.setText("Numero de habitaciones");
 
         jLabel21.setText("Número de camas");
+
+        jButtonGuardarImg.setText("Guardar imagen");
+        jButtonGuardarImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarImgActionPerformed(evt);
+            }
+        });
+
+        jButtonSeleccImg.setText("Seleccionar imagen");
+        jButtonSeleccImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSeleccImgActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("<html><center><p>Eliminar servicio</p><p>seleccionado</p></center>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,21 +230,15 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                                                 .addComponent(jButton4))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel12)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(23, 23, 23)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jFormattedTextFieldNhuespedes)
-                                            .addComponent(jFormattedTextFieldNhabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10)
                                             .addComponent(jLabel21)
-                                            .addComponent(jLabel13))
-                                        .addGap(52, 52, 52)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel12))
+                                        .addGap(42, 42, 42)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jFormattedTextFieldNhuespedes)
+                                                .addComponent(jFormattedTextFieldNhabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jFormattedTextFieldNbaños, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jFormattedTextFieldNcamas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
@@ -242,7 +252,8 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                                             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jButtonGuardarImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jButtonSeleccImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(jTextFieldNombreImagen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
@@ -253,7 +264,8 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(jLabel17)
                                                     .addComponent(jTextFieldAñadirServicio)
-                                                    .addComponent(jButtonAñadirServicio, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
+                                                    .addComponent(jButtonAñadirServicio, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                                    .addComponent(jButton3)))
                                             .addComponent(jLabel15)
                                             .addComponent(jLabel16)
                                             .addComponent(jLabel18))
@@ -350,25 +362,27 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldAñadirServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonAñadirServicio)))
+                                .addComponent(jButtonAñadirServicio)
+                                .addGap(12, 12, 12)
+                                .addComponent(jButton3)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldNombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))))
+                                .addComponent(jButtonSeleccImg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonGuardarImg)
+                                .addGap(35, 35, 35))))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -376,11 +390,27 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
+        // TODO add your handling code here:
+        FuncionesImagenes.guardarImagen(imgTemp);
+    }//GEN-LAST:event_jButtonGuardarImgActionPerformed
+
+    private void jButtonSeleccImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccImgActionPerformed
         // TODO add your handling code here:
         JFileChooser fc = new JFileChooser();
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG, JPEG, PNG, GIF","jpg", "jpeg", "png", "gif");
+        fc.setFileFilter(imgFilter);
         int returnVal = fc.showOpenDialog(this);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            // Mostrar imagen
+            imgTemp = fc.getSelectedFile();
+            String img = imgTemp.getPath();
+            System.out.println(img);
+            FuncionesImagenes.cargarImagen(jLabel19, img);
+            // Mostrar ruta de imagen
+            jTextFieldNombreImagen.setText(img);
+        }
+    }//GEN-LAST:event_jButtonSeleccImgActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,10 +449,12 @@ public class EdicionInmuebles extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAñadirServicio;
     private javax.swing.JButton jButtonCrearInmueble;
+    private javax.swing.JButton jButtonGuardarImg;
+    private javax.swing.JButton jButtonSeleccImg;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JFormattedTextField jFormattedTextFieldNbaños;
