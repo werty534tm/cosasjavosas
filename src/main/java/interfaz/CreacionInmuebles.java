@@ -446,7 +446,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                     boolean esisten = false;
                     for (int i = 0;i < Datos.lista_inmuebles.size();i++) {
                         Inmueble in = Datos.lista_inmuebles.get(i);
-                        if (!in.getTitulo().equals(titulo)) {
+                        if (in.getTitulo().equals(titulo)) {
                             esisten = true;
                             JOptionPane.showMessageDialog(this,
                                     "Un inmueble con el mismo título ya ha sido añadido. No se ha procedido con la creación del inmueble",
@@ -458,7 +458,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                 System.out.println("Datos del inmueble creado: "+inmueble.toString());
                                 Datos.lista_inmuebles.add(inmueble);
                                 System.out.println(Datos.lista_inmuebles);
-                                Datos.guardarDatos("./backup");
+                                Datos.guardarDatos("./backup.txt");
                     }
                 }
                 
