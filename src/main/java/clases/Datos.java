@@ -28,7 +28,8 @@ public class Datos {
     public static ArrayList<String> correos_clientes = new ArrayList<>();
     public static ArrayList<String> correos_anfitriones = new ArrayList<>();
     public static ArrayList<Inmueble> lista_inmuebles = new ArrayList<>();
-
+    public static ArrayList<Reserva> lista_reservas = new ArrayList<>();
+    
     public Datos() {
         //xd
     }
@@ -52,6 +53,14 @@ public class Datos {
                 Inmueble inmueble = lista_inmuebles.get(i);
                 writer.write(inmueble.toString() + "\n");
             }
+            
+            /*
+            writer.write("\nReservas:\n");
+            for (int i = 0;i < lista_reservas.size();i++) {
+                Reserva reserva = lista_reservas.get(i);
+                writer.write(reserva.toString() + "\n");
+            }
+            */
             
         } catch (IOException e) {
             System.err.println("Error al guardar los datos: " + e.getMessage());

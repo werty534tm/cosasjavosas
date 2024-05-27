@@ -12,12 +12,14 @@ package interfaz;
 import clases.FuncionesImagenes;
 import clases.Inmueble;
 import clases.Cliente;
+import javax.swing.DefaultListModel;
 
 public class InmuebleSeleccionado extends javax.swing.JFrame {
 
     BusquedaInmuebles main;
     Cliente cliente;
     Inmueble inmueble;
+    DefaultListModel serviciosTemp = new DefaultListModel();
     
     /**
      * Creates new form InmuebleSeleccionado
@@ -32,6 +34,7 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         cliente = c;
         inmueble = i;
         main.setVisible(false);
+        this.jLabel1.setText(inmueble.getTitulo());
         FuncionesImagenes.cargarImagen(this.jLabelImagen, System.getProperty("user.dir")+"/imagenes/"+inmueble.getFotografia());
         this.jLabelCalleNumero.setText(inmueble.getDireccion().getCalle()+", "+inmueble.getDireccion().getNumero());
         this.jLabelCP.setText(inmueble.getDireccion().getCodigoPostal());
@@ -42,6 +45,9 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         this.jLabelNbaños.setText(Integer.toString(inmueble.getDatos().getBaños()));
         this.jLabelTipo.setText(inmueble.getTipoPropiedad());
         this.jLabelMedia.setText(Double.toString(inmueble.getCalificacion()));
+        for (String s : inmueble.getServicios()) {
+            serviciosTemp.addElement(s);
+        } this.jListServicios.setModel(serviciosTemp);
         this.setVisible(true);
     }
 
@@ -130,6 +136,11 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("Reservar inmueble");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Volver a la búsqueda");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +300,11 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         // TODO add your handling code here:
         main.setVisible(false);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ReservaInmueble ri = new ReservaInmueble(this, inmueble, cliente);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

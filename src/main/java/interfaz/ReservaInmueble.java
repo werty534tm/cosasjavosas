@@ -12,8 +12,22 @@ package interfaz;
 // disponible -> popup de si/no con importe total
 // no disponible -> popup de error
 
+import clases.Reserva;
+import clases.Inmueble;
+import clases.Cliente;
+import clases.Datos;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.ArrayList;
+
 public class ReservaInmueble extends javax.swing.JFrame {
 
+    InmuebleSeleccionado main;
+    Inmueble inmueble;
+    Cliente cliente;
+    
     /**
      * Creates new form ReservaInmueble
      */
@@ -21,6 +35,15 @@ public class ReservaInmueble extends javax.swing.JFrame {
         initComponents();
     }
 
+    public ReservaInmueble(InmuebleSeleccionado is, Inmueble i, Cliente c) {
+        initComponents();
+        main = is;
+        inmueble = i;
+        cliente = c;
+        main.setVisible(false);
+        this.setVisible(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +64,11 @@ public class ReservaInmueble extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 2, 18)); // NOI18N
         jLabel2.setText("Reserva");
@@ -50,14 +78,19 @@ public class ReservaInmueble extends javax.swing.JFrame {
 
         jLabel3.setText("Fecha de entrada:");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
-        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
         jLabel4.setText("Fecha de salida:");
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("Reservar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Volver a los detalles");
 
@@ -114,6 +147,44 @@ public class ReservaInmueble extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        main.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fe = this.jFormattedTextField1.getText();
+        String fs = this.jFormattedTextField2.getText();
+        LocalDate fechaEntrada = LocalDate.parse(fe,dtf);
+        LocalDate fechaSalida = LocalDate.parse(fs, dtf);
+        boolean ocupado = false;
+        
+        for (int i = 0;i < Datos.lista_reservas.size();i++) {
+            Reserva r = Datos.lista_reservas.get(i);
+            LocalDate fen = r.getEntrada();
+            LocalDate fsl = r.getSalida();
+            List<LocalDate> diasReservados = new ArrayList<>();
+            long numDias = ChronoUnit.DAYS.between(fen, fsl);
+            for (long j = 0;j <= numDias;j++) {
+                diasReservados.add(fen.plusDays(j));
+            }
+            System.out.println(diasReservados.toString());
+            if (diasReservados.contains(fe) || diasReservados.contains(fs)) {
+                ocupado = true; 
+            }
+        } if (ocupado==false) {
+            Reserva reserva = new Reserva(cliente, inmueble, fechaEntrada, fechaSalida);
+            System.out.println("Reserva creada");
+            System.out.println("Datos de la reserva: "+reserva.toString());
+            Datos.lista_reservas.add(reserva);
+            System.out.println(Datos.lista_reservas.toString());
+        } else {
+            System.out.println("inmueble ocupado ):");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

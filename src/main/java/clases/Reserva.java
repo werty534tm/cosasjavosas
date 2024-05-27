@@ -50,6 +50,6 @@ public class Reserva {
     }
     @Override
     public String toString() {
-        return "Reserva{" + "cliente=" + cliente + ", inmueble=" + inmueble + ", entrada=" + entrada + ", salida=" + salida + '}';
+        return cliente.getEmail()+'ඞ'+ inmueble.getTitulo()+'ඞ'+entrada.toString()+'ඞ'+salida.toString();
     }
 }

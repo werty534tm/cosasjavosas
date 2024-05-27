@@ -101,6 +101,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         });
 
         jButton2.setText("<html><center><p>Ver detalles</p><p>del inmueble</p><p>seleccionado</p></center>");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Volver al panel");
 
@@ -439,6 +444,18 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
             añadirInmueble(inSel2.get(o),this.jTable1,o);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String nombreInm = this.jTable1.getValueAt(this.jTable1.getSelectedRow(), 0).toString();
+        int index = 0;
+        for (Inmueble i : Datos.lista_inmuebles) {
+            if (i.getTitulo().equals(nombreInm)) {
+                index = Datos.lista_inmuebles.indexOf(i);
+            }
+        }
+        InmuebleSeleccionado is = new InmuebleSeleccionado(this, Datos.lista_inmuebles.get(index), cliente);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
