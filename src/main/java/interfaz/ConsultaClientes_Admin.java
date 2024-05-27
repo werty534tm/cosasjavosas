@@ -32,12 +32,12 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
         }
         for(int i=0;i<Datos.correos_anfitriones.size();i++){
             Anfitrión cliente = Datos.lista_anfitriones.get(Datos.correos_anfitriones.get(i));
-            this.jTable1.setValueAt(cliente.getNombre(), i, 0);
-            this.jTable1.setValueAt(cliente.getDNI(), i, 1);
-            this.jTable1.setValueAt(cliente.getEmail(), i, 2);
-            this.jTable1.setValueAt(cliente.getClave(), i, 3);
-            this.jTable1.setValueAt(cliente.getTeléfono(), i, 4);
-            this.jTable1.setValueAt("Anfitrión", i, 5);
+            this.jTable1.setValueAt(cliente.getNombre(), i+Datos.correos_clientes.size(), 0);
+            this.jTable1.setValueAt(cliente.getDNI(), i+Datos.correos_clientes.size(), 1);
+            this.jTable1.setValueAt(cliente.getEmail(), i+Datos.correos_clientes.size(), 2);
+            this.jTable1.setValueAt(cliente.getClave(), i+Datos.correos_clientes.size(), 3);
+            this.jTable1.setValueAt(cliente.getTeléfono(), i+Datos.correos_clientes.size(), 4);
+            this.jTable1.setValueAt("Anfitrión", i+Datos.correos_clientes.size(), 5);
         }
     }
 

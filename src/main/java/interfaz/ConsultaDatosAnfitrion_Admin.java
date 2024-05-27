@@ -6,13 +6,14 @@ package interfaz;
 
 import clases.Anfitrión;
 import java.awt.Frame;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author ricoyogur
  */
 public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
-
+    
     /**
      * Creates new form ConsultaDatosParticular_Admin_nuevo
      * @param parent
@@ -22,6 +23,12 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
     public ConsultaDatosAnfitrion_Admin(Frame parent, boolean modal, Anfitrión anfitrión) {
         super(parent, modal);
         initComponents();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fecha =anfitrión.getFecha().format(formatter);
+        this.jTextField1.setText(fecha);
+        String tipo;
+        if(anfitrión.isSuperanfitrión()){tipo = "Superanfitrión";}else{tipo = "Normal";}
+        this.jTextField2.setText(tipo);
     }
 
     /**
@@ -35,19 +42,24 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
 
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel3.setText("Tipo de anfitrión");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jTextField1.setEditable(false);
 
         jButton1.setText("Cerrar ventana");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("C059", 0, 18)); // NOI18N
         jLabel6.setText("JavaBnB");
@@ -56,6 +68,8 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
         jLabel2.setText("Datos del anfitrión");
 
         jLabel1.setText("Fecha de registro");
+
+        jTextField2.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,9 +88,9 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
                                             .addComponent(jLabel1)
                                             .addComponent(jLabel3))
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                                            .addComponent(jFormattedTextField1)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(93, 93, 93)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -98,7 +112,7 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -109,13 +123,17 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

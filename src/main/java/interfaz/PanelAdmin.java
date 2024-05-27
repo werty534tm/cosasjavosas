@@ -52,6 +52,11 @@ public class PanelAdmin extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton2.setText("<html><center><p>Consulta de</p><p>inmuebles<p></center>");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton3.setText("<html><center><p>Consulta de</p><p>reservas</p><p>realizadas</p></center></html>");
@@ -116,6 +121,12 @@ public class PanelAdmin extends javax.swing.JFrame {
         consulta_clientes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ConsultaInmuebles_Admin consulta_inmuebles = new ConsultaInmuebles_Admin(this);
+        consulta_inmuebles.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

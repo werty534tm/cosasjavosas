@@ -58,5 +58,7 @@ public class Direccion {
     public String toString() {
         return ""+calle+'ඞ'+numero+'ඞ'+codigoPostal+'ඞ'+ciudad;
     }
-    
+    public String toStringNoAmogos(){
+        return calle+" "+numero+" "+ciudad+" "+codigoPostal;
+    }
 }
