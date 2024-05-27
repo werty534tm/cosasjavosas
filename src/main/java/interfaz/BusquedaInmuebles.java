@@ -370,51 +370,74 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         
         System.out.println(inSel2.toString());
         // Ordenación de inmuebles según la opción
-        ArrayList<Inmueble> inSel3 = new ArrayList<>();
         if (this.jComboBox1.getSelectedIndex()==0) { // Ordenar por relevancia
-            Inmueble inM = inSel2.get(0);
-            for (int m = 0;m < inSel2.size();m++) {
-                for (int n = 1;n < inSel2.size();n++) {
-                    if (inSel2.get(n).getCalificacion() > inSel2.get(n - 1).getCalificacion()) {
-                        inM = inSel2.get(n);
+            Inmueble inTemp;
+            int inTempIndex;
+            boolean ordenado;
+            for (int m = 0;m < inSel2.size() - 1;m++) {
+                ordenado = true;
+                for (int n = 0;n < inSel2.size()-m-1;n++) {
+                    if (inSel2.get(n).getCalificacion() < inSel2.get(n+1).getCalificacion()) {
+                        inTemp = inSel2.get(n);
+                        inTempIndex = inSel2.indexOf(inTemp);
+                        inSel2.remove(inSel2.get(n));
+                        inSel2.add(inTempIndex, inSel2.get(n));
+                        inSel2.remove(inSel2.get(n+1));
+                        inSel2.add(inTempIndex+1, inTemp);
+                        ordenado = false;
                     }
-                } 
-                inSel2.indexOf(inM);
-                inSel3.add(inM);
-            }
-            limpiarTabla(this.jTable1);
-            for (int o = 0;o < inSel3.size();o++) {
-                añadirInmueble(inSel3.get(o),this.jTable1,o);
+                } if (ordenado) {
+                    limpiarTabla(this.jTable1);
+                    for (int o = 0;o < inSel2.size();o++) {
+                        añadirInmueble(inSel2.get(o),this.jTable1,o);
+                    }
+                }
             }
         } else if (this.jComboBox1.getSelectedIndex()==1) { // Ordenar de menor a mayor precio
-            Inmueble inmp = inSel2.get(0);
-            for (int m = 0;m < inSel2.size();m++) {
-                for (int n = 1;n < inSel2.size();n++) {
-                    if (inSel2.get(n).getPrecioNoche() < inSel2.get(n - 1).getPrecioNoche()) {
-                        inmp = inSel2.get(n);
+            Inmueble inTemp;
+            int inTempIndex;
+            boolean ordenado;
+            for (int m = 0;m < inSel2.size() - 1;m++) {
+                ordenado = true;
+                for (int n = 0;n < inSel2.size()-m-1;n++) {
+                    if (inSel2.get(n).getPrecioNoche() > inSel2.get(n+1).getPrecioNoche()) {
+                        inTemp = inSel2.get(n);
+                        inTempIndex = inSel2.indexOf(inTemp);
+                        inSel2.remove(inSel2.get(n));
+                        inSel2.add(inTempIndex, inSel2.get(n));
+                        inSel2.remove(inSel2.get(n+1));
+                        inSel2.add(inTempIndex+1, inTemp);
+                        ordenado = false;
                     }
-                } 
-                inSel2.indexOf(inmp);
-                inSel3.add(inmp);
-            }
-            limpiarTabla(this.jTable1);
-            for (int o = 0;o < inSel3.size();o++) {
-                añadirInmueble(inSel3.get(o),this.jTable1,o);
+                } if (ordenado) {
+                    limpiarTabla(this.jTable1);
+                    for (int o = 0;o < inSel2.size();o++) {
+                        añadirInmueble(inSel2.get(o),this.jTable1,o);
+                    }
+                }
             }
         } else if (this.jComboBox1.getSelectedIndex()==2) { // Ordenar de mayor a menor precio
-            Inmueble inMp = inSel2.get(0);
-            for (int m = 0;m < inSel2.size();m++) {
-                for (int n = 1;n < inSel2.size();n++) {
-                    if (inSel2.get(n).getPrecioNoche() > inSel2.get(n - 1).getPrecioNoche()) {
-                        inMp = inSel2.get(n);
+            Inmueble inTemp;
+            int inTempIndex;
+            boolean ordenado;
+            for (int m = 0;m < inSel2.size() - 1;m++) {
+                ordenado = true;
+                for (int n = 0;n < inSel2.size()-m-1;n++) {
+                    if (inSel2.get(n).getPrecioNoche() < inSel2.get(n+1).getPrecioNoche()) {
+                        inTemp = inSel2.get(n);
+                        inTempIndex = inSel2.indexOf(inTemp);
+                        inSel2.remove(inSel2.get(n));
+                        inSel2.add(inTempIndex, inSel2.get(n));;
+                        inSel2.remove(inSel2.get(n+1));
+                        inSel2.add(inTempIndex+1, inTemp);
+                        ordenado = false;
                     }
-                } 
-                inSel2.indexOf(inMp);
-                inSel3.add(inMp);
-            }
-            limpiarTabla(this.jTable1);
-            for (int o = 0;o < inSel3.size();o++) {
-                añadirInmueble(inSel3.get(o),this.jTable1,o);
+                } if (ordenado) {
+                    limpiarTabla(this.jTable1);
+                    for (int o = 0;o < inSel2.size();o++) {
+                        añadirInmueble(inSel2.get(o),this.jTable1,o);
+                    }
+                }
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
