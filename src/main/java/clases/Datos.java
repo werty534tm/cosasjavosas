@@ -43,13 +43,13 @@ public class Datos {
                 Anfitrión anfitrion = lista_anfitriones.get(email);
                 writer.write(email + " " + anfitrion.toString() + "\n");
             }
-            /*
+            
             writer.write("\nInmuebles:\n");
             for (int i=0;i<lista_inmuebles.size();i++) {
                 Inmueble inmueble = lista_inmuebles.get(i);
                 writer.write(inmueble.toString() + "\n");
             }
-            */
+            
         } catch (IOException e) {
             System.err.println("Error al guardar los datos: " + e.getMessage());
         }
