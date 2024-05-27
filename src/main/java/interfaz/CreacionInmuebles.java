@@ -87,7 +87,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jButton4 = new javax.swing.JButton();
         jButtonGuardarImg = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonBorrarServicio = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,7 +190,12 @@ public class CreacionInmuebles extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("<html><center><p>Eliminar servicio</p><p>seleccionado</p></center>");
+        jButtonBorrarServicio.setText("<html><center><p>Eliminar servicio</p><p>seleccionado</p></center>");
+        jButtonBorrarServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarServicioActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("€");
 
@@ -252,7 +257,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel17)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jButton3)))
+                                    .addComponent(jButtonBorrarServicio)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
@@ -374,7 +379,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAñadirServicio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3)))
+                                .addComponent(jButtonBorrarServicio)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -496,10 +501,16 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButtonBorrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarServicioActionPerformed
+        // TODO add your handling code here:
+        serviciosTemp.remove(this.jListServicios.getSelectedIndex());
+        this.jListServicios.setModel(serviciosTemp);
+    }//GEN-LAST:event_jButtonBorrarServicioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAñadirServicio;
+    private javax.swing.JButton jButtonBorrarServicio;
     private javax.swing.JButton jButtonCrearInmueble;
     private javax.swing.JButton jButtonGuardarImg;
     private javax.swing.JButton jButtonSeleccImg;

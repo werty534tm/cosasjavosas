@@ -51,6 +51,11 @@ public class PanelParticular extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("<html><center><p>Búsqueda de</p><p>inmuebles</p></center>");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton4.setText("<html><center><p>Consulta de</p>\n<p>reservas</p></center>");
@@ -135,6 +140,11 @@ public class PanelParticular extends javax.swing.JFrame {
         this.inicio_cliente.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        BusquedaInmuebles bi = new BusquedaInmuebles(this, this.cliente);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

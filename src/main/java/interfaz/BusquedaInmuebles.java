@@ -8,13 +8,38 @@ package interfaz;
  *
  * @author luver
  */
+
+import clases.Cliente;
+import clases.Inmueble;
+import clases.Datos;
+
 public class BusquedaInmuebles extends javax.swing.JFrame {
 
+    PanelParticular main;
+    Cliente cliente;
+    
     /**
      * Creates new form BusquedaInmuebles
      */
     public BusquedaInmuebles() {
         initComponents();
+    }
+    
+    public BusquedaInmuebles(PanelParticular pp, Cliente c) {
+        initComponents();
+        main = pp;
+        cliente = c;
+        main.setVisible(false);
+        for (int i = 0;i<Datos.lista_inmuebles.size();i++) {
+            Inmueble in = Datos.lista_inmuebles.get(i);
+            System.out.println(in.toString());
+            this.jTable1.setValueAt(in.getTitulo(),i,0);
+            this.jTable1.setValueAt(in.getDireccion().getCiudad(), i, 1);
+            this.jTable1.setValueAt(in.getTipoPropiedad(), i, 2);
+            this.jTable1.setValueAt(in.getPrecioNoche(), i , 3);
+            this.jTable1.setValueAt(in.getCalificacion(), i, 4);
+        }
+        this.setVisible(true);
     }
 
     /**
@@ -41,6 +66,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("C059", 0, 36)); // NOI18N
         jLabel1.setText("JavaBnB");
@@ -168,6 +198,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        main.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
