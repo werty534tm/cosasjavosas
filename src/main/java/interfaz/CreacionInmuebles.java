@@ -451,7 +451,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                     &!this.jFormattedTextFieldNcamas.getText().equals("")&!this.jFormattedTextFieldNbaños.getText().equals("")){
                 Direccion direccion = new Direccion(calle, numero, codigoPostal, ciudad);
                 DatosInmueble datosInmueble = new DatosInmueble(huespedes, habitaciones, camas, baños);
-                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, servicios, fotografia, new ArrayList<Reseña>(), this.correo);
+                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, servicios, fotografia, this.correo);
                 if (Datos.lista_inmuebles.isEmpty()) {
                     System.out.println("¡Inmueble creado!");
                     System.out.println("Datos del inmueble creado: "+inmueble.toString());

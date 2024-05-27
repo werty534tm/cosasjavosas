@@ -65,13 +65,13 @@ public class Datos {
 
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
-                System.out.println(line);
                 if (line.equals("Clientes:")) {
                     sección = "clientes";
                 } else if (line.equals("Anfitriones:")) {
                     sección = "anfitriones";
                 } else if(line.equals("Inmuebles:")){
                         sección = "inmuebles";
+                        System.out.println("ZONA DE INMUEBLESZONA DE INMUEBLESZONA DE INMUEBLESZONA DE INMUEBLESZONA DE INMUEBLES");
                 } else if (!line.isEmpty()) {
                     if(sección.equals("clientes")){
                         String[] parts = line.split(" ", 10);
@@ -123,8 +123,8 @@ public class Datos {
                             }
                         }
                     } else if(sección.equals("inmuebles")){
-                        String[] parts = line.split("ඞ", 14);
-                        if (parts.length == 14) {
+                        String[] parts = line.split("ඞ", 15);
+                        if (parts.length == 15) {
                             String titulo = parts[0];
                             String calle = parts[1];
                             int numero = Integer.parseInt(parts[2]);
@@ -148,12 +148,13 @@ public class Datos {
                                    .map(String::trim) // Eliminar espacios en blanco alrededor de cada palabra
                                    .collect(Collectors.toList());
                             ArrayList<String> lista_reseñas_texto = new ArrayList<>(lista2);
-                            System.out.println(reseñas_texto);
                             String dueño = parts[14];
                             DatosInmueble datos = new DatosInmueble(huespedes, habitaciones, camas, baños);
                             Direccion dir = new Direccion(calle, numero, CP, ciudad);
-                            Inmueble inm = new Inmueble(titulo, dir, datos, tipo, precio, servilista, fotografia, new ArrayList<Reseña>(), dueño);
+                            Inmueble inm = new Inmueble(titulo, dir, datos, tipo, precio, servilista, fotografia, dueño);
+                            inm.getReseñas().add(new Reseña("me pican los pies", "juanito", 3));
                             Datos.lista_inmuebles.add(inm);
+                            inm.toString();
                         }
                     }
                 }

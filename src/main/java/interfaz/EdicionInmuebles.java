@@ -9,20 +9,40 @@ package interfaz;
  * @author luver
  */
 
+import clases.Datos;
 import clases.FuncionesImagenes;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 public class EdicionInmuebles extends javax.swing.JFrame {
-
+    String correo;
     File imgTemp;
+    ArrayList<Integer> indexes = new ArrayList<>();
     
     /**
      * Creates new form EdicionInmuebles
      */
-    public EdicionInmuebles() {
+    public EdicionInmuebles(String correo) {
         initComponents();
+        this.correo = correo;
+        this.indexes = new ArrayList<>();
+        DefaultComboBoxModel modelo_combo_box = new DefaultComboBoxModel();
+        System.out.println(Datos.lista_inmuebles.size());
+        for(int i=0;i<Datos.lista_inmuebles.size();i++){
+            System.out.println("Correo: "+this.correo);
+            System.out.println("Correo: "+Datos.lista_inmuebles.get(i).getDueño());
+            if(Datos.lista_inmuebles.get(i).getDueño().equals(this.correo)){
+                indexes.add(i);
+            }
+        }
+        System.out.println(this.indexes);
+        for(int i=0;i<indexes.size();i++){
+            modelo_combo_box.addElement(Datos.lista_inmuebles.get(i).getTitulo());
+        }
+        this.jComboBox1.setModel(modelo_combo_box);
     }
 
     /**
@@ -400,41 +420,6 @@ public class EdicionInmuebles extends javax.swing.JFrame {
             jTextFieldNombreImagen.setText(img);
         }
     }//GEN-LAST:event_jButtonSeleccImgActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EdicionInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EdicionInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EdicionInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EdicionInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EdicionInmuebles().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
