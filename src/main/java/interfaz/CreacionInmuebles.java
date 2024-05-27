@@ -16,12 +16,15 @@ import clases.DatosInmueble;
 import clases.Datos;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.ArrayList;
 
 public class CreacionInmuebles extends javax.swing.JFrame {
 
     private File imgTemp;
+    DefaultListModel serviciosTemp = new DefaultListModel();
     
     /**
      * Creates new form CreacionInmuebles
@@ -144,6 +147,11 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jLabel17.setText("Servicio a añadir");
 
         jButtonAñadirServicio.setText("Añadir a lista");
+        jButtonAñadirServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAñadirServicioActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("DejaVu Sans", 2, 14)); // NOI18N
         jLabel18.setText("Fotografía");
@@ -417,7 +425,10 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         int baños = ((Number) this.jFormattedTextFieldNbaños.getValue()).intValue();
         String tipoPropiedad = this.jComboBoxTipo.getSelectedItem().toString();
         double precioNoche = ((Number) this.jFormattedTextFieldPrecioNoche.getValue()).doubleValue();
-        ArrayList<String> servicios; // funcionamiento a añadir
+        ArrayList<String> servicios = new ArrayList<>(); // funcionamiento a añadir
+        for (int i = 0;i < serviciosTemp.getSize();i++) {
+            servicios.add(serviciosTemp.get(i).toString());
+        }
         String fotografia = this.jTextFieldNombreImagen.getText();
         if (!titulo.equals("")&!calle.equals("")&!codigoPostal.equals("")&!ciudad.equals("")&!tipoPropiedad.equals("")){
             if (!this.jTextFieldNumero.getText().equals("")&!this.jFormattedTextFieldPrecioNoche.getText().equals("") // falta comprobación de que esté el inmueble ya en el almacenamiento
@@ -425,18 +436,50 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                     &!this.jFormattedTextFieldNcamas.getText().equals("")&!this.jFormattedTextFieldNbaños.getText().equals("")){
                 Direccion direccion = new Direccion(calle, numero, codigoPostal, ciudad);
                 DatosInmueble datosInmueble = new DatosInmueble(huespedes, habitaciones, camas, baños);
-                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, null, fotografia, 0);
-                System.out.println("¡Inmueble creado!");
-                System.out.println("Datos del inmueble creado: "+inmueble.toString());
-                Datos.lista_inmuebles.add(inmueble);
-                System.out.println(Datos.lista_inmuebles);
+                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, servicios, fotografia, 0);
+                if (Datos.lista_inmuebles.isEmpty()) {
+                    System.out.println("¡Inmueble creado!");
+                    System.out.println("Datos del inmueble creado: "+inmueble.toString());
+                    Datos.lista_inmuebles.add(inmueble);
+                    System.out.println(Datos.lista_inmuebles);
+                } else {
+                    for (int i = 0;i < Datos.lista_inmuebles.size();i++) {
+                        Inmueble in = Datos.lista_inmuebles.get(i);
+                        if (!in.getTitulo().equals(titulo)) {
+                            System.out.println("¡Inmueble creado!");
+                            System.out.println("Datos del inmueble creado: "+inmueble.toString());
+                            Datos.lista_inmuebles.add(inmueble);
+                            System.out.println(Datos.lista_inmuebles);
+                        } else {
+                            JOptionPane.showMessageDialog(this,
+                                    "Un inmueble con el mismo título ya ha sido añadido. No se ha procedido con la creación del inmueble",
+                                    "Error al crear el inmueble", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+                
+                
             } else {
                 System.out.println("Faltan datos");
             }
         } else {
             System.out.println("Faltan datos");
         }
+        //Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
+
+    private void jButtonAñadirServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirServicioActionPerformed
+        // TODO add your handling code here:
+        if (!this.jTextFieldAñadirServicio.getText().equals("")) {
+            serviciosTemp.addElement(this.jTextFieldAñadirServicio.getText());
+            this.jListServicios.setModel(serviciosTemp);
+            this.jTextFieldAñadirServicio.setText("");
+            System.out.println(serviciosTemp.toString());
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de texto está vacío. No se ha añadido ningún servicio","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonAñadirServicioActionPerformed
 
     /**
      * @param args the command line arguments
