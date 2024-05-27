@@ -458,6 +458,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                 System.out.println("Datos del inmueble creado: "+inmueble.toString());
                                 Datos.lista_inmuebles.add(inmueble);
                                 System.out.println(Datos.lista_inmuebles);
+                                Datos.guardarDatos("./backup");
                     }
                 }
                 
