@@ -26,13 +26,15 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private PanelAnfitrion panel;
     private File imgTemp;
     DefaultListModel serviciosTemp = new DefaultListModel();
+    private String correo;
     
     /**
      * Creates new form CreacionInmuebles
      */
-    public CreacionInmuebles(PanelAnfitrion panel) {
+    public CreacionInmuebles(PanelAnfitrion panel, String correo) {
         initComponents();
         this.panel = panel;
+        this.correo = correo;
     }
 
     /**
@@ -449,7 +451,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                     &!this.jFormattedTextFieldNcamas.getText().equals("")&!this.jFormattedTextFieldNbaños.getText().equals("")){
                 Direccion direccion = new Direccion(calle, numero, codigoPostal, ciudad);
                 DatosInmueble datosInmueble = new DatosInmueble(huespedes, habitaciones, camas, baños);
-                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, servicios, fotografia, new ArrayList<Reseña>());
+                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, servicios, fotografia, new ArrayList<Reseña>(), this.correo);
                 if (Datos.lista_inmuebles.isEmpty()) {
                     System.out.println("¡Inmueble creado!");
                     System.out.println("Datos del inmueble creado: "+inmueble.toString());

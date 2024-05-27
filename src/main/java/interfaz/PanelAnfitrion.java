@@ -151,7 +151,7 @@ public class PanelAnfitrion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CreacionInmuebles creación = new CreacionInmuebles(this);
+        CreacionInmuebles creación = new CreacionInmuebles(this, this.anfitrión.getEmail());
         creación.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

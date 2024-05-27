@@ -42,6 +42,7 @@ public class Reseña {
         this.nombre_cliente = nombre_cliente;
         this.nota = nota;
     }
+    @Override
     public String toString(){
         return titulo+'/'+nombre_cliente+'/'+nota+' ';
     }

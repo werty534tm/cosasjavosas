@@ -143,14 +143,16 @@ public class Datos {
                                    .collect(Collectors.toList());
                             ArrayList<String> servilista = new ArrayList<>(lista);
                             String fotografia = parts[12];
-                            List<String> lista2 = Arrays.stream(servicios.split(","))
+                            String reseñas_texto = parts[13];
+                            List<String> lista2 = Arrays.stream(reseñas_texto.split(","))
                                    .map(String::trim) // Eliminar espacios en blanco alrededor de cada palabra
                                    .collect(Collectors.toList());
-                            ArrayList<String> reseñas_texto = new ArrayList<>(lista2);
+                            ArrayList<String> lista_reseñas_texto = new ArrayList<>(lista2);
                             System.out.println(reseñas_texto);
+                            String dueño = parts[14];
                             DatosInmueble datos = new DatosInmueble(huespedes, habitaciones, camas, baños);
                             Direccion dir = new Direccion(calle, numero, CP, ciudad);
-                            Inmueble inm = new Inmueble(titulo, dir, datos, tipo, precio, servilista, fotografia, new ArrayList<Reseña>());
+                            Inmueble inm = new Inmueble(titulo, dir, datos, tipo, precio, servilista, fotografia, new ArrayList<Reseña>(), dueño);
                             Datos.lista_inmuebles.add(inm);
                         }
                     }

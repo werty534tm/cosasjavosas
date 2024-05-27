@@ -22,6 +22,15 @@ public class Inmueble {
     private String fotografia;
     private double calificacion;
     private ArrayList<Reseña> reseñas;
+    private String dueño;
+
+    public String getDueño() {
+        return dueño;
+    }
+
+    public void setDueño(String dueño) {
+        this.dueño = dueño;
+    }
 
     public ArrayList<Reseña> getReseñas() {
         return reseñas;
@@ -84,7 +93,7 @@ public class Inmueble {
         this.calificacion = calificacion;
     }
 
-    public Inmueble(String titulo, Direccion direccion, DatosInmueble datos, String tipoPropiedad, double precioNoche, ArrayList<String> servicios, String fotografia, ArrayList<Reseña> reseñas) {
+    public Inmueble(String titulo, Direccion direccion, DatosInmueble datos, String tipoPropiedad, double precioNoche, ArrayList<String> servicios, String fotografia, ArrayList<Reseña> reseñas, String dueño) {
         this.titulo = titulo;
         this.direccion = direccion;
         this.datos = datos;
@@ -99,11 +108,12 @@ public class Inmueble {
         this.calificacion = sum/reseñas.size();
         }
         else{this.calificacion = 0;}
+        this.dueño = dueño;
     }
 
     @Override
     public String toString() {
-        return titulo+'ඞ'+direccion.toString()+'ඞ'+datos.toString()+'ඞ'+tipoPropiedad+'ඞ'+precioNoche+'ඞ'+servicios+'ඞ'+fotografia+'ඞ'+reseñas;
+        return titulo+'ඞ'+direccion.toString()+'ඞ'+datos.toString()+'ඞ'+tipoPropiedad+'ඞ'+precioNoche+'ඞ'+servicios+'ඞ'+fotografia+'ඞ'+reseñas+'ඞ'+dueño;
     }
     
 }
