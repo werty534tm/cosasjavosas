@@ -53,6 +53,11 @@ public class PanelAnfitrion extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("<html><center><p>Creación de</p><p>inmuebles</p></center>");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton2.setText("<html><center><p>Edición de</p><p>inmuebles</p></center>");
@@ -143,6 +148,12 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         modificar_datos.setup();
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CreacionInmuebles creación = new CreacionInmuebles(this);
+        creación.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

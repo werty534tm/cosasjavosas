@@ -3,12 +3,9 @@
  */
 
 package com.mycompany.cosasjavosas;
-import clases.Anfitrión;
-import clases.Cliente;
+
 import clases.Datos;
 import interfaz.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -19,10 +16,16 @@ public class Cosasjavosas {
         System.out.println("Datos");
         System.out.println(Datos.lista_clientes);
         System.out.println(Datos.correos_clientes);
+        System.out.println(Datos.lista_anfitriones);
+        System.out.println(Datos.correos_anfitriones);
+        System.out.println(Datos.lista_inmuebles);
         Datos.recuperarDatos("./backup.txt");
         System.out.println("Datos");
         System.out.println(Datos.lista_clientes);
         System.out.println(Datos.correos_clientes);
+        System.out.println(Datos.lista_anfitriones);
+        System.out.println(Datos.correos_anfitriones);
+        System.out.println(Datos.lista_inmuebles);
         //Datos.borrarDatos("./backup.txt");
         Inicio inicio = new Inicio();
         inicio.setVisible(true);

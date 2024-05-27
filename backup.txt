@@ -5,3 +5,5 @@ Anfitriones:
 2 2 2 2 2 2 2024-05-27 false
 
 Inmuebles:
+tit calle 1 CP ciudad 1 1 1 1 Casa 10.0 [] bocadillo.png 0.0
+titu calle 1 CP ciudad 1 1 1 1 Casa 10.0 [] bocadillo.png 0.0
