@@ -56,7 +56,7 @@ public class DatosInmueble {
 
     @Override
     public String toString() {
-        return ""+huespedes+' '+habitaciones+' '+camas+' '+baños;
+        return ""+huespedes+'ඞ'+habitaciones+'ඞ'+camas+'ඞ'+baños;
     }
     
 }

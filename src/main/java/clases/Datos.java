@@ -123,7 +123,7 @@ public class Datos {
                             }
                         }
                     } else if(sección.equals("inmuebles")){
-                        String[] parts = line.split(" ", 14);
+                        String[] parts = line.split("ඞ", 14);
                         if (parts.length == 14) {
                             String titulo = parts[0];
                             String calle = parts[1];
