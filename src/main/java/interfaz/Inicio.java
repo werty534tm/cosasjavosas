@@ -40,6 +40,7 @@ public class Inicio extends javax.swing.JFrame {
         jButtonCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("C059", 0, 36)); // NOI18N
         jLabel1.setText("JavaBnB");
@@ -48,7 +49,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2.setText("Inicio");
 
         jButtonAdmin.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
-        jButtonAdmin.setText("<html><p>Acceder como</p>\n<html><p>administrador</p>");
+        jButtonAdmin.setText("<html><p>Acceder como</p><center><p>administrador</p></center>");
         jButtonAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,8 +58,8 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jButtonCliente.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jButtonCliente.setText("<html><p>Acceder como</p>\n<center><p>cliente</p></center>");
         jButtonCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonCliente.setLabel("<html><p>Acceder como</p>\n<html><p>cliente</p>");
         jButtonCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClienteActionPerformed(evt);

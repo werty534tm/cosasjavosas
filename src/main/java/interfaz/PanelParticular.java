@@ -42,6 +42,7 @@ public class PanelParticular extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 2, 18)); // NOI18N
         jLabel2.setText("Particular");

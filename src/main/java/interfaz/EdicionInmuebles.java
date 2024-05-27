@@ -83,6 +83,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 2, 18)); // NOI18N
         jLabel2.setText("Edición de inmuebles");

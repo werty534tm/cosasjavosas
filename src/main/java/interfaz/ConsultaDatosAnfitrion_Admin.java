@@ -49,6 +49,7 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
         jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel3.setText("Tipo de anfitrión");
 

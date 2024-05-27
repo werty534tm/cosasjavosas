@@ -53,6 +53,7 @@ public class ConsultaDatosParticular_Admin extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 2, 18)); // NOI18N
         jLabel2.setText("Datos del particular");

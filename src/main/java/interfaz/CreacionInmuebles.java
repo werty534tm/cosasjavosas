@@ -92,6 +92,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("C059", 0, 36)); // NOI18N
         jLabel1.setText("JavaBnB");
