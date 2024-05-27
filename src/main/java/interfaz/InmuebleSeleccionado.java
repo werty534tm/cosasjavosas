@@ -8,13 +8,41 @@ package interfaz;
  *
  * @author luver
  */
+
+import clases.FuncionesImagenes;
+import clases.Inmueble;
+import clases.Cliente;
+
 public class InmuebleSeleccionado extends javax.swing.JFrame {
 
+    BusquedaInmuebles main;
+    Cliente cliente;
+    Inmueble inmueble;
+    
     /**
      * Creates new form InmuebleSeleccionado
      */
     public InmuebleSeleccionado() {
         initComponents();
+    }
+    
+    public InmuebleSeleccionado(BusquedaInmuebles bi, Inmueble i, Cliente c) {
+        initComponents();
+        main = bi;
+        cliente = c;
+        inmueble = i;
+        main.setVisible(false);
+        FuncionesImagenes.cargarImagen(this.jLabelImagen, System.getProperty("user.dir")+"/imagenes/"+inmueble.getFotografia());
+        this.jLabelCalleNumero.setText(inmueble.getDireccion().getCalle()+", "+inmueble.getDireccion().getNumero());
+        this.jLabelCP.setText(inmueble.getDireccion().getCodigoPostal());
+        this.jLabelCiudad.setText(inmueble.getDireccion().getCiudad());
+        this.jLabelNhuespedes.setText(Integer.toString(inmueble.getDatos().getHuespedes()));
+        this.jLabelNhabitaciones.setText(Integer.toString(inmueble.getDatos().getHabitaciones()));
+        this.jLabelNcamas.setText(Integer.toString(inmueble.getDatos().getCamas()));
+        this.jLabelNbaños.setText(Integer.toString(inmueble.getDatos().getBaños()));
+        this.jLabelTipo.setText(inmueble.getTipoPropiedad());
+        this.jLabelMedia.setText(Double.toString(inmueble.getCalificacion()));
+        this.setVisible(true);
     }
 
     /**
@@ -27,27 +55,27 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelImagen = new javax.swing.JLabel();
+        jLabelCalleNumero = new javax.swing.JLabel();
+        jLabelCP = new javax.swing.JLabel();
+        jLabelCiudad = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabelTipo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelMedia = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabelNhuespedes = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabelNhabitaciones = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabelNcamas = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        jLabelNbaños = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListServicios = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
@@ -55,50 +83,60 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel1.setText("(Título del inmueble inmueblososamente inmuebloso)");
 
-        jLabel3.setText("(Calle, Número)");
+        jLabelCalleNumero.setText("(Calle, Número)");
 
-        jLabel4.setText("(Número postal)");
+        jLabelCP.setText("(Número postal)");
 
-        jLabel5.setText("(Ciudad)");
+        jLabelCiudad.setText("(Ciudad)");
 
         jLabel6.setText("Tipo:");
 
-        jLabel7.setText("Apartamento");
+        jLabelTipo.setText("Apartamento");
 
         jLabel8.setText("Calificación:");
 
-        jLabel9.setText("X,Y / 5");
+        jLabelMedia.setText("X,Y / 5");
 
         jLabel10.setText("Capacidad:");
 
-        jLabel11.setText("X huéspedes");
+        jLabelNhuespedes.setText("X huéspedes");
 
         jLabel12.setText("Habitaciones:");
 
-        jLabel13.setText("Y");
+        jLabelNhabitaciones.setText("Y");
 
         jLabel14.setText("Camas:");
 
-        jLabel15.setText("Z");
+        jLabelNcamas.setText("Z");
 
         jLabel16.setText("Baños:");
 
-        jLabel17.setText("Ñ");
+        jLabelNbaños.setText("Ñ");
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jLabel18.setText("Servicios ofrecidos");
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jListServicios);
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("Reservar inmueble");
 
         jButton2.setText("Volver a la búsqueda");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("C059", 0, 18)); // NOI18N
         jLabel19.setText("JavaBnB");
@@ -118,16 +156,16 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7))
+                                .addComponent(jLabelTipo))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9))))
+                                .addComponent(jLabelMedia))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
@@ -136,13 +174,13 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(jLabelCP)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
+                                    .addComponent(jLabelCiudad)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -150,19 +188,19 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel10)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel11))
+                                                        .addComponent(jLabelNhuespedes))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel14)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel15))
+                                                        .addComponent(jLabelNcamas))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel12)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel13))
+                                                        .addComponent(jLabelNhabitaciones))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel16)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel17)))
+                                                        .addComponent(jLabelNbaños)))
                                                 .addGap(21, 21, 21)
                                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
@@ -173,7 +211,7 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel18)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel3))
+                                    .addComponent(jLabelCalleNumero))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -185,13 +223,13 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabelCalleNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(jLabelCP)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(jLabelCiudad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,19 +242,19 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
+                                    .addComponent(jLabelNhuespedes))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
-                                    .addComponent(jLabel13))
+                                    .addComponent(jLabelNhabitaciones))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel14)
-                                    .addComponent(jLabel15))
+                                    .addComponent(jLabelNcamas))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel16)
-                                    .addComponent(jLabel17))
+                                    .addComponent(jLabelNbaños))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -224,15 +262,15 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
                             .addComponent(jButton2))
                         .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabelTipo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabelMedia))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(jLabel19)
                         .addContainerGap())))
@@ -240,6 +278,17 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.main.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        main.setVisible(false);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -282,24 +331,24 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel jLabelCP;
+    private javax.swing.JLabel jLabelCalleNumero;
+    private javax.swing.JLabel jLabelCiudad;
+    private javax.swing.JLabel jLabelImagen;
+    private javax.swing.JLabel jLabelMedia;
+    private javax.swing.JLabel jLabelNbaños;
+    private javax.swing.JLabel jLabelNcamas;
+    private javax.swing.JLabel jLabelNhabitaciones;
+    private javax.swing.JLabel jLabelNhuespedes;
+    private javax.swing.JLabel jLabelTipo;
+    private javax.swing.JList<String> jListServicios;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
