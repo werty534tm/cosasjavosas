@@ -12,11 +12,14 @@ package interfaz;
 import clases.Cliente;
 import clases.Inmueble;
 import clases.Datos;
+import java.util.ArrayList;
+import javax.swing.JTable;
 
 public class BusquedaInmuebles extends javax.swing.JFrame {
 
     PanelParticular main;
     Cliente cliente;
+    int numInmuebles = Datos.lista_inmuebles.size();
     
     /**
      * Creates new form BusquedaInmuebles
@@ -90,6 +93,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("<html><center><p>Volver a</p><p>buscar</p></center>");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("<html><center><p>Ver detalles</p><p>del inmueble</p><p>seleccionado</p></center>");
 
@@ -97,6 +105,91 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -203,6 +296,127 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         // TODO add your handling code here:
         main.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void limpiarTabla(JTable jt) {
+        for (int i = 0;i<numInmuebles;i++){
+            jt.setValueAt(null,i,0);
+            jt.setValueAt(null, i, 1);
+            jt.setValueAt(null, i, 2);
+            jt.setValueAt(null, i , 3);
+            jt.setValueAt(null, i, 4);
+        }
+    }
+
+    private void añadirInmueble(Inmueble in, JTable jt, int fila) {
+        jt.setValueAt(in.getTitulo(),fila,0);
+        jt.setValueAt(in.getDireccion().getCiudad(), fila, 1);
+        jt.setValueAt(in.getTipoPropiedad(), fila, 2);
+        jt.setValueAt(in.getPrecioNoche(), fila , 3);
+        jt.setValueAt(in.getCalificacion(), fila, 4);
+        
+    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Limpieza de tabla
+        limpiarTabla(this.jTable1);
+        
+        // Selección de inmuebles de la ciudad especificada
+        ArrayList<Inmueble> inSel1 = new ArrayList<>();
+        for (int i = 0;i<numInmuebles;i++) {
+            Inmueble in = Datos.lista_inmuebles.get(i);
+            if (jTextField1.getText().equals("")) {
+                añadirInmueble(in,this.jTable1,i);
+                inSel1.add(Datos.lista_inmuebles.get(i));
+            } else {
+                if (in.getDireccion().getCiudad().equals(jTextField1.getText())) {
+                    inSel1.add(in);
+                }
+                for (int j = 0;j < inSel1.size();j++) {
+                    Inmueble inselecc = inSel1.get(j);
+                    añadirInmueble(inselecc, this.jTable1,j);
+                }
+            }
+        }
+        System.out.println(inSel1.toString());
+        
+        // Selección de inmuebles por tipo
+        ArrayList<Inmueble> inSel2 = new ArrayList<>();
+        if (this.jComboBox2.getSelectedIndex()==1) { // Mostrar casas
+            for (int k = 0;k < inSel1.size();k++) {
+                if (inSel1.get(k).getTipoPropiedad().equals("Casa")) {
+                    inSel2.add(inSel1.get(k));
+                }
+            }
+            limpiarTabla(this.jTable1);
+            for (int l = 0;l < inSel2.size();l++) {
+                añadirInmueble(inSel2.get(l),this.jTable1,l);
+            }
+        } else if (this.jComboBox2.getSelectedIndex()==2) { // Mostrar apartamentos
+            for (int k = 0;k < inSel1.size();k++) {
+                if (inSel1.get(k).getTipoPropiedad().equals("Apartamento")) {
+                    inSel2.add(inSel1.get(k));
+                }
+            }
+            limpiarTabla(this.jTable1);
+            for (int l = 0;l < inSel2.size();l++) {
+                añadirInmueble(inSel2.get(l),this.jTable1,l);
+            }
+        } else { // Mostrar todo
+            for (int k = 0;k < inSel1.size();k++) {
+                inSel2.add(inSel1.get(k));
+            }
+        }
+        
+        System.out.println(inSel2.toString());
+        // Ordenación de inmuebles según la opción
+        ArrayList<Inmueble> inSel3 = new ArrayList<>();
+        if (this.jComboBox1.getSelectedIndex()==0) { // Ordenar por relevancia
+            Inmueble inM = inSel2.get(0);
+            for (int m = 0;m < inSel2.size();m++) {
+                for (int n = 1;n < inSel2.size();n++) {
+                    if (inSel2.get(n).getCalificacion() > inSel2.get(n - 1).getCalificacion()) {
+                        inM = inSel2.get(n);
+                    }
+                } 
+                inSel2.indexOf(inM);
+                inSel3.add(inM);
+            }
+            limpiarTabla(this.jTable1);
+            for (int o = 0;o < inSel3.size();o++) {
+                añadirInmueble(inSel3.get(o),this.jTable1,o);
+            }
+        } else if (this.jComboBox1.getSelectedIndex()==1) { // Ordenar de menor a mayor precio
+            Inmueble inmp = inSel2.get(0);
+            for (int m = 0;m < inSel2.size();m++) {
+                for (int n = 1;n < inSel2.size();n++) {
+                    if (inSel2.get(n).getPrecioNoche() < inSel2.get(n - 1).getPrecioNoche()) {
+                        inmp = inSel2.get(n);
+                    }
+                } 
+                inSel2.indexOf(inmp);
+                inSel3.add(inmp);
+            }
+            limpiarTabla(this.jTable1);
+            for (int o = 0;o < inSel3.size();o++) {
+                añadirInmueble(inSel3.get(o),this.jTable1,o);
+            }
+        } else if (this.jComboBox1.getSelectedIndex()==2) { // Ordenar de mayor a menor precio
+            Inmueble inMp = inSel2.get(0);
+            for (int m = 0;m < inSel2.size();m++) {
+                for (int n = 1;n < inSel2.size();n++) {
+                    if (inSel2.get(n).getPrecioNoche() > inSel2.get(n - 1).getPrecioNoche()) {
+                        inMp = inSel2.get(n);
+                    }
+                } 
+                inSel2.indexOf(inMp);
+                inSel3.add(inMp);
+            }
+            limpiarTabla(this.jTable1);
+            for (int o = 0;o < inSel3.size();o++) {
+                añadirInmueble(inSel3.get(o),this.jTable1,o);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
