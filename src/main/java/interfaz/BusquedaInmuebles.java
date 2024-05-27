@@ -380,10 +380,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                     if (inSel2.get(n).getCalificacion() < inSel2.get(n+1).getCalificacion()) {
                         inTemp = inSel2.get(n);
                         inTempIndex = inSel2.indexOf(inTemp);
-                        inSel2.remove(inSel2.get(n));
-                        inSel2.add(inTempIndex, inSel2.get(n));
-                        inSel2.remove(inSel2.get(n+1));
-                        inSel2.add(inTempIndex+1, inTemp);
+                        inSel2.set(inTempIndex, inSel2.get(n+1));
+                        inSel2.set(inTempIndex+1, inTemp);
                         ordenado = false;
                     }
                 } if (ordenado) {
@@ -403,10 +401,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                     if (inSel2.get(n).getPrecioNoche() > inSel2.get(n+1).getPrecioNoche()) {
                         inTemp = inSel2.get(n);
                         inTempIndex = inSel2.indexOf(inTemp);
-                        inSel2.remove(inSel2.get(n));
-                        inSel2.add(inTempIndex, inSel2.get(n));
-                        inSel2.remove(inSel2.get(n+1));
-                        inSel2.add(inTempIndex+1, inTemp);
+                        inSel2.set(inTempIndex, inSel2.get(n+1));
+                        inSel2.set(inTempIndex+1, inTemp);
                         ordenado = false;
                     }
                 } if (ordenado) {
@@ -426,10 +422,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                     if (inSel2.get(n).getPrecioNoche() < inSel2.get(n+1).getPrecioNoche()) {
                         inTemp = inSel2.get(n);
                         inTempIndex = inSel2.indexOf(inTemp);
-                        inSel2.remove(inSel2.get(n));
-                        inSel2.add(inTempIndex, inSel2.get(n));;
-                        inSel2.remove(inSel2.get(n+1));
-                        inSel2.add(inTempIndex+1, inTemp);
+                        inSel2.set(inTempIndex, inSel2.get(n+1));
+                        inSel2.set(inTempIndex+1, inTemp);
                         ordenado = false;
                     }
                 } if (ordenado) {
@@ -439,6 +433,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                     }
                 }
             }
+        } System.out.println(inSel2.toString());
+        limpiarTabla(this.jTable1);
+        for (int o = 0;o < inSel2.size();o++) {
+            añadirInmueble(inSel2.get(o),this.jTable1,o);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
