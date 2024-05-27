@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -86,27 +86,17 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jFormattedTextFieldNhuespedes" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jFormattedTextFieldNhabitaciones" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jFormattedTextFieldNhuespedes" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jFormattedTextFieldNhabitaciones" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                          </Group>
                                           <Component id="jFormattedTextFieldNbaños" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                                           <Component id="jFormattedTextFieldNcamas" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                                       </Group>
@@ -123,7 +113,8 @@
                                           <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jButtonGuardarImg" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jButtonSeleccImg" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jTextFieldNombreImagen" alignment="0" pref="200" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -139,6 +130,7 @@
                                                   <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jTextFieldAñadirServicio" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jButtonAñadirServicio" pref="179" max="32767" attributes="0"/>
+                                                  <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -261,30 +253,31 @@
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="143" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldAñadirServicio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonAñadirServicio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="jButton3" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel19" min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="jLabel19" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldNombreImagen" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonSeleccImg" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonGuardarImg" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -532,14 +525,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNombreImagen">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Seleccionar imagen"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
         <Property name="text" type="java.lang.String" value="Numero de habitaciones"/>
@@ -548,6 +533,27 @@
     <Component class="javax.swing.JLabel" name="jLabel21">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero de camas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonGuardarImg">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar imagen"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGuardarImgActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonSeleccImg">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seleccionar imagen"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSeleccImgActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;p&gt;Eliminar servicio&lt;/p&gt;&lt;p&gt;seleccionado&lt;/p&gt;&lt;/center&gt;"/>
       </Properties>
     </Component>
   </SubComponents>

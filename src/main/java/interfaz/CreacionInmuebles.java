@@ -10,14 +10,18 @@ package interfaz;
  */
 
 import clases.FuncionesImagenes;
+import clases.Inmueble;
+import clases.Direccion;
+import clases.DatosInmueble;
+import clases.Datos;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
+import java.util.ArrayList;
 
 public class CreacionInmuebles extends javax.swing.JFrame {
 
     private File imgTemp;
-    private File imgGuardada;
     
     /**
      * Creates new form CreacionInmuebles
@@ -35,7 +39,6 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFileChooser1 = new javax.swing.JFileChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -81,6 +84,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButtonGuardarImg = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,7 +129,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
 
         jLabel14.setText("Precio / noche");
 
-        jFormattedTextFieldPrecioNoche.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jFormattedTextFieldPrecioNoche.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
         jLabel15.setFont(new java.awt.Font("DejaVu Sans", 2, 14)); // NOI18N
         jLabel15.setText("Servicios");
@@ -157,6 +161,11 @@ public class CreacionInmuebles extends javax.swing.JFrame {
 
         jButtonCrearInmueble.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButtonCrearInmueble.setText("Crear inmueble");
+        jButtonCrearInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCrearInmuebleActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Volver al panel");
 
@@ -168,6 +177,8 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         });
 
         jButton3.setText("<html><center><p>Eliminar servicio</p><p>seleccionado</p></center>");
+
+        jLabel21.setText("€");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,7 +197,10 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFormattedTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jFormattedTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel21))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel13)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -197,12 +211,9 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                     .addComponent(jFormattedTextFieldNcamas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel11)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addGap(23, 23, 23)))
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel10))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jFormattedTextFieldNhuespedes, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                                         .addComponent(jFormattedTextFieldNhabitaciones)))
@@ -273,7 +284,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addComponent(jSeparator2)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)))
-                        .addGap(0, 25, Short.MAX_VALUE))))
+                        .addGap(0, 23, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +338,8 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jFormattedTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFormattedTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
@@ -373,8 +385,8 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private void jButtonSeleccImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccImgActionPerformed
         // TODO add your handling code here:
         JFileChooser fc = new JFileChooser();
-        //FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("jpg", "jpeg", "png", "gif");
-        //fc.setFilter(imgFilter);
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG, JPEG, PNG, GIF","jpg", "jpeg", "png", "gif");
+        fc.setFileFilter(imgFilter);
         int returnVal = fc.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             // Mostrar imagen
@@ -383,37 +395,48 @@ public class CreacionInmuebles extends javax.swing.JFrame {
             System.out.println(img);
             FuncionesImagenes.cargarImagen(jLabel19, img);
             // Mostrar ruta de imagen
-            jTextFieldNombreImagen.setText(img);
+            jTextFieldNombreImagen.setText(imgTemp.getName());
         }
     }//GEN-LAST:event_jButtonSeleccImgActionPerformed
 
     private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
         // TODO add your handling code here:
-        try {
-            imgGuardada = imgTemp;
-            String path = System.getProperty("user.dir")+"/imagenes/"+imgGuardada.getName();
-            System.out.println(path);
-            //Files.copy(imgTemp.toPath(), Paths.get(path)); // pene
-            InputStream is = null;
-            OutputStream os = null;
-            try {
-                is = new FileInputStream(imgTemp);
-                os = new FileOutputStream(path);
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = is.read(buffer)) > 0) {
-                    os.write(buffer, 0, length);
-                }
-            } finally {
-                is.close();
-                os.close();
-            }
-        } catch (IOException ioe) {
-            System.out.println("Error: " + ioe.toString());
-        } catch (NullPointerException npe) {
-            // popup diciendo que no se ha seleccionado una imagen
-        }
+        FuncionesImagenes.guardarImagen(imgTemp);
     }//GEN-LAST:event_jButtonGuardarImgActionPerformed
+
+    private void jButtonCrearInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearInmuebleActionPerformed
+        // TODO add your handling code here:
+        String titulo = this.jTextFieldTitulo.getText();
+        String calle = this.jTextFieldCalle.getText();
+        int numero = Integer.parseInt(this.jTextFieldNumero.getText());
+        String codigoPostal = this.jTextFieldCP.getText();
+        String ciudad = this.jTextFieldCiudad.getText();
+        int huespedes = ((Number) this.jFormattedTextFieldNhuespedes.getValue()).intValue();
+        int habitaciones = ((Number) this.jFormattedTextFieldNhabitaciones.getValue()).intValue();
+        int camas = ((Number) this.jFormattedTextFieldNcamas.getValue()).intValue();
+        int baños = ((Number) this.jFormattedTextFieldNbaños.getValue()).intValue();
+        String tipoPropiedad = this.jComboBoxTipo.getSelectedItem().toString();
+        double precioNoche = ((Number) this.jFormattedTextFieldPrecioNoche.getValue()).doubleValue();
+        ArrayList<String> servicios; // funcionamiento a añadir
+        String fotografia = this.jTextFieldNombreImagen.getText();
+        if (!titulo.equals("")&!calle.equals("")&!codigoPostal.equals("")&!ciudad.equals("")&!tipoPropiedad.equals("")){
+            if (!this.jTextFieldNumero.getText().equals("")&!this.jFormattedTextFieldPrecioNoche.getText().equals("") // falta comprobación de que esté el inmueble ya en el almacenamiento
+                    &!this.jFormattedTextFieldNhuespedes.getText().equals("")&!this.jFormattedTextFieldNhabitaciones.getText().equals("")
+                    &!this.jFormattedTextFieldNcamas.getText().equals("")&!this.jFormattedTextFieldNbaños.getText().equals("")){
+                Direccion direccion = new Direccion(calle, numero, codigoPostal, ciudad);
+                DatosInmueble datosInmueble = new DatosInmueble(huespedes, habitaciones, camas, baños);
+                Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, null, fotografia, 0);
+                System.out.println("¡Inmueble creado!");
+                System.out.println("Datos del inmueble creado: "+inmueble.toString());
+                Datos.lista_inmuebles.add(inmueble);
+                System.out.println(Datos.lista_inmuebles);
+            } else {
+                System.out.println("Faltan datos");
+            }
+        } else {
+            System.out.println("Faltan datos");
+        }
+    }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,7 +481,6 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGuardarImg;
     private javax.swing.JButton jButtonSeleccImg;
     private javax.swing.JComboBox<String> jComboBoxTipo;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFormattedTextField jFormattedTextFieldNbaños;
     private javax.swing.JFormattedTextField jFormattedTextFieldNcamas;
     private javax.swing.JFormattedTextField jFormattedTextFieldNhabitaciones;
@@ -477,6 +499,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
