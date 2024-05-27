@@ -443,18 +443,21 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                     Datos.lista_inmuebles.add(inmueble);
                     System.out.println(Datos.lista_inmuebles);
                 } else {
+                    boolean esisten = false;
                     for (int i = 0;i < Datos.lista_inmuebles.size();i++) {
                         Inmueble in = Datos.lista_inmuebles.get(i);
                         if (!in.getTitulo().equals(titulo)) {
-                            System.out.println("¡Inmueble creado!");
-                            System.out.println("Datos del inmueble creado: "+inmueble.toString());
-                            Datos.lista_inmuebles.add(inmueble);
-                            System.out.println(Datos.lista_inmuebles);
-                        } else {
+                            esisten = true;
                             JOptionPane.showMessageDialog(this,
                                     "Un inmueble con el mismo título ya ha sido añadido. No se ha procedido con la creación del inmueble",
                                     "Error al crear el inmueble", JOptionPane.ERROR_MESSAGE);
                         }
+                    }
+                    if(!esisten){
+                        System.out.println("¡Inmueble creado!");
+                                System.out.println("Datos del inmueble creado: "+inmueble.toString());
+                                Datos.lista_inmuebles.add(inmueble);
+                                System.out.println(Datos.lista_inmuebles);
                     }
                 }
                 
