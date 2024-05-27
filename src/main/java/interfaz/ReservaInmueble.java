@@ -172,7 +172,7 @@ public class ReservaInmueble extends javax.swing.JFrame {
                 diasReservados.add(fen.plusDays(j));
             }
             System.out.println(diasReservados.toString());
-            if (diasReservados.contains(fe) || diasReservados.contains(fs)) {
+            if (diasReservados.contains(fechaEntrada) || diasReservados.contains(fechaSalida)) {
                 ocupado = true; 
             }
         } if (ocupado==false) {
