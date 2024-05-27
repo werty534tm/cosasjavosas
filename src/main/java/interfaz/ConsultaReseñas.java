@@ -6,6 +6,7 @@ package interfaz;
 
 import clases.Reseña;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  */
 public class ConsultaReseñas extends javax.swing.JDialog {
     ArrayList<Reseña> reseñas;
+    DefaultListModel modelo = new DefaultListModel();
     /**
      * Creates new form ConsultaReseñas
      */
@@ -20,6 +22,10 @@ public class ConsultaReseñas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.reseñas = reseñas;
+        for(int i=0;i<reseñas.size();i++){
+            modelo.add(i, reseñas.get(i).getTitulo());
+        }
+        this.jList1.setModel(modelo);
     }
 
     /**
