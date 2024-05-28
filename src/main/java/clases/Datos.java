@@ -166,8 +166,10 @@ public class Datos {
                             System.out.println(lista_reseñas_texto.size());
                             for(int i=0;i<lista_reseñas_texto.size();i++){
                                 String[] reseñita = lista_reseñas_texto.get(i).split("<");
-                                Reseña reseña = new Reseña(titulo,reseñita[0],reseñita[1], Integer.parseInt(reseñita[2]), reseñita[3]);
-                                inm.getReseñas().add(reseña);
+                                if (reseñita.length==4) {
+                                    Reseña reseña = new Reseña(titulo,reseñita[0],reseñita[1], Integer.parseInt(reseñita[2]), reseñita[3]);
+                                    inm.getReseñas().add(reseña);
+                                }
                             }
                             inm.setCalificacion();
                             Datos.lista_inmuebles.add(inm);
