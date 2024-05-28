@@ -19,7 +19,8 @@ public class FuncionesImagenes {
     
     /**
     * Carga en el JLabel especificado una imagen proporcionada a partir de su ruta
-    * @param JLabel, String etiqueta e imagen
+    * @param JLimg JLabel que contendrá la imagen
+    * @param img Ruta de la imagen
     **/
     public static void cargarImagen(JLabel JLimg, String img) {
         JLimg.setSize(180,180);
@@ -29,8 +30,8 @@ public class FuncionesImagenes {
     }
     
     /**
-    * Guarda el archivo de imagen proporcionado en la carpeta "imagenes" del proyecto, que contiene todas las imágenes de los inmuebles
-    * 
+    * Guarda el archivo de imagen proporcionado en la carpeta "imagenes" del proyecto, que contiene las imágenes de todos los inmuebles
+    * @param img Archivo de la imagen
     **/
     public static void guardarImagen(File img) {
         try {

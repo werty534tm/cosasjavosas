@@ -36,6 +36,18 @@ public class Cliente extends Persona{
         return nombre+'ඞ'+DNI+'ඞ'+teléfono+'ඞ'+email+'ඞ'+clave+'ඞ'+tarjeta_de_crédito.getTitular()+'ඞ'+tarjeta_de_crédito.getNúmero_tarjeta()+'ඞ'+tarjeta_de_crédito.getCaducidad()+'ඞ'+vip;
     }
     
+    /**
+     * Actualiza los datos del particular
+     * @param nombre Nombre
+     * @param DNI DNI
+     * @param teléfono Número de teléfono
+     * @param correo Correo electrónico
+     * @param contraseña Contraseña
+     * @param titular Titular de la tarjeta de crédito
+     * @param num_tarjeta Número de la tarjeta de crédito
+     * @param caducidad Fecha de caducidad de la tarjeta de crédito
+     * @param vip Indica si el particular es un cliente VIP (true si lo es, false en caso contrario)
+     */
     public void actualizarDatos(String nombre, String DNI, String teléfono,
                                 String correo, String contraseña, String titular,
                                 String num_tarjeta, LocalDate caducidad, boolean vip){
