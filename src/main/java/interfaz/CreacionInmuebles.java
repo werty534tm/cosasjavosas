@@ -497,7 +497,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         } else {
             System.out.println("Faltan datos. Recuerda guardar la imagen");
         }
-        //Datos.guardarDatos("./backup.txt");
+        Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
 
     private void jButtonAñadirServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirServicioActionPerformed

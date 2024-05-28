@@ -49,7 +49,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         }
         System.out.println(this.indexes);
         for(int i=0;i<indexes.size();i++){
-            modelo_combo_box.addElement(Datos.lista_inmuebles.get(i).getTitulo());
+            modelo_combo_box.addElement(Datos.lista_inmuebles.get(this.indexes.get(i)).getTitulo());
         }
         this.jComboBox1.setModel(modelo_combo_box);
         String imn_selec_titulo = String.valueOf(this.jComboBox1.getSelectedItem());
@@ -583,7 +583,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         }
         System.out.println(this.indexes);
         for(int i=0;i<indexes.size();i++){
-            modelo_combo_box.addElement(Datos.lista_inmuebles.get(i).getTitulo());
+            modelo_combo_box.addElement(Datos.lista_inmuebles.get(this.indexes.get(i)).getTitulo());
         }
         this.jComboBox1.setModel(modelo_combo_box);
         this.selecInm();
