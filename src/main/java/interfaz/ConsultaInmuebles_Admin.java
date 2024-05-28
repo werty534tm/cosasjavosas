@@ -336,6 +336,8 @@ public class ConsultaInmuebles_Admin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Inmueble inm = Datos.lista_inmuebles.get(this.jList1.getSelectedIndex());
+        ConsultarReseñas_Admin consulta = new ConsultarReseñas_Admin(this, inm.getTitulo());
+        consulta.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
