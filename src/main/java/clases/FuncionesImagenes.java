@@ -16,6 +16,11 @@ import java.io.File;
 import java.io.*;
 
 public class FuncionesImagenes {
+    
+    /**
+    * Carga en el JLabel especificado una imagen proporcionada a partir de su ruta
+    * @param JLabel, String etiqueta e imagen
+    **/
     public static void cargarImagen(JLabel JLimg, String img) {
         JLimg.setSize(180,180);
         ImageIcon imagen = new ImageIcon(img);

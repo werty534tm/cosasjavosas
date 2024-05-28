@@ -70,6 +70,11 @@ public class PanelAnfitrion extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton3.setText("<html><center><p>Consulta de</p><p>reservas</p></center>");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton4.setText("<html><center><p>Modificación de</p><p>datos personales</p></center>");
@@ -166,6 +171,11 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         editor.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ConsultaReservas_Cliente cr_c = new ConsultaReservas_Cliente(this, this.anfitrión);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

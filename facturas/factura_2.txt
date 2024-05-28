@@ -1,0 +1,35 @@
+
+    JavaBnB
+---------------
+
+Inmueble reservado:
+
+titulititulo
+3, 3
+3
+3
+
+Tipo de inmueble: Casa
+Capacidad de 3 huéspedes.
+Contiene 3 habitaciones, 3 camas y 3 baños.
+
+Listado de servicios: 
+josepaja, josepaja2
+
+---------------
+
+Fecha de entrada: 2012-12-20
+Fecha de salida: 2012-12-30
+
+Precio por noche: 3.0 €
+Número de días reservados: 10
+Importe total: 30.0 €
+
+---------------
+
+Nombre del cliente: 1
+Email: 1
+Teléfono: 1
+Titular de la tarjeta: 1
+
+---------------

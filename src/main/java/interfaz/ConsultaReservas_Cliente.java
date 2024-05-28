@@ -10,14 +10,83 @@ package interfaz;
  */
 
 // mostrar datos dependiendo del tipo de cliente
+import clases.Datos;
+import clases.Anfitrión;
+import clases.Cliente;
+import clases.Inmueble;
+import clases.Reserva;
+import java.util.ArrayList;
 
 public class ConsultaReservas_Cliente extends javax.swing.JFrame {
 
+    String tipo;
+    PanelAnfitrion mainA;
+    PanelParticular mainB;
+    Anfitrión anfitrion;
+    Cliente cliente;
+    ArrayList<Reserva> reservasSelecc = new ArrayList<>();
+    
     /**
      * Creates new form ConsultaReservas_Anfitrion
      */
-    public ConsultaReservas_Cliente() {
+    public ConsultaReservas_Cliente(PanelAnfitrion pa, Anfitrión a) {
         initComponents();
+        tipo = "A";
+        mainA = pa;
+        anfitrion = a;
+        mainA.setVisible(false);
+        for (int i = 0;i < Datos.lista_reservas.size();i++) {
+            Reserva r = Datos.lista_reservas.get(i);
+            int numerico = 0;
+            for (int j = 0;j < Datos.lista_inmuebles.size();j++) {
+                if (Datos.lista_inmuebles.get(j).getTitulo().equals(r.getTituloInmueble())
+                        && Datos.lista_inmuebles.get(j).getDueño().equals(anfitrion.getNombre())) {
+                    numerico = j;
+                }
+            }
+            Inmueble in = Datos.lista_inmuebles.get(numerico);
+            Cliente c = Datos.lista_clientes.get(r.getEmailCliente());
+            this.jTable1.setValueAt(r.getTituloInmueble(), i, 0);//titulo inmueble
+            this.jTable1.setValueAt(in.getTipoPropiedad(), i, 1);//tipo
+            this.jTable1.setValueAt(in.getDireccion().getCalle()+", "+in.getDireccion().getNumero()+" - C.P.: "+in.getDireccion().getCodigoPostal(), i, 2);//direccion
+            this.jTable1.setValueAt(in.getDireccion().getCiudad(), i, 3);//ciudad
+            this.jTable1.setValueAt(in.getDueño(), i, 4);//anfitrion
+            this.jTable1.setValueAt(c.getNombre(), i, 5);//particular
+            this.jTable1.setValueAt(r.getEntrada(), i, 6);//fecha entrada
+            this.jTable1.setValueAt(r.getSalida(), i, 7);//fecha salida
+            this.jTable1.setValueAt(r.getImporte(), i, 8);//importe
+        }
+        this.setVisible(true);
+
+    }
+    
+    public ConsultaReservas_Cliente(PanelParticular pp, Cliente cl) {
+        initComponents();
+        tipo = "B";
+        mainB = pp;
+        cliente = cl;
+        for (int i = 0;i < Datos.lista_reservas.size();i++) {
+            Reserva r = Datos.lista_reservas.get(i);
+            int numerico = 0;
+            for (int j = 0;j < Datos.lista_inmuebles.size();j++) {
+                if (Datos.lista_inmuebles.get(j).getTitulo().equals(r.getTituloInmueble())
+                        && r.getEmailCliente().equals(cl.getEmail())) {
+                    numerico = j;
+                }
+            }
+            Inmueble in = Datos.lista_inmuebles.get(numerico);
+            Cliente c = Datos.lista_clientes.get(r.getEmailCliente());
+            this.jTable1.setValueAt(r.getTituloInmueble(), i, 0);//titulo inmueble
+            this.jTable1.setValueAt(in.getTipoPropiedad(), i, 1);//tipo
+            this.jTable1.setValueAt(in.getDireccion().getCalle()+", "+in.getDireccion().getNumero()+" - C.P.: "+in.getDireccion().getCodigoPostal(), i, 2);//direccion
+            this.jTable1.setValueAt(in.getDireccion().getCiudad(), i, 3);//ciudad
+            this.jTable1.setValueAt(in.getDueño(), i, 4);//anfitrion
+            this.jTable1.setValueAt(c.getNombre(), i, 5);//particular
+            this.jTable1.setValueAt(r.getEntrada(), i, 6);//fecha entrada
+            this.jTable1.setValueAt(r.getSalida(), i, 7);//fecha salida
+            this.jTable1.setValueAt(r.getImporte(), i, 8);//importe
+        }
+        this.setVisible(true);
     }
 
     /**
@@ -78,6 +147,11 @@ public class ConsultaReservas_Cliente extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setText("Volver al panel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,41 +185,20 @@ public class ConsultaReservas_Cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (tipo.equals("A")) {
+            this.mainA.setVisible(true);
+            this.setVisible(false);
+        } else if (tipo.equals("B")) {
+            this.mainB.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaReservas_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaReservas_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaReservas_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaReservas_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaReservas_Cliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
