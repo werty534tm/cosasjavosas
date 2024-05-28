@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 
+ * Clase que maneja los datos almacenados de la aplicación
  * @autor ricoyogur
  */
 public class Datos {
@@ -34,6 +34,10 @@ public class Datos {
         //xd
     }
 
+    /**
+     * Guarda los datos de la aplicación en un archivo con el nombre proporcionado a la función
+     * @param filename Nombre del archivo
+     */
     public static void guardarDatos(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("Clientes:\n");
@@ -65,6 +69,10 @@ public class Datos {
         }
     }
 
+    /**
+     * Carga los datos de la aplicacion almacenados en el archivo correspondiente
+     * @param filename Nombre del archivo que almacena los datos de la aplicación
+     */
     public static void recuperarDatos(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
@@ -202,6 +210,10 @@ public class Datos {
         }
     }
 
+    /**
+     * Borra los datos de la aplicación
+     * @param filename Nombre del archivo que almacena los datos de la aplicación
+     */
     public static void borrarDatos(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             //borra el contenido

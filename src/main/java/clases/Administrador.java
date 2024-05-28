@@ -47,7 +47,7 @@ public class Administrador {
 
     /**
      * Crea un administrador
-     * @param correo Correo del administrador
+     * @param correo Correo electrónico del administrador
      * @param clave  Clave del administrador
      */
     public Administrador(String correo, String clave) {
@@ -57,7 +57,7 @@ public class Administrador {
 
     /**
      * Genera un String con la información del administrador
-     * @return String - Cadena de texto con la información del administrador
+     * @return String - Información del administrador
      */
     @Override
     public String toString() {

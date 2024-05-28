@@ -8,7 +8,7 @@ import clases.Datos;
 import interfaz.*;
 
 /**
- *
+ * Carga el programa con el contenido de las clases almacenado en un archivo de texto
  * @author cojones
  */
 public class Cosasjavosas {
