@@ -33,7 +33,7 @@ public class ConsultarReseñas_Admin extends javax.swing.JFrame {
         }
         this.reseñas = Datos.lista_inmuebles.get(this.index_inm).getReseñas();
         for(int i=0;i<reseñas.size();i++){
-            modelo.add(i, reseñas.get(i).getTitulo()+" | Autor"+reseñas.get(i).getNombre_cliente());
+            modelo.add(i, reseñas.get(i).getTitulo()+" | Autor: "+reseñas.get(i).getNombre_cliente());
             System.out.println(reseñas.get(i));
             System.out.println(reseñas.get(i).getTitulo());
         }

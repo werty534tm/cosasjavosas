@@ -11,16 +11,20 @@ package interfaz;
 
 import clases.Datos;
 import clases.FuncionesImagenes;
+import clases.Inmueble;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 public class EdicionInmuebles extends javax.swing.JFrame {
     String correo;
     File imgTemp;
     ArrayList<Integer> indexes = new ArrayList<>();
+    int index_inm;
+    DefaultListModel modelin = new DefaultListModel();
     
     /**
      * Creates new form EdicionInmuebles
@@ -43,6 +47,12 @@ public class EdicionInmuebles extends javax.swing.JFrame {
             modelo_combo_box.addElement(Datos.lista_inmuebles.get(i).getTitulo());
         }
         this.jComboBox1.setModel(modelo_combo_box);
+        String imn_selec_titulo = String.valueOf(this.jComboBox1.getSelectedItem());
+        this.index_inm = 0;
+        while(this.index_inm < Datos.lista_inmuebles.size()
+                && !imn_selec_titulo.equals(Datos.lista_inmuebles.get(this.index_inm).getTitulo())){
+            this.index_inm += 1;
+        }
     }
 
     /**
@@ -114,6 +124,11 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         jLabel3.setText("Selecciona un inmueble:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Dar de baja el inmueble seleccionado");
 
@@ -420,6 +435,21 @@ public class EdicionInmuebles extends javax.swing.JFrame {
             jTextFieldNombreImagen.setText(img);
         }
     }//GEN-LAST:event_jButtonSeleccImgActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        Inmueble inm = Datos.lista_inmuebles.get(this.index_inm);
+        this.jTextFieldCalle.setText(inm.getDireccion().getCalle());
+        this.jTextFieldCiudad.setText(inm.getDireccion().getCiudad());
+        this.jTextFieldCP.setText(inm.getDireccion().getCodigoPostal());
+        this.jTextFieldNumero.setText(String.valueOf(inm.getDireccion().getNumero()));
+        this.jFormattedTextFieldNbaños.setText(String.valueOf(inm.getDatos().getBaños()));
+        this.jFormattedTextFieldNcamas.setText(String.valueOf(inm.getDatos().getCamas()));
+        this.jFormattedTextFieldNhabitaciones.setText(String.valueOf(inm.getDatos().getHabitaciones()));
+        this.jFormattedTextFieldNhuespedes.setText(String.valueOf(inm.getDatos().getHuespedes()));
+        this.jFormattedTextFieldPrecioNoche.setText(String.valueOf(inm.getPrecioNoche()));
+        FuncionesImagenes.cargarImagen(jLabel19, inm.getFotografia());
+        for(int i=0;i<inm.getServicios().size();i++){this.modelin.add(i, inm.getServicios().get(i));}
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
