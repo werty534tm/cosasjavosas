@@ -75,6 +75,11 @@ public class ConsultarReseñas extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,6 +125,12 @@ public class ConsultarReseñas extends javax.swing.JFrame {
         CreacionReseña creacion_reseña = new CreacionReseña(this, true, this.index_inm, this.correo);
         creacion_reseña.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        int index = this.jList1.getSelectedIndex();
+        VerReseña ver_reseña = new VerReseña(this, true, this.reseñas.get(index));
+        ver_reseña.setVisible(true);
+    }//GEN-LAST:event_jList1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
