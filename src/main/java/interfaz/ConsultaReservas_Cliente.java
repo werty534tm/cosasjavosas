@@ -5,11 +5,11 @@
 package interfaz;
 
 /**
- *
+ * Muestra al cliente las reservas relacionadas con él.
+ * Muestra las reservas realizadas de un particular o las reservas realizadas a los inmuebles de un anfitrión
  * @author luver
  */
 
-// mostrar datos dependiendo del tipo de cliente
 import clases.Datos;
 import clases.Anfitrión;
 import clases.Cliente;
@@ -27,7 +27,9 @@ public class ConsultaReservas_Cliente extends javax.swing.JFrame {
     ArrayList<Reserva> reservasSelecc = new ArrayList<>();
     
     /**
-     * Creates new form ConsultaReservas_Anfitrion
+     * Crea e inicializa la ventana con este constructor en caso de que el cliente sea un anfitrión
+     * @param pa Ventana de origen
+     * @param a Anfitrión de la sesión
      */
     public ConsultaReservas_Cliente(PanelAnfitrion pa, Anfitrión a) {
         initComponents();
@@ -60,6 +62,11 @@ public class ConsultaReservas_Cliente extends javax.swing.JFrame {
 
     }
     
+    /**
+     * Crea e inicializa la ventana con este constructor en caso de que el cliente sea un particular
+     * @param pp Ventana de origen
+     * @param cl Cliente de la sesión
+     */
     public ConsultaReservas_Cliente(PanelParticular pp, Cliente cl) {
         initComponents();
         tipo = "B";
@@ -186,6 +193,10 @@ public class ConsultaReservas_Cliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if (tipo.equals("A")) {
@@ -196,10 +207,6 @@ public class ConsultaReservas_Cliente extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

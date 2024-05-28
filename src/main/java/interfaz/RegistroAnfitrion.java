@@ -9,20 +9,17 @@ import clases.Datos;
 import java.time.LocalDate;
 
 /**
- *
+ * Permite al ususario segistrarse como anfitrión en la aplicación.
+ * La fecha de registro se establece automáticamente a partir de la fecha del dispositivo
  * @author luver
  */
-
-/*
-* La fecha de registro se establece automáticamente a partir de la fecha del dispositivo
-*/
 
 public class RegistroAnfitrion extends javax.swing.JFrame {
 
     InicioSesionCliente main;
     /**
      * Crea un nuevo RegistroAnfitrión
-     * @param isc 
+     * @param isc Ventana de origen
      */
     public RegistroAnfitrion(InicioSesionCliente isc) {
         main = isc;
@@ -181,7 +178,7 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
 
     /**
      * Cierra la ventana
-     * @param evt 
+     * @param evt Click en el botón
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -190,7 +187,7 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
 
     /**
      * Vuelve a la página anterior
-     * @param evt 
+     * @param evt Click en el botón
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
@@ -199,7 +196,7 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
 
     /**
      * Crea y guarda un nuevo anfitrión
-     * @param evt 
+     * @param evt Click en el botón
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nombre = this.jTextField1.getText();

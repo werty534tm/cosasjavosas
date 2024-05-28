@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * Muestra al usuario las opciones de inicio de sesión
  * @author luver
  */
 public class Inicio extends javax.swing.JFrame {
@@ -101,12 +101,20 @@ public class Inicio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva a la pantalla de inicio de sesión de administradores
+     * @param evt Click en el botón
+     */
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
         InicioSesionAdmin inicio_admin = new InicioSesionAdmin(this);
         inicio_admin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAdminActionPerformed
 
+    /**
+     * Te lleva a la pantalla de inicio de sesión de clientes
+     * @param evt Click en el botón
+     */
     private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
         InicioSesionCliente inicio_cliente = new InicioSesionCliente(this);
         inicio_cliente.setVisible(true);

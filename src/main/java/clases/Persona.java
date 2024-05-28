@@ -57,7 +57,7 @@ public class Persona {
     
     /**
      * Sustituye el DNI del cliente por el proporcionado
-     * @param DNI 
+     * @param DNI DNI
      */
     public void setDNI(String DNI){
         this.DNI = DNI;

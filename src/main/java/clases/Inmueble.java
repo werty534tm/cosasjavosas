@@ -42,7 +42,7 @@ public class Inmueble {
 
     /**
      * Obtiene las reseñas del inmueble
-     * @return ArrayList<Reseñas> - ArrayList con las reseñas del inmueble
+     * @return ArrayList - ArrayList con las reseñas del inmueble
      */
     public ArrayList<Reseña> getReseñas() {
         return reseñas;
@@ -50,7 +50,7 @@ public class Inmueble {
 
     /**
      * Sustituye la lista de reseñas del inmueble por la proporcionada
-     * @param reseñas ArrayList<Reseñas> con reseñas del inmueble
+     * @param reseñas ArrayList con reseñas del inmueble
      */
     public void setReseñas(ArrayList<Reseña> reseñas) {
         this.reseñas = reseñas;
@@ -130,7 +130,7 @@ public class Inmueble {
 
     /**
      * Obtiene la lista de servicios proporcionados por el inmueble
-     * @return ArrayList<String> - Lista de servicios
+     * @return ArrayList con la lista de servicios
      */
     public ArrayList<String> getServicios() {
         return servicios;

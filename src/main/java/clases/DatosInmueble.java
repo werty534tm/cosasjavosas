@@ -81,10 +81,10 @@ public class DatosInmueble {
 
     /**
      * Crea una lista de cifras de datos del inmueble
-     * @param huespedes
-     * @param habitaciones
-     * @param camas
-     * @param baños 
+     * @param huespedes Número de huéspedes
+     * @param habitaciones Número de habitaciones
+     * @param camas Número de camas
+     * @param baños Número de baños
      */
     public DatosInmueble(int huespedes, int habitaciones, int camas, int baños) {
         this.huespedes = huespedes;

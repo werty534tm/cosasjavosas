@@ -7,14 +7,17 @@ package interfaz;
 import clases.Anfitrión;
 
 /**
- *
+ * Muestra al anfitrión lo que puede hacer
  * @author luver
  */
 public class PanelAnfitrion extends javax.swing.JFrame {
     InicioSesionCliente inicio_sesion;
     Anfitrión anfitrión;
+    
     /**
-     * Creates new form PanelAnfitrion
+     * Crea e inicializa la ventana
+     * @param inicio_sesión_cliente Panel de origen
+     * @param anfitrión Anfitrión de la sesión
      */
     public PanelAnfitrion(InicioSesionCliente inicio_sesión_cliente, Anfitrión anfitrión) {
         initComponents();
@@ -148,11 +151,19 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Cierra sesión y te lelva de vuelta a la ventana de inicio de sesión de clientes
+     * @param evt Click en el botón
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.inicio_sesion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    /**
+     * Te lleva a la ventana para modificar los datos personales del anfitrión
+     * @param evt Click en el botón
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         ModificacionDatosAnfitrion modificar_datos = new ModificacionDatosAnfitrion(this, this.anfitrión);
         modificar_datos.setVisible(true);
@@ -160,18 +171,30 @@ public class PanelAnfitrion extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Te lleva a la ventana de creación de inmuebles
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CreacionInmuebles creación = new CreacionInmuebles(this, this.anfitrión.getEmail());
         creación.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Te lleva a la ventana de edición de inmuebles
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         EdicionInmuebles editor = new EdicionInmuebles(this,this.anfitrión.getEmail());
         editor.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Te lleva a la ventana de consulta de reservas de los inmuebles del anfitrión
+     * @param evt Click en el botón
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         ConsultaReservas_Cliente cr_c = new ConsultaReservas_Cliente(this, this.anfitrión);

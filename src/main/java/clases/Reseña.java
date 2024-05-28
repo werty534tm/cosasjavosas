@@ -114,7 +114,7 @@ public class Reseña {
     
     /**
      * Genera un String con la información de la reseña
-     * @return 
+     * @return String - Información de la reseña
      */
     @Override
     public String toString(){

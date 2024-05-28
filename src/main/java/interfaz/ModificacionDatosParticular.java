@@ -10,14 +10,17 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- *
+ * Permite al particular Modificar sus datos personales
  * @author luver
  */
 public class ModificacionDatosParticular extends javax.swing.JFrame {
     PanelParticular panel;
     Cliente cliente;
+    
     /**
-     * Creates new form ModificacionDatosParticular
+     * Crea e inicializa la ventana
+     * @param panel_particular Panel de origen
+     * @param cliente Cliente de la sesión
      */
     public ModificacionDatosParticular(PanelParticular panel_particular, Cliente cliente) {
         initComponents();
@@ -34,6 +37,10 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
         String fecha =this.cliente.getTarjeta_de_crédito().getCaducidad().format(formatter);
         this.jFormattedTextField1.setText(fecha);
     }
+    
+    /**
+     * Actualiza los datos del particular
+     */
     public void setup(){
         this.jTextFieldNombre.setText(this.cliente.getNombre());
         this.jTextFieldDNI.setText(this.cliente.getDNI());
@@ -243,12 +250,20 @@ public class ModificacionDatosParticular extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.panel.setup();
         this.panel.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Guarda los cambios realizados en los datos personales del particular
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!this.cliente.getEmail().equals(this.jTextFieldEmail.getText())){
             Cliente c = Datos.lista_clientes.get(this.cliente.getEmail());

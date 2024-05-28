@@ -7,17 +7,16 @@ package interfaz;
 import clases.Reseña;
 
 /**
- *
+ * Permite al administrador ver la reseña seleccionada
  * @author ricoyogur
  */
 public class VerReseña_admin extends javax.swing.JDialog {
     Reseña reseña;
     /**
      * Creates new form VerReseña
-     * @param parent
-     * @param modal
-     * @param reseña
-     * 
+     * @param parent Panel de origen
+     * @param modal Determina si la ventana es modal o no
+     * @param reseña Reseña seleccionada
      */
     public VerReseña_admin(java.awt.Frame parent, boolean modal, Reseña reseña) {
         super(parent, modal);

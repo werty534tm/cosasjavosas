@@ -6,13 +6,15 @@ package interfaz;
 import clases.Datos;
 
 /**
- *
+ * Muestra al usuario la pantalla de inicio de sesión de clientes
  * @author luver
  */
 public class InicioSesionCliente extends javax.swing.JFrame {
     Inicio inicio;
+    
     /**
-     * Creates new form InicioSesionCliente
+     * Crea e inicializa la ventana
+     * @param inicio Panel de origen
      */
     public InicioSesionCliente(Inicio inicio) {
         initComponents();
@@ -168,11 +170,19 @@ public class InicioSesionCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         inicio.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Si los campos de texto contienen informacion correcta, te lleva al panel de anfitrión o cliente dependiendo del tipo de ususario al que se haya accedido
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String correo = this.jTextFieldCorreo.getText();
         String clave = this.jTextFieldClave.getText();
@@ -201,6 +211,10 @@ public class InicioSesionCliente extends javax.swing.JFrame {
         else{this.jTextFieldCorreo.setText("Correo no registrado.");}
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Te lleva a la pantalla de registro de cuentas de particulares
+     * @param evt Click en el botón
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         RegistroParticular registro_particular = new RegistroParticular(this);
@@ -208,6 +222,10 @@ public class InicioSesionCliente extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Te lleva a la pantalla de registro de cuentas de anfitriones
+     * @param evt Click en el botón
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         RegistroAnfitrion registro_anfitrion = new RegistroAnfitrion(this);

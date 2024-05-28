@@ -5,13 +5,15 @@
 package interfaz;
 
 /**
- *
+ * Muestra al administrador lo que puede hacer
  * @author luver
  */
 public class PanelAdmin extends javax.swing.JFrame {
     InicioSesionAdmin inicio_admin;
+    
     /**
-     * Creates new form PanelAdmin
+     * Crea e inicaliza la ventana
+     * @param inicio_admin Panel de origen
      */
     public PanelAdmin(InicioSesionAdmin inicio_admin) {
         initComponents();
@@ -117,23 +119,39 @@ public class PanelAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Cierra sesión y te lleva de vuelta a la pantalla de inicio de sesión de administradores
+     * @param evt Click en el botón
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.inicio_admin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Te lleva a la consulta de clientes registrados en la aplicación
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ConsultaClientes_Admin consulta_clientes = new ConsultaClientes_Admin(this);
         consulta_clientes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Te lleva a la consulta de inmuebles disponibles en la aplicación
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ConsultaInmuebles_Admin consulta_inmuebles = new ConsultaInmuebles_Admin(this);
         consulta_inmuebles.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Te lleva a la consulta de reservas de los inmuebles de la aplicación
+     * @param evt Click en el botón
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         ConsultaDatosReservas_Admin cdr_a = new ConsultaDatosReservas_Admin(this);

@@ -7,14 +7,17 @@ package interfaz;
 import clases.Cliente;
 
 /**
- *
+ * Muestra al cliente lo que puede hacer
  * @author luver
  */
 public class PanelParticular extends javax.swing.JFrame {
     InicioSesionCliente inicio_cliente;
     Cliente cliente;
+    
     /**
-     * Creates new form PanelParticular
+     * Crea e inicializa la ventana
+     * @param inicio_sesión_cliente Panel de origen
+     * @param cliente Cliente de la sesión
      */
     public PanelParticular(InicioSesionCliente inicio_sesión_cliente, Cliente cliente) {
         initComponents();
@@ -135,6 +138,10 @@ public class PanelParticular extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva a la modificación de datos del particular
+     * @param evt Click en el botón
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         ModificacionDatosParticular modificar_datos = new ModificacionDatosParticular(this, this.cliente);
         modificar_datos.setup();
@@ -142,16 +149,28 @@ public class PanelParticular extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    /**
+     * Cierra sesión y te lleva de vuelta a la ventana de inicio de sesión de clientes
+     * @param evt Click en el botón
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.inicio_cliente.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Te lleva a la ventana de búsqueda de inmuebles
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         BusquedaInmuebles bi = new BusquedaInmuebles(this, this.cliente);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Te lleva a la ventana de búsqueda de reservas del particular
+     * @param evt 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         ConsultaReservas_Cliente cr_c = new ConsultaReservas_Cliente(this, this.cliente);

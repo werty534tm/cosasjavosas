@@ -10,14 +10,17 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- *
+ * Permite al anfitrión modificar sus datos personales
  * @author luver
  */
 public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
     PanelAnfitrion panel;
     Anfitrión anfitrión;
+    
     /**
-     * Creates new form ConsultaDatosAnfitrion
+     * Crea e inicializa la ventana
+     * @param panel Panel de origen
+     * @param anfitrión Anfitrión de la sesión
      */
     public ModificacionDatosAnfitrion(PanelAnfitrion panel, Anfitrión anfitrión) {
         initComponents();
@@ -33,6 +36,9 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
         this.jLabel11.setText(fecha);
     }
     
+    /**
+     * Actualiza los datos del anfitrión
+     */
     public void setup(){
         this.jTextFieldNombre.setText(this.anfitrión.getNombre());
         this.jTextFieldDNI.setText(this.anfitrión.getDNI());
@@ -221,6 +227,10 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Guarda los cambios realizados en los datos personales del anfitrión
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!this.anfitrión.getEmail().equals(this.jTextFieldEmail.getText())){
             Anfitrión c = Datos.lista_anfitriones.get(this.anfitrión.getEmail());
@@ -241,6 +251,10 @@ public class ModificacionDatosAnfitrion extends javax.swing.JFrame {
         Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.panel.setup();
         this.panel.setVisible(true);

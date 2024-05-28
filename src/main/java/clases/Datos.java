@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 /**
  * Clase que maneja los datos almacenados de la aplicación
- * @autor ricoyogur
+ * @author ricoyogur
  */
 public class Datos {
     public static HashMap<String, Cliente> lista_clientes = new HashMap<>();

@@ -5,7 +5,7 @@
 package interfaz;
 
 /**
- *
+ * Permite al anfitrión crear un inmueble
  * @author luver
  */
 
@@ -30,7 +30,9 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     boolean seGuardo = false;
     
     /**
-     * Creates new form CreacionInmuebles
+     * Crea e inicializa la ventana
+     * @param panel Panel de origen
+     * @param correo Correo del anfitrión de la sesión
      */
     public CreacionInmuebles(PanelAnfitrion panel, String correo) {
         initComponents();
@@ -416,6 +418,10 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Abre un panel que permite al usuario seleccionar una imagen para el inmueble
+     * @param evt Click en el botón
+     */
     private void jButtonSeleccImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccImgActionPerformed
         // TODO add your handling code here:
         JFileChooser fc = new JFileChooser();
@@ -433,12 +439,21 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSeleccImgActionPerformed
 
+    /**
+     * Guarda la imagen seleccionada en la carpeta "imagenes" del proyecto
+     * @param evt Click en el botón
+     */
     private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
         // TODO add your handling code here:
         FuncionesImagenes.guardarImagen(imgTemp);
         seGuardo = true;
     }//GEN-LAST:event_jButtonGuardarImgActionPerformed
 
+    /**
+     * Crea un inmueble y lo añade a la lista de inmuebles.
+     * Solo creará el inmueble si se ha seleccionado una imagen, si ésta se ha guardado y si no hay ningún campo vacío (exceptuando los servicios)
+     * @param evt 
+     */
     private void jButtonCrearInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearInmuebleActionPerformed
         // TODO add your handling code here:
         String titulo = this.jTextFieldTitulo.getText();
@@ -500,6 +515,10 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
 
+    /**
+     * Añade el servicio creado a la lista de servicios del inmueble a crear
+     * @param evt Click en el botón
+     */
     private void jButtonAñadirServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirServicioActionPerformed
         // TODO add your handling code here:
         if (!this.jTextFieldAñadirServicio.getText().equals("")) {
@@ -513,11 +532,19 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonAñadirServicioActionPerformed
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.panel.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Borra de la lista el inmueble seleccionado
+     * @param evt Click en el botón
+     */
     private void jButtonBorrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarServicioActionPerformed
         // TODO add your handling code here:
         serviciosTemp.remove(this.jListServicios.getSelectedIndex());

@@ -8,14 +8,19 @@ import clases.Datos;
 import clases.Reseña;
 
 /**
- *
+ * Permite al particular crear una reseña de un inmueble
  * @author ricoyogur
  */
 public class CreacionReseña extends javax.swing.JDialog {
     int index_inmueble;
     String correo;
+    
     /**
-     * Creates new form CreacionReseña
+     * Crea e inicializa la ventana
+     * @param parent Panel de origen
+     * @param modal Determina si la ventana es modal o no
+     * @param index_inmueble Index del inmueble seleccionado en la lista de inmuebles
+     * @param correo Correo del particular de la sesión
      */
     public CreacionReseña(java.awt.Frame parent, boolean modal, int index_inmueble, String correo) {
         super(parent, modal);
@@ -130,6 +135,10 @@ public class CreacionReseña extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * Crea la reseña del inmueble
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String titulo = this.jTextField1.getText();
         String titulo_inm = Datos.lista_inmuebles.get(this.index_inmueble).getTitulo();

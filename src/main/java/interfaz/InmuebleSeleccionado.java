@@ -5,7 +5,7 @@
 package interfaz;
 
 /**
- *
+ * Muestra al particular la información del inmueble que ha seleccionado en la búsqueda de inmuebles
  * @author luver
  */
 
@@ -28,6 +28,12 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * Crea e inicializa la ventana
+     * @param bi Panel de origen
+     * @param i Inmueble seleccionado
+     * @param c Cliente de la sesión
+     */
     public InmuebleSeleccionado(BusquedaInmuebles bi, Inmueble i, Cliente c) {
         initComponents();
         main = bi;
@@ -296,6 +302,10 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.main.setVisible(true);
@@ -307,11 +317,19 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         //main.setVisible(false);
     }//GEN-LAST:event_formWindowClosed
 
+    /**
+     * Te lleva a la ventana de selección de fecha de reserva
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ReservaInmueble ri = new ReservaInmueble(this, inmueble, cliente);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Te lleva a la ventana de reseñas del inmueble
+     * @param evt Click en el botón
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String titulo = this.jLabel1.getText();
         ConsultarReseñas consulta_reseñas = new ConsultarReseñas(this.main, titulo, cliente.getEmail());

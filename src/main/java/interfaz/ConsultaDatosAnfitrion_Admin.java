@@ -9,16 +9,16 @@ import java.awt.Frame;
 import java.time.format.DateTimeFormatter;
 
 /**
- *
+ * Muestra ciertos detalles de un anfitrión
  * @author ricoyogur
  */
 public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
     
     /**
-     * Creates new form ConsultaDatosParticular_Admin_nuevo
-     * @param parent
-     * @param modal
-     * @param anfitrión
+     * Crea e inicializa la ventana
+     * @param parent Panel de origen
+     * @param modal Especifica si el panel es modal o no
+     * @param anfitrión Anfitrión de la sesión
      */
     public ConsultaDatosAnfitrion_Admin(Frame parent, boolean modal, Anfitrión anfitrión) {
         super(parent, modal);
@@ -125,6 +125,10 @@ public class ConsultaDatosAnfitrion_Admin extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

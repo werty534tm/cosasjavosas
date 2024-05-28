@@ -72,7 +72,7 @@ public class TarjetaDeCrédito {
 
     /**
      * Genera un String con la información de la tarjeta de crédito
-     * @return 
+     * @return String - Información de la tarjeta de crédito
      */
     @Override
     public String toString() {

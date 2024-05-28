@@ -10,14 +10,15 @@ import clases.Inmueble;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * Muestra al administrador todos los inmuebles disponibles en la aplicación
  * @author luver
  */
 public class ConsultaInmuebles_Admin extends javax.swing.JFrame {
     DefaultListModel modelo = new DefaultListModel();
     PanelAdmin panel;
     /**
-     * Creates new form ConsultaInmuebles_Admin
+     * Crea e inicializa la ventana
+     * @param panel Panel de origen
      */
     public ConsultaInmuebles_Admin(PanelAdmin panel) {
         initComponents();
@@ -308,11 +309,19 @@ public class ConsultaInmuebles_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.panel.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Actualiza la información mostrada y te muestra la del inmueble seleccionado
+     * @param evt Click en un elemento de la lista
+     */
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         Inmueble inm = Datos.lista_inmuebles.get(this.jList1.getSelectedIndex());
         this.jLabel4.setText(inm.getTitulo());
@@ -334,6 +343,10 @@ public class ConsultaInmuebles_Admin extends javax.swing.JFrame {
         this.jList2.setModel(modelillo);
     }//GEN-LAST:event_jList1MouseClicked
 
+    /**
+     * Abre una ventana con las reseñas del inmueble
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Inmueble inm = Datos.lista_inmuebles.get(this.jList1.getSelectedIndex());
         ConsultarReseñas_Admin consulta = new ConsultarReseñas_Admin(this, inm.getTitulo());

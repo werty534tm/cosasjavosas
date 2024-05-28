@@ -5,7 +5,7 @@
 package interfaz;
 
 /**
- *
+ * Muestra al administrador todas las reservas realizadas en la aplicación con sus respectivos datos
  * @author luver
  */
 
@@ -20,7 +20,8 @@ public class ConsultaDatosReservas_Admin extends javax.swing.JFrame {
     PanelAdmin main;
     
     /**
-     * Creates new form ConsultaDatosReservas_ADmin
+     * Crea e inicializa la ventana
+     * @param pa Panel de origen
      */
     public ConsultaDatosReservas_Admin(PanelAdmin pa) {
         initComponents();
@@ -232,6 +233,10 @@ public class ConsultaDatosReservas_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.main.setVisible(true);
         this.setVisible(false);

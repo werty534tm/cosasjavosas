@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * Muestra a un particular las reseñas del inmueble seleccionado, con posibilidad de añadir la suya
  * @author ricoyogur
  */
 public class ConsultarReseñas extends javax.swing.JFrame {
@@ -21,7 +21,10 @@ public class ConsultarReseñas extends javax.swing.JFrame {
     int index_inm;
     BusquedaInmuebles consulta;
     /**
-     * Creates new form ConsultarReseñas
+     * Crea e inicializa la ventana
+     * @param consulta Panel de origen
+     * @param titulo Título del inmueble de las reseñas
+     * @param correo Correo del particular de la sesión
      */
     public ConsultarReseñas(BusquedaInmuebles consulta, String titulo, String correo) {
         initComponents();
@@ -122,11 +125,19 @@ public class ConsultarReseñas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva a la creación de reseñas
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CreacionReseña creacion_reseña = new CreacionReseña(this, true, this.index_inm, this.correo);
         creacion_reseña.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Abre una ventana con la información de la reseña seleccionada
+     * @param evt 
+     */
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         int index = this.jList1.getSelectedIndex();
         VerReseña ver_reseña = new VerReseña(this, true, this.reseñas.get(index));

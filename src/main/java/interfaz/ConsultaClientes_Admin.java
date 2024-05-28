@@ -9,14 +9,15 @@ import clases.Cliente;
 import clases.Datos;
 
 /**
- *
+ * Muestra al administrador los datos de todos los clientes registrados en la aplicación.
+ * Se pueden acceder a los datos de un tipo de cliente específico mediante un botón
  * @author luver
  */
 public class ConsultaClientes_Admin extends javax.swing.JFrame {
     PanelAdmin panel_admin;
     /**
-     * Creates new form ConsultaClientes
-     * @param panel_admin
+     * Crea e inicializa la ventana
+     * @param panel_admin Panel de origen
      */
     public ConsultaClientes_Admin(PanelAdmin panel_admin) {
         initComponents();
@@ -236,11 +237,19 @@ public class ConsultaClientes_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.panel_admin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Muestra algunos detalles del cliente dependiendo de su tipo (particular o anfitrión)
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String correo = this.jTable1.getValueAt(this.jTable1.getSelectedRow(), 2).toString();
         System.out.println(correo);

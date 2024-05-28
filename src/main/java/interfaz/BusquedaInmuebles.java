@@ -5,7 +5,8 @@
 package interfaz;
 
 /**
- *
+ * Panel que maneja la búsqueda de inmuebles realizada por el usuario.
+ * Éste podrá especificar ciertos aspectos de la búsqueda, tales como la ciudad del inmueble, el tipo de este y ordenar los resultados según lo escogido.
  * @author luver
  */
 
@@ -28,6 +29,12 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * Crea e inicializa la ventana.
+     * Inicialmente se muestran los inmuebles en el orden en el que están en el ArrayList que los contiene
+     * @param pp Panel de origen
+     * @param c Cliente de la sesión
+     */
     public BusquedaInmuebles(PanelParticular pp, Cliente c) {
         initComponents();
         main = pp;
@@ -309,6 +316,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         main.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
+    /**
+     * Limpia la tabla
+     * @param jt Tabla a limpiar
+     */
     private void limpiarTabla(JTable jt) {
         for (int i = 0;i<numInmuebles;i++){
             jt.setValueAt(null,i,0);
@@ -328,6 +339,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         
     }
     
+    /**
+     * Vuelve a realizar la búsqueda de inmuebles según los parámetros especificados
+     * @param evt Click en el botón
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Limpieza de tabla
         limpiarTabla(this.jTable1);
@@ -451,6 +466,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Abre los detalles del inmueble seleccionado en una ventana nueva.
+     * @param evt Click en el botón
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String nombreInm = this.jTable1.getValueAt(this.jTable1.getSelectedRow(), 0).toString();
@@ -463,6 +482,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         InmuebleSeleccionado is = new InmuebleSeleccionado(this, Datos.lista_inmuebles.get(index), cliente);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt Click en el botón
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.main.setVisible(true);

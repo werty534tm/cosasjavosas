@@ -5,7 +5,7 @@
 package interfaz;
 
 /**
- *
+ * Permite al anfitrión editar lso datos de los inmuebles de los que es dueño
  * @author luver
  */
 
@@ -31,7 +31,9 @@ public class EdicionInmuebles extends javax.swing.JFrame {
     boolean seGuardo = false;
     
     /**
-     * Creates new form EdicionInmuebles
+     * Crea e inicializa la ventana
+     * @param pa Panel de origen
+     * @param correo Correo electrónico del anfitrión de la sesión
      */
     public EdicionInmuebles(PanelAnfitrion pa, String correo) {
         initComponents();
@@ -59,6 +61,10 @@ public class EdicionInmuebles extends javax.swing.JFrame {
             this.index_inm += 1;
         }
     }
+    
+    /**
+     * Selecciona el inmueble seleccionado de la lista de inmuebles disponibles y muestra sus detalles para su edición
+     */
     public void selecInm(){
         String inmSel = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
         System.out.println(inmSel);
@@ -479,12 +485,20 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Guarda la imagen seleccionada en la carpeta "imagenes" del proyecto
+     * @param evt Click en el botón
+     */
     private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
         // TODO add your handling code here:
         FuncionesImagenes.guardarImagen(imgTemp);
         seGuardo = true;
     }//GEN-LAST:event_jButtonGuardarImgActionPerformed
 
+    /**
+     * Abre un panel que permite al usuario seleccionar una imagen nueva para el inmueble
+     * @param evt Click en el botón
+     */
     private void jButtonSeleccImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccImgActionPerformed
         // TODO add your handling code here:
         seGuardo = false;
@@ -503,16 +517,28 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSeleccImgActionPerformed
 
+    /**
+     * Ejecuta la función para seleccionar un inmueble y mostrar sus detalles
+     * @param evt Seleccionar un inmueble del JComboBox
+     */
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         this.selecInm();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         main.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Guarda los cambios realizados al inmueble
+     * @param evt Click en el botón
+     */
     private void jButtonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarCambiosActionPerformed
         // TODO add your handling code here:
         if (seGuardo==true) {
@@ -569,6 +595,10 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonGuardarCambiosActionPerformed
 
+    /**
+     * Borra el inmueble seleccionado de la lista de inmuebles
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Datos.lista_inmuebles.remove(this.index_inm);
         this.indexes = new ArrayList<>();

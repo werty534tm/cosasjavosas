@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * Muestra al administrador todas las reseñas del inmueble seleccionado
  * @author ricoyogur
  */
 public class ConsultarReseñas_Admin extends javax.swing.JFrame {
@@ -20,7 +20,9 @@ public class ConsultarReseñas_Admin extends javax.swing.JFrame {
     int index_inm;
     ConsultaInmuebles_Admin consulta;
     /**
-     * Creates new form ConsultarReseñas
+     * Crea e inicializa la ventana
+     * @param consulta Ventana de origen
+     * @param titulo Título del inmueble de las reseñas
      */
     public ConsultarReseñas_Admin(ConsultaInmuebles_Admin consulta, String titulo) {
         initComponents();
@@ -103,6 +105,10 @@ public class ConsultarReseñas_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Abre una ventana con la información de la reseña seleccionada
+     * @param evt Click en el botón
+     */
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         int index = this.jList1.getSelectedIndex();
         VerReseña_admin ver_reseña = new VerReseña_admin(this, true, this.reseñas.get(index));

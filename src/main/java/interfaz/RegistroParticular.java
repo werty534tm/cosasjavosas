@@ -12,14 +12,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
- *
+ * Permite al usuario registrarse como particular
  * @author luver
  */
 public class RegistroParticular extends javax.swing.JFrame {
     InicioSesionCliente main;
     /**
      * Creates new form RegistroParticular
-     * @param inicio de sesión de cliente
+     * @param isc Panel de origen
      */
     public RegistroParticular(InicioSesionCliente isc) {
         main = isc;
@@ -235,7 +235,7 @@ public class RegistroParticular extends javax.swing.JFrame {
 
     /**
      * Vuelve a la página anterior
-     * @param evt 
+     * @param evt Click en el botón
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -245,7 +245,7 @@ public class RegistroParticular extends javax.swing.JFrame {
 
     /**
      * Vuelve a la ventana anterior si se cierra esta
-     * @param evt 
+     * @param evt Click en el botón
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
@@ -254,7 +254,7 @@ public class RegistroParticular extends javax.swing.JFrame {
 
     /**
      * Crea y guarda a un nuevo particular
-     * @param evt 
+     * @param evt Click en el botón
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nombre = this.jTextField1.getText();

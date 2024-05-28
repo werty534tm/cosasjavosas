@@ -6,15 +6,17 @@ package interfaz;
 import clases.Administrador;
 
 /**
- *
+ * Muestra al ususario la pantalla de inicio de sesión de administrador
  * @author luver
  */
 public class InicioSesionAdmin extends javax.swing.JFrame {
     
     protected Inicio inicio;
     Administrador admin = new Administrador("admin@javabnb.com", "admin");
+    
     /**
-     * Creates new form InicioSesionAdmin
+     * Crea e inicializa la ventana
+     * @param inicio Panel de origen
      */
     public InicioSesionAdmin(Inicio inicio) {
         initComponents();
@@ -135,6 +137,10 @@ public class InicioSesionAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Si los campos contienen información correcta, te lleva al panel de administrador
+     * @param evt 
+     */
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
         System.out.println(this.jTextFieldCorreo.getText());
         System.out.println(this.jPasswordFieldClave.getText());
@@ -148,6 +154,10 @@ public class InicioSesionAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
+    /**
+     * Te lleva de vuelta a la ventana anterior
+     * @param evt 
+     */
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         inicio.setVisible(true);
         this.setVisible(false);

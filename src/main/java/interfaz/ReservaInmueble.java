@@ -5,12 +5,10 @@
 package interfaz;
 
 /**
- *
+ * Permite al particular seleccionar los días de entrada y salida del inmueble para reservarlo.
+ * En caso de que el inmueble no esté disponible en las fechas seleccionadas no se procederá con la transacción
  * @author luver
  */
-
-// disponible -> popup de si/no con importe total
-// no disponible -> popup de error
 
 import clases.Reserva;
 import clases.Inmueble;
@@ -39,9 +37,9 @@ public class ReservaInmueble extends javax.swing.JFrame {
     }
     /**
      * Creates new form ReservaInmueble
-     * @param inmueble seleccionado
-     * @param inmueble
-     * @param cliente
+     * @param is Panel de origen
+     * @param i Inmueble seleccionado
+     * @param c Cliente de la sesión
      */
     public ReservaInmueble(InmuebleSeleccionado is, Inmueble i, Cliente c) {
         initComponents();
