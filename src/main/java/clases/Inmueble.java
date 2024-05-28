@@ -94,7 +94,7 @@ public class Inmueble {
     }
 
     public void setCalificacion() {
-        if(reseñas.isEmpty()){
+        if(!reseñas.isEmpty()){
             Double sum = 0.0;
             for(int i=0;i<reseñas.size();i++){sum += reseñas.get(i).getNota();}
         this.calificacion = sum/reseñas.size();

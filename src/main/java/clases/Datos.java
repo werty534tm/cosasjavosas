@@ -54,13 +54,11 @@ public class Datos {
                 writer.write(inmueble.toString() + "\n");
             }
             
-            /*
             writer.write("\nReservas:\n");
             for (int i = 0;i < lista_reservas.size();i++) {
                 Reserva reserva = lista_reservas.get(i);
                 writer.write(reserva.toString() + "\n");
             }
-            */
             
         } catch (IOException e) {
             System.err.println("Error al guardar los datos: " + e.getMessage());
@@ -79,8 +77,9 @@ public class Datos {
                 } else if (line.equals("Anfitriones:")) {
                     sección = "anfitriones";
                 } else if(line.equals("Inmuebles:")){
-                        sección = "inmuebles";
-                        System.out.println("ZONA DE INMUEBLESZONA DE INMUEBLESZONA DE INMUEBLESZONA DE INMUEBLESZONA DE INMUEBLES");
+                    sección = "inmuebles";
+                } else if(line.equals("Reservas:")){
+                    sección = "reservas";
                 } else if (!line.isEmpty()) {
                     if(sección.equals("clientes")){
                         String[] parts = line.split(" ", 10);
@@ -170,8 +169,28 @@ public class Datos {
                                 Reseña reseña = new Reseña(titulo,reseñita[0],reseñita[1], Integer.parseInt(reseñita[2]), reseñita[3]);
                                 inm.getReseñas().add(reseña);
                             }
+                            inm.setCalificacion();
                             Datos.lista_inmuebles.add(inm);
                             inm.toString();
+                        }
+                    } else if(sección.equals("reservas")){
+                        String[] parts = line.split("ඞ", 5);
+                        if(parts.length == 5){
+                            String correo = parts[0];
+                            String titulo = parts[1];
+                            String entrada = parts[2];
+                            String salida = parts[3];
+                            Double importe = Double.valueOf(parts[4]);
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                            try{
+                                LocalDate fecha_e = LocalDate.parse(entrada, formatter);
+                                LocalDate fecha_s = LocalDate.parse(salida, formatter);
+                                Reserva reserva = new Reserva(correo, titulo, fecha_e, fecha_s, importe);
+                                Datos.lista_reservas.add(reserva);
+                            } catch (DateTimeParseException ex) {
+                                System.out.println("Error al parsear las fechas de entrada y salida.");
+                            }
+                            
                         }
                     }
                 }

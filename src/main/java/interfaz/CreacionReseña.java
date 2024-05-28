@@ -136,6 +136,7 @@ public class CreacionReseña extends javax.swing.JDialog {
         int nota = 1 + this.jComboBox1.getSelectedIndex();
         Reseña reseña = new Reseña(titulo_inm, titulo,this.correo, nota, textillo);
         Datos.lista_inmuebles.get(this.index_inmueble).getReseñas().add(reseña);
+        Datos.lista_inmuebles.get(this.index_inmueble).setCalificacion();
         Datos.guardarDatos("./backup.txt");
         System.out.println("Reseñas: "+Datos.lista_inmuebles.get(this.index_inmueble).getReseñas()+". Fin de las reseñas.");
     }//GEN-LAST:event_jButton1ActionPerformed
