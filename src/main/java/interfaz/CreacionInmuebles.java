@@ -27,6 +27,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private File imgTemp;
     DefaultListModel serviciosTemp = new DefaultListModel();
     private String correo;
+    boolean seGuardo = false;
     
     /**
      * Creates new form CreacionInmuebles
@@ -92,6 +93,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         jButtonGuardarImg = new javax.swing.JButton();
         jButtonBorrarServicio = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -203,6 +205,8 @@ public class CreacionInmuebles extends javax.swing.JFrame {
 
         jLabel21.setText("€");
 
+        jLabel22.setText("<html><center><p>Antes de crear el inmueble,</p><p>recuerda guardar la imagen</p></center>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,7 +279,11 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonSeleccImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldNombreImagen)
-                                    .addComponent(jButtonGuardarImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jButtonGuardarImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 14, Short.MAX_VALUE)
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)))))
                         .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,7 +405,9 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                                 .addComponent(jButtonSeleccImg)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonGuardarImg)
-                                .addGap(35, 35, 35))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14))))
                     .addComponent(jSeparator3))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -425,6 +435,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
         // TODO add your handling code here:
         FuncionesImagenes.guardarImagen(imgTemp);
+        seGuardo = true;
     }//GEN-LAST:event_jButtonGuardarImgActionPerformed
 
     private void jButtonCrearInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearInmuebleActionPerformed
@@ -449,7 +460,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         if (!titulo.equals("")&!calle.equals("")&!codigoPostal.equals("")&!ciudad.equals("")&!tipoPropiedad.equals("")){
             if (!this.jTextFieldNumero.getText().equals("")&!this.jFormattedTextFieldPrecioNoche.getText().equals("") // falta comprobación de que esté el inmueble ya en el almacenamiento
                     &!this.jFormattedTextFieldNhuespedes.getText().equals("")&!this.jFormattedTextFieldNhabitaciones.getText().equals("")
-                    &!this.jFormattedTextFieldNcamas.getText().equals("")&!this.jFormattedTextFieldNbaños.getText().equals("")){
+                    &!this.jFormattedTextFieldNcamas.getText().equals("")&!this.jFormattedTextFieldNbaños.getText().equals("")&seGuardo==true){
                 Direccion direccion = new Direccion(calle, numero, codigoPostal, ciudad);
                 DatosInmueble datosInmueble = new DatosInmueble(huespedes, habitaciones, camas, baños);
                 Inmueble inmueble = new Inmueble(titulo, direccion, datosInmueble, tipoPropiedad, precioNoche, servicios, fotografia, this.correo);
@@ -480,10 +491,10 @@ public class CreacionInmuebles extends javax.swing.JFrame {
                 
                 
             } else {
-                System.out.println("Faltan datos");
+                System.out.println("Faltan datos. Recuerda guardar la imagen");
             }
         } else {
-            System.out.println("Faltan datos");
+            System.out.println("Faltan datos. Recuerda guardar la imagen");
         }
         //Datos.guardarDatos("./backup.txt");
     }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
@@ -539,6 +550,7 @@ public class CreacionInmuebles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

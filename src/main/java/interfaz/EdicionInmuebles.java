@@ -28,6 +28,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
     int index_inm;
     DefaultListModel modelin = new DefaultListModel();
     Inmueble inm;
+    boolean seGuardo = false;
     
     /**
      * Creates new form EdicionInmuebles
@@ -145,6 +146,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         jButtonSeleccImg = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -257,6 +259,8 @@ public class EdicionInmuebles extends javax.swing.JFrame {
 
         jLabel22.setText("€");
 
+        jLabel23.setText("<html><center><p>Antes de guardar los cambios,</p><p>recuerda guardar la imagen</p></center>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -328,17 +332,6 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(jButtonGuardarImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jButtonSeleccImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jTextFieldNombreImagen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,7 +344,22 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                                             .addComponent(jLabel15)
                                             .addComponent(jLabel16)
                                             .addComponent(jLabel18))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(jButtonGuardarImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButtonSeleccImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jTextFieldNombreImagen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                                                .addGap(0, 0, Short.MAX_VALUE))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -451,9 +459,9 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldNombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -461,7 +469,8 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                                 .addComponent(jButtonSeleccImg)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonGuardarImg)
-                                .addGap(35, 35, 35))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -472,10 +481,12 @@ public class EdicionInmuebles extends javax.swing.JFrame {
     private void jButtonGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarImgActionPerformed
         // TODO add your handling code here:
         FuncionesImagenes.guardarImagen(imgTemp);
+        seGuardo = true;
     }//GEN-LAST:event_jButtonGuardarImgActionPerformed
 
     private void jButtonSeleccImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccImgActionPerformed
         // TODO add your handling code here:
+        seGuardo = false;
         JFileChooser fc = new JFileChooser();
         FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG, JPEG, PNG, GIF","jpg", "jpeg", "png", "gif");
         fc.setFileFilter(imgFilter);
@@ -503,57 +514,58 @@ public class EdicionInmuebles extends javax.swing.JFrame {
 
     private void jButtonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarCambiosActionPerformed
         // TODO add your handling code here:
-        /*
-        A PARTIR DEL NUMERO DE HUESPEDES RETORNA VALORES null
-        */
-        String calle = this.jTextFieldCalle.getText();
-        System.out.println(calle);
-        int numero = Integer.parseInt(this.jTextFieldNumero.getText());
-        System.out.println(numero);
-        String codigoPostal = this.jTextFieldCP.getText();
-        System.out.println(codigoPostal);
-        String ciudad = this.jTextFieldCiudad.getText();
-        System.out.println(ciudad);
-        int huespedes = Integer.parseInt(this.jFormattedTextFieldNhuespedes.getText());
-        System.out.println(huespedes);
-        int habitaciones = Integer.parseInt(this.jFormattedTextFieldNhabitaciones.getText());
-        System.out.println(habitaciones);
-        int camas = Integer.parseInt(this.jFormattedTextFieldNcamas.getText());
-        System.out.println(camas);
-        int baños = Integer.parseInt(this.jFormattedTextFieldNbaños.getText());
-        System.out.println(baños);
-        String tipoPropiedad = this.jComboBoxTipo.getSelectedItem().toString();
-        System.out.println(tipoPropiedad);
-        double precioNoche = Integer.parseInt(this.jFormattedTextFieldPrecioNoche.getText());
-        System.out.println(precioNoche);
-        ArrayList<String> servicios = new ArrayList<>(); // funcionamiento a añadir
-        for (int i = 0;i < modelin.getSize();i++) {
-            servicios.add(modelin.get(i).toString());
-        }System.out.println(servicios.toString());
-        String fotografia = this.jTextFieldNombreImagen.getText();
-        System.out.println(fotografia);
-        inm.getDireccion().setCalle(calle);
-        inm.getDireccion().setNumero(numero);
-        inm.getDireccion().setCodigoPostal(codigoPostal);
-        inm.getDireccion().setCiudad(ciudad);
-        inm.getDatos().setHuespedes(huespedes);
-        inm.getDatos().setHabitaciones(habitaciones);
-        inm.getDatos().setCamas(camas);
-        inm.getDatos().setBaños(baños);
-        inm.setTipoPropiedad(tipoPropiedad);
-        inm.setPrecioNoche(precioNoche);
-        inm.setServicios(servicios);
-        inm.setFotografia(fotografia);
-        for (Inmueble i : Datos.lista_inmuebles) {
-            if (i.getTitulo().equals(inm.getTitulo())) {
-                System.out.println(i.toString());
-                int index = Datos.lista_inmuebles.indexOf(i);
-                Datos.lista_inmuebles.set(index, inm);
-                System.out.println(i.toString());
+        if (seGuardo==true) {
+            String calle = this.jTextFieldCalle.getText();
+            System.out.println(calle);
+            int numero = Integer.parseInt(this.jTextFieldNumero.getText());
+            System.out.println(numero);
+            String codigoPostal = this.jTextFieldCP.getText();
+            System.out.println(codigoPostal);
+            String ciudad = this.jTextFieldCiudad.getText();
+            System.out.println(ciudad);
+            int huespedes = Integer.parseInt(this.jFormattedTextFieldNhuespedes.getText());
+            System.out.println(huespedes);
+            int habitaciones = Integer.parseInt(this.jFormattedTextFieldNhabitaciones.getText());
+            System.out.println(habitaciones);
+            int camas = Integer.parseInt(this.jFormattedTextFieldNcamas.getText());
+            System.out.println(camas);
+            int baños = Integer.parseInt(this.jFormattedTextFieldNbaños.getText());
+            System.out.println(baños);
+            String tipoPropiedad = this.jComboBoxTipo.getSelectedItem().toString();
+            System.out.println(tipoPropiedad);
+            double precioNoche = Double.parseDouble(this.jFormattedTextFieldPrecioNoche.getText());
+            System.out.println(precioNoche);
+            ArrayList<String> servicios = new ArrayList<>();
+            for (int i = 0;i < modelin.getSize();i++) {
+                servicios.add(modelin.get(i).toString());
+            }System.out.println(servicios.toString());
+            String fotografia = this.jTextFieldNombreImagen.getText();
+            System.out.println(fotografia);
+            inm.getDireccion().setCalle(calle);
+            inm.getDireccion().setNumero(numero);
+            inm.getDireccion().setCodigoPostal(codigoPostal);
+            inm.getDireccion().setCiudad(ciudad);
+            inm.getDatos().setHuespedes(huespedes);
+            inm.getDatos().setHabitaciones(habitaciones);
+            inm.getDatos().setCamas(camas);
+            inm.getDatos().setBaños(baños);
+            inm.setTipoPropiedad(tipoPropiedad);
+            inm.setPrecioNoche(precioNoche);
+            inm.setServicios(servicios);
+            inm.setFotografia(fotografia);
+            for (Inmueble i : Datos.lista_inmuebles) {
+                if (i.getTitulo().equals(inm.getTitulo())) {
+                    System.out.println(i.toString());
+                    int index = Datos.lista_inmuebles.indexOf(i);
+                    Datos.lista_inmuebles.set(index, inm);
+                    System.out.println(i.toString());
+                }
             }
+            Datos.guardarDatos("./backup.txt");
+            System.out.println("Cambios Guardados");
+        } else {
+            System.out.println("No se guardó la imagen");
         }
-        Datos.guardarDatos("./backup.txt");
-        System.out.println("Cambios Guardados");
     }//GEN-LAST:event_jButtonGuardarCambiosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -607,6 +619,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

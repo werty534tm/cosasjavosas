@@ -28,6 +28,10 @@ public class FuncionesImagenes {
         JLimg.setIcon(imgRed);
     }
     
+    /**
+    * Guarda el archivo de imagen proporcionado en la carpeta "imagenes" del proyecto, que contiene todas las imágenes de los inmuebles
+    * 
+    **/
     public static void guardarImagen(File img) {
         try {
             String path = System.getProperty("user.dir")+"/imagenes/"+img.getName();
