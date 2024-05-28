@@ -1,5 +1,6 @@
 package clases;
 import java.time.LocalDate;
+import java.util.ArrayList;
 /**
  * Clase que maneja los datos de los anfitriones
  * @author Tomás
@@ -34,10 +35,19 @@ public class Anfitrión extends Persona{
     
     /**
      * Cambia el valor de si el anfitrión es suèranfitrión o no
-     * @param superanfitrión true si el anfitrión es un superanfitrión, false en caso contrario
      */
-    public void setSuperanfitrión(boolean superanfitrión) {
-        this.superanfitrión = superanfitrión;
+    public void setSuperanfitrión() {
+        Double sum = 0.0;
+        Double contador = 0.0;
+        for(int i=0;i<Datos.lista_inmuebles.size();i++){
+            if(Datos.lista_inmuebles.get(i).getDueño().equals(this.nombre)){
+                sum += Datos.lista_inmuebles.get(i).getCalificacion();
+                contador += 1;
+            }
+        }
+        if((sum/contador)>4){
+            this.superanfitrión=true;
+        }
     }
 
     /**

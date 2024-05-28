@@ -139,6 +139,9 @@ public class CreacionReseña extends javax.swing.JDialog {
         Datos.lista_inmuebles.get(this.index_inmueble).setCalificacion();
         Datos.guardarDatos("./backup.txt");
         System.out.println("Reseñas: "+Datos.lista_inmuebles.get(this.index_inmueble).getReseñas()+". Fin de las reseñas.");
+        for(String correo : Datos.lista_anfitriones.keySet()){
+            Datos.lista_anfitriones.get(correo).setSuperanfitrión();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
