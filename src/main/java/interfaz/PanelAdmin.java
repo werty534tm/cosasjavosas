@@ -62,6 +62,11 @@ public class PanelAdmin extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton3.setText("<html><center><p>Consulta de</p><p>reservas</p><p>realizadas</p></center></html>");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Cerrar sesión");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +133,11 @@ public class PanelAdmin extends javax.swing.JFrame {
         consulta_inmuebles.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ConsultaDatosReservas_Admin cdr_a = new ConsultaDatosReservas_Admin(this);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

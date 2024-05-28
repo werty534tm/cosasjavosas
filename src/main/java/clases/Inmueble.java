@@ -80,6 +80,10 @@ public class Inmueble {
     public ArrayList<String> getServicios() {
         return servicios;
     }
+    
+    public void setServicios(ArrayList<String> servicios) {
+        this.servicios = servicios;
+    }
 
     public String getFotografia() {
         return fotografia;

@@ -8,13 +8,49 @@ package interfaz;
  *
  * @author luver
  */
+
+import clases.Datos;
+import clases.Reserva;
+import clases.Cliente;
+import clases.Inmueble;
+import clases.Direccion;
+
 public class ConsultaDatosReservas_Admin extends javax.swing.JFrame {
 
+    PanelAdmin main;
+    
     /**
      * Creates new form ConsultaDatosReservas_ADmin
      */
     public ConsultaDatosReservas_Admin() {
         initComponents();
+    }
+    
+    public ConsultaDatosReservas_Admin(PanelAdmin pa) {
+        initComponents();
+        main = pa;
+        main.setVisible(false);
+        for (int i = 0;i < Datos.lista_reservas.size();i++) {
+            Reserva r = Datos.lista_reservas.get(i);
+            int numerico = 0;
+            for (int j = 0;j < Datos.lista_inmuebles.size();j++) {
+                if (Datos.lista_inmuebles.get(j).getTitulo().equals(r.getTituloInmueble())) {
+                    numerico = j;
+                }
+            }
+            Inmueble in = Datos.lista_inmuebles.get(numerico);
+            Cliente c = Datos.lista_clientes.get(r.getEmailCliente());
+            this.jTable1.setValueAt(r.getTituloInmueble(), i, 0);//titulo inmueble
+            this.jTable1.setValueAt(in.getTipoPropiedad(), i, 1);//tipo
+            this.jTable1.setValueAt(in.getDireccion().getCalle()+", "+in.getDireccion().getNumero()+" - C.P.: "+in.getDireccion().getCodigoPostal(), i, 2);//direccion
+            this.jTable1.setValueAt(in.getDireccion().getCiudad(), i, 3);//ciudad
+            this.jTable1.setValueAt(in.getDueño(), i, 4);//anfitrion
+            this.jTable1.setValueAt(c.getNombre(), i, 5);//particular
+            this.jTable1.setValueAt(r.getEntrada(), i, 6);//fecha entrada
+            this.jTable1.setValueAt(r.getSalida(), i, 7);//fecha salida
+            this.jTable1.setValueAt(r.getImporte(), i, 8);//importe
+        }
+        this.setVisible(true);
     }
 
     /**
@@ -43,6 +79,86 @@ public class ConsultaDatosReservas_Admin extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},

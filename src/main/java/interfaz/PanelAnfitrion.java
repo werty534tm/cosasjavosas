@@ -162,7 +162,7 @@ public class PanelAnfitrion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        EdicionInmuebles editor = new EdicionInmuebles(this.anfitrión.getEmail());
+        EdicionInmuebles editor = new EdicionInmuebles(this,this.anfitrión.getEmail());
         editor.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

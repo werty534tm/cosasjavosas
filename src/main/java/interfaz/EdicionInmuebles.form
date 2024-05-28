@@ -66,14 +66,18 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jComboBoxTipo" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextFieldPrecioNoche" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jFormattedTextFieldPrecioNoche" min="-2" pref="69" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Component id="jSeparator4" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButtonCrearInmueble" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
+                                          <Component id="jButtonGuardarCambios" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                               <Component id="jButton4" min="-2" max="-2" attributes="0"/>
@@ -230,11 +234,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFormattedTextFieldPrecioNoche" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jButtonCrearInmueble" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="jButtonGuardarCambios" min="-2" pref="57" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -367,7 +372,7 @@
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldPrecioNoche">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format subtype="0" type="4"/>
+          <Format format="#0.00" subtype="-1" type="0"/>
         </Property>
       </Properties>
     </Component>
@@ -384,13 +389,16 @@
         <Property name="orientation" type="int" value="1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonCrearInmueble">
+    <Component class="javax.swing.JButton" name="jButtonGuardarCambios">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="DejaVu Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Guardar cambios"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGuardarCambiosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>
@@ -424,6 +432,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver al panel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxTipo">
       <Properties>
@@ -541,6 +552,11 @@
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;p&gt;Eliminar servicio&lt;/p&gt;&lt;p&gt;seleccionado&lt;/p&gt;&lt;/center&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel22">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x20ac;"/>
       </Properties>
     </Component>
   </SubComponents>

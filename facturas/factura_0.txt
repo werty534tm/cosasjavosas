@@ -1,0 +1,35 @@
+
+    JavaBnB
+---------------
+
+Inmueble reservado:
+
+bbb
+x, 1
+x
+c
+
+Tipo de inmueble: Apartamento
+Capacidad de 1 huéspedes.
+Contiene 1 habitaciones, 1 camas y 1 baños.
+
+Listado de servicios: 
+a
+
+---------------
+
+Fecha de entrada: 2012-12-12
+Fecha de salida: 2012-12-15
+
+Precio por noche: 1.0 €
+Número de días reservados: 3
+Importe total: 3.0 €
+
+---------------
+
+Nombre del cliente: 1
+Email: 1
+Teléfono: 1
+Titular de la tarjeta: 1
+
+---------------

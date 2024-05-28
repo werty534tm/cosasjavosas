@@ -434,13 +434,14 @@ public class CreacionInmuebles extends javax.swing.JFrame {
         int numero = Integer.parseInt(this.jTextFieldNumero.getText());
         String codigoPostal = this.jTextFieldCP.getText();
         String ciudad = this.jTextFieldCiudad.getText();
+        //int huespedes = 
         int huespedes = ((Number) this.jFormattedTextFieldNhuespedes.getValue()).intValue();
         int habitaciones = ((Number) this.jFormattedTextFieldNhabitaciones.getValue()).intValue();
         int camas = ((Number) this.jFormattedTextFieldNcamas.getValue()).intValue();
         int baños = ((Number) this.jFormattedTextFieldNbaños.getValue()).intValue();
         String tipoPropiedad = this.jComboBoxTipo.getSelectedItem().toString();
         double precioNoche = ((Number) this.jFormattedTextFieldPrecioNoche.getValue()).doubleValue();
-        ArrayList<String> servicios = new ArrayList<>(); // funcionamiento a añadir
+        ArrayList<String> servicios = new ArrayList<>();
         for (int i = 0;i < serviciosTemp.getSize();i++) {
             servicios.add(serviciosTemp.get(i).toString());
         }
