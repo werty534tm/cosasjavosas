@@ -17,7 +17,10 @@ import java.time.format.DateTimeParseException;
  */
 public class RegistroParticular extends javax.swing.JFrame {
     InicioSesionCliente main;
-    
+    /**
+     * Creates new form RegistroParticular
+     * @param inicio de sesión de cliente
+     */
     public RegistroParticular(InicioSesionCliente isc) {
         main = isc;
         main.setVisible(false);
@@ -230,17 +233,29 @@ public class RegistroParticular extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Vuelve a la página anterior
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
         main.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Vuelve a la ventana anterior si se cierra esta
+     * @param evt 
+     */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         main.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
+    /**
+     * Crea y guarda a un nuevo particular
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nombre = this.jTextField1.getText();
         String DNI =this.jTextField2.getText();

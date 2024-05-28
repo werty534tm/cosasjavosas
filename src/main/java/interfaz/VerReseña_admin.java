@@ -14,6 +14,10 @@ public class VerReseña_admin extends javax.swing.JDialog {
     Reseña reseña;
     /**
      * Creates new form VerReseña
+     * @param parent
+     * @param modal
+     * @param reseña
+     * 
      */
     public VerReseña_admin(java.awt.Frame parent, boolean modal, Reseña reseña) {
         super(parent, modal);

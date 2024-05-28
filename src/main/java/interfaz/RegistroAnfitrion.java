@@ -14,16 +14,16 @@ import java.time.LocalDate;
  */
 
 /*
-*
-* - La fecha de registro se establece automáticamente a partir de la fecha
-*   del dispositivo
-*
+* La fecha de registro se establece automáticamente a partir de la fecha del dispositivo
 */
 
 public class RegistroAnfitrion extends javax.swing.JFrame {
 
     InicioSesionCliente main;
-    
+    /**
+     * Crea un nuevo RegistroAnfitrión
+     * @param isc 
+     */
     public RegistroAnfitrion(InicioSesionCliente isc) {
         main = isc;
         main.setVisible(false);
@@ -179,16 +179,28 @@ public class RegistroAnfitrion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Cierra la ventana
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Vuelve a la página anterior
+     * @param evt 
+     */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         main.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
+    /**
+     * Crea y guarda un nuevo anfitrión
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nombre = this.jTextField1.getText();
         String DNI =this.jTextField2.getText();

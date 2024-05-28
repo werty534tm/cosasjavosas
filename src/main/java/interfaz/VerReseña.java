@@ -14,6 +14,9 @@ public class VerReseña extends javax.swing.JDialog {
     Reseña reseña;
     /**
      * Creates new form VerReseña
+     * @param parent
+     * @param modal
+     * @param reseña
      */
     public VerReseña(java.awt.Frame parent, boolean modal, Reseña reseña) {
         super(parent, modal);

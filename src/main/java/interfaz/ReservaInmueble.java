@@ -19,7 +19,6 @@ import clases.Datos;
 import java.io.File;
 import java.io.FileWriter;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -38,7 +37,12 @@ public class ReservaInmueble extends javax.swing.JFrame {
     public ReservaInmueble() {
         initComponents();
     }
-
+    /**
+     * Creates new form ReservaInmueble
+     * @param inmueble seleccionado
+     * @param inmueble
+     * @param cliente
+     */
     public ReservaInmueble(InmuebleSeleccionado is, Inmueble i, Cliente c) {
         initComponents();
         main = is;
