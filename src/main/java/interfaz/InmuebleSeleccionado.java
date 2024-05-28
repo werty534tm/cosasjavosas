@@ -153,6 +153,11 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
         jLabel19.setText("JavaBnB");
 
         jButton3.setText("Reseñas");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -298,13 +303,19 @@ public class InmuebleSeleccionado extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        main.setVisible(false);
+        //main.setVisible(false);
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ReservaInmueble ri = new ReservaInmueble(this, inmueble, cliente);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String titulo = this.jLabel1.getText();
+        ConsultarReseñas consulta_reseñas = new ConsultarReseñas(this.main, titulo, cliente.getEmail());
+        consulta_reseñas.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

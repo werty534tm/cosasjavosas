@@ -153,15 +153,23 @@ public class Datos {
                             ArrayList<String> servilista = new ArrayList<>(lista);
                             String fotografia = parts[12];
                             String reseñas_texto = parts[13];
+                            reseñas_texto = reseñas_texto.substring(1, reseñas_texto.length() - 1);
                             List<String> lista2 = Arrays.stream(reseñas_texto.split(","))
                                    .map(String::trim) // Eliminar espacios en blanco alrededor de cada palabra
                                    .collect(Collectors.toList());
-                            ArrayList<String> lista_reseñas_texto = new ArrayList<>(lista2);
+                            ArrayList<String> lista_reseñas_texto = new ArrayList<>(lista2);                            
+                            System.out.println("Lista de reseñas en texto: "+lista_reseñas_texto);
                             String dueño = parts[14];
                             DatosInmueble datos = new DatosInmueble(huespedes, habitaciones, camas, baños);
                             Direccion dir = new Direccion(calle, numero, CP, ciudad);
                             Inmueble inm = new Inmueble(titulo, dir, datos, tipo, precio, servilista, fotografia, dueño);
-                            inm.getReseñas().add(new Reseña("me pican los pies", "juanito", 3));
+                            System.out.println(lista_reseñas_texto);
+                            System.out.println(lista_reseñas_texto.size());
+                            for(int i=0;i<lista_reseñas_texto.size();i++){
+                                String[] reseñita = lista_reseñas_texto.get(i).split("<");
+                                Reseña reseña = new Reseña(titulo,reseñita[0],reseñita[1], Integer.parseInt(reseñita[2]), reseñita[3]);
+                                inm.getReseñas().add(reseña);
+                            }
                             Datos.lista_inmuebles.add(inm);
                             inm.toString();
                         }

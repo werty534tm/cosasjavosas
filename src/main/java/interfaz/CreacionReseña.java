@@ -13,13 +13,15 @@ import clases.Reseña;
  */
 public class CreacionReseña extends javax.swing.JDialog {
     int index_inmueble;
+    String correo;
     /**
      * Creates new form CreacionReseña
      */
-    public CreacionReseña(java.awt.Frame parent, boolean modal, int index_inmueble) {
+    public CreacionReseña(java.awt.Frame parent, boolean modal, int index_inmueble, String correo) {
         super(parent, modal);
         initComponents();
         this.index_inmueble = index_inmueble;
+        this.correo = correo;
     }
 
     /**
@@ -129,10 +131,12 @@ public class CreacionReseña extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String titulo = this.jTextField1.getText();
+        String titulo_inm = Datos.lista_inmuebles.get(this.index_inmueble).getTitulo();
         String textillo = this.jTextArea1.getText();
         int nota = 1 + this.jComboBox1.getSelectedIndex();
-        Reseña reseña = new Reseña(titulo, textillo, nota);
+        Reseña reseña = new Reseña(titulo_inm, titulo,this.correo, nota, textillo);
         Datos.lista_inmuebles.get(this.index_inmueble).getReseñas().add(reseña);
+        Datos.guardarDatos("./backup.txt");
         System.out.println("Reseñas: "+Datos.lista_inmuebles.get(this.index_inmueble).getReseñas()+". Fin de las reseñas.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
