@@ -1,21 +1,11 @@
 Clientes:
-1ඞ1ඞ1ඞ1ඞ1ඞ1ඞ1ඞ1ඞ2001-01-01ඞfalse
+correoreal@gmail.comඞTomás Canoඞ1234567890Eඞ987654321ඞcorreoreal@gmail.comඞ1234ඞTomás Canoඞ3ඞ2025-01-01ඞtrue
+bombardeenrenfecercanías@hotmail.comඞLuver Emirඞ132435465768Wඞ1324576879ඞbombardeenrenfecercanías@hotmail.comඞcontraseñaඞLuvierඞ7ඞ2100-02-06ඞfalse
 
 Anfitriones:
-2ඞ2ඞ2ඞ2ඞ2ඞ2ඞ2024-05-27ඞfalse
+noparamforcorreo@gmail.comඞElena Nito del Bosqueඞ978675645342Iඞ87654345678ඞnoparamforcorreo@gmail.comඞp1a2s3s4ඞ2024-05-28ඞfalse
+nullpointer@hotmail.comඞMartín Martínez Martínezඞ08932448739Lඞ9448383549ඞnullpointer@hotmail.comඞgatitos10ඞ2024-05-28ඞfalse
 
 Inmuebles:
-titulitituloඞ3ඞ3ඞ3ඞ3ඞ3ඞ3ඞ3ඞ3ඞCasaඞ3.0ඞ[josepaja, josepaja2]ඞwallpaper.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-1ඞ1ඞ1ඞ1ඞaඞ1ඞ1ඞ1ඞ1ඞCasaඞ1.0ඞ[1]ඞ1713555487513.jpgඞ[reseña1<1<1<jijijija, Me pican los cocos.<juanito<3<pipipitextoreseñapipipi, titulo de prueba<1<5<reseña de prueba]ඞ2
-2ඞ1ඞ1ඞ1ඞaඞ1ඞ1ඞ1ඞ1ඞCasaඞ1.0ඞ[1]ඞ1713555487513.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-3ඞ1ඞ1ඞ1ඞaඞ1ඞ1ඞ1ඞ1ඞCasaඞ1.0ඞ[1]ඞ1713555487513.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-5ඞ1ඞ1ඞ1ඞbඞ1ඞ1ඞ1ඞ1ඞCasaඞ1.0ඞ[1]ඞ1713555487513.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-aaaඞxඞ1ඞxඞcඞ1ඞ1ඞ1ඞ1ඞCasaඞ1.0ඞ[a]ඞPDF-XChange-Editor.pngඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-bbbඞxඞ1ඞxඞcඞ1ඞ1ඞ1ඞ1ඞApartamentoඞ1.0ඞ[a]ඞPDF-XChange-Editor.pngඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-aඞxඞ1ඞxඞxඞ1ඞ1ඞ1ඞ1ඞCasaඞ1.0ඞ[x]ඞ1713555487513.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-bඞxඞ1ඞxඞxඞ1ඞ1ඞ1ඞ1ඞCasaඞ2.0ඞ[x]ඞ1713555487513.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-cඞxඞ1ඞxඞxඞ1ඞ1ඞ1ඞ1ඞCasaඞ3.0ඞ[x]ඞ1713555487513.jpgඞ[Me pican los cocos.<juanito<3<pipipitextoreseñapipipi]ඞ2
-ñඞñඞ8ඞ8ඞñඞ8ඞ8ඞ8ඞ8ඞCasaඞ8.0ඞ[wasaa, no.]ඞUn5CRWVYRDC769ZrkZKAjn.jpgඞ[]ඞ2
 
 Reservas:
-1ඞtitulitituloඞ2000-01-01ඞ2000-01-01ඞ0.0
