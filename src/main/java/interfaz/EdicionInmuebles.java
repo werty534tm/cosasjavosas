@@ -58,6 +58,35 @@ public class EdicionInmuebles extends javax.swing.JFrame {
             this.index_inm += 1;
         }
     }
+    public void selecInm(){
+        String inmSel = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
+        System.out.println(inmSel);
+        int indexMostrar = 0;
+        for (int i = 0;i<Datos.lista_inmuebles.size();i++) {
+            if (Datos.lista_inmuebles.get(i).getTitulo().equals(inmSel)) {
+                indexMostrar = i;
+                this.index_inm = i;
+            }
+        }
+        inm = Datos.lista_inmuebles.get(indexMostrar);
+        this.jTextFieldCalle.setText(inm.getDireccion().getCalle());
+        this.jTextFieldCiudad.setText(inm.getDireccion().getCiudad());
+        this.jTextFieldCP.setText(inm.getDireccion().getCodigoPostal());
+        this.jTextFieldNumero.setText(String.valueOf(inm.getDireccion().getNumero()));
+        this.jFormattedTextFieldNbaños.setText(String.valueOf(inm.getDatos().getBaños()));
+        this.jFormattedTextFieldNcamas.setText(String.valueOf(inm.getDatos().getCamas()));
+        this.jFormattedTextFieldNhabitaciones.setText(String.valueOf(inm.getDatos().getHabitaciones()));
+        this.jFormattedTextFieldNhuespedes.setText(String.valueOf(inm.getDatos().getHuespedes()));
+        this.jFormattedTextFieldPrecioNoche.setText(String.valueOf(inm.getPrecioNoche()));
+        FuncionesImagenes.cargarImagen(jLabel19, System.getProperty("user.dir")+"/imagenes/"+inm.getFotografia());
+        this.jTextFieldNombreImagen.setText(inm.getFotografia());
+        this.modelin.clear();
+        this.jListServicios.setModel(modelin);
+        for(int i=0;i<inm.getServicios().size();i++) {
+            this.modelin.add(i, inm.getServicios().get(i));
+            this.jListServicios.setModel(modelin);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,6 +165,11 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         });
 
         jButton1.setText("Dar de baja el inmueble seleccionado");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Número de baños");
 
@@ -458,32 +492,7 @@ public class EdicionInmuebles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSeleccImgActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String inmSel = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
-        System.out.println(inmSel);
-        int indexMostrar = 0;
-        for (int i = 0;i<Datos.lista_inmuebles.size();i++) {
-            if (Datos.lista_inmuebles.get(i).getTitulo().equals(inmSel)) {
-                indexMostrar = i;
-            }
-        }
-        inm = Datos.lista_inmuebles.get(indexMostrar);
-        this.jTextFieldCalle.setText(inm.getDireccion().getCalle());
-        this.jTextFieldCiudad.setText(inm.getDireccion().getCiudad());
-        this.jTextFieldCP.setText(inm.getDireccion().getCodigoPostal());
-        this.jTextFieldNumero.setText(String.valueOf(inm.getDireccion().getNumero()));
-        this.jFormattedTextFieldNbaños.setText(String.valueOf(inm.getDatos().getBaños()));
-        this.jFormattedTextFieldNcamas.setText(String.valueOf(inm.getDatos().getCamas()));
-        this.jFormattedTextFieldNhabitaciones.setText(String.valueOf(inm.getDatos().getHabitaciones()));
-        this.jFormattedTextFieldNhuespedes.setText(String.valueOf(inm.getDatos().getHuespedes()));
-        this.jFormattedTextFieldPrecioNoche.setText(String.valueOf(inm.getPrecioNoche()));
-        FuncionesImagenes.cargarImagen(jLabel19, System.getProperty("user.dir")+"/imagenes/"+inm.getFotografia());
-        this.jTextFieldNombreImagen.setText(inm.getFotografia());
-        this.modelin.clear();
-        this.jListServicios.setModel(modelin);
-        for(int i=0;i<inm.getServicios().size();i++) {
-            this.modelin.add(i, inm.getServicios().get(i));
-            this.jListServicios.setModel(modelin);
-        }
+        this.selecInm();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -542,9 +551,31 @@ public class EdicionInmuebles extends javax.swing.JFrame {
                 Datos.lista_inmuebles.set(index, inm);
                 System.out.println(i.toString());
             }
-        } //Datos.guardarDatos("./backup.txt");
-        //System.out.println("Cambios Guardados");
+        }
+        Datos.guardarDatos("./backup.txt");
+        System.out.println("Cambios Guardados");
     }//GEN-LAST:event_jButtonGuardarCambiosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Datos.lista_inmuebles.remove(this.index_inm);
+        this.indexes = new ArrayList<>();
+        DefaultComboBoxModel modelo_combo_box = new DefaultComboBoxModel();
+        System.out.println(Datos.lista_inmuebles.size());
+        for(int i=0;i<Datos.lista_inmuebles.size();i++){
+            System.out.println("Correo: "+this.correo);
+            System.out.println("Correo: "+Datos.lista_inmuebles.get(i).getDueño());
+            if(Datos.lista_inmuebles.get(i).getDueño().equals(this.correo)){
+                indexes.add(i);
+            }
+        }
+        System.out.println(this.indexes);
+        for(int i=0;i<indexes.size();i++){
+            modelo_combo_box.addElement(Datos.lista_inmuebles.get(i).getTitulo());
+        }
+        this.jComboBox1.setModel(modelo_combo_box);
+        this.selecInm();
+        Datos.guardarDatos("./backup.txt");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
