@@ -10,23 +10,24 @@ import java.time.LocalDate;
  * @author ricoyogur
  */
 public class Reserva {
-    private Cliente cliente;
-    private Inmueble inmueble;
+    private String emailCliente;
+    private String tituloInmueble;
     private LocalDate entrada;
     private LocalDate salida;
+    private double importe;
     
-    public Cliente getCliente() {
-        return cliente;
+    public String getEmailCliente() {
+        return emailCliente;
     }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setEmailCliente(String cliente) {
+        this.emailCliente = cliente;
     }
     
-    public Inmueble getInmueble() {
-        return inmueble;
+    public String getTituloInmueble() {
+        return tituloInmueble;
     }
-    public void setInmueble(Inmueble inmueble) {
-        this.inmueble = inmueble;
+    public void setTituloInmueble(String inmueble) {
+        this.tituloInmueble = inmueble;
     }
     
     public LocalDate getEntrada() {
@@ -42,14 +43,24 @@ public class Reserva {
     public void setSalida(LocalDate salida) {
         this.salida = salida;
     }
-    public Reserva(Cliente cliente, Inmueble inmueble, LocalDate entrada, LocalDate salida){
-        this.cliente = cliente;
-        this.inmueble = inmueble;
+    
+    public double getImporte() {
+        return importe;
+    }
+    
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
+    
+    public Reserva(String emailCliente, String tituloInmueble, LocalDate entrada, LocalDate salida, double importe){
+        this.emailCliente = emailCliente;
+        this.tituloInmueble = tituloInmueble;
         this.entrada = entrada;
         this.salida = salida;
+        this.importe = importe;
     }
     @Override
     public String toString() {
-        return cliente.getEmail()+'ඞ'+ inmueble.getTitulo()+'ඞ'+entrada.toString()+'ඞ'+salida.toString();
+        return emailCliente+'ඞ'+ tituloInmueble+'ඞ'+entrada.toString()+'ඞ'+salida.toString()+'ඞ'+importe;
     }
 }

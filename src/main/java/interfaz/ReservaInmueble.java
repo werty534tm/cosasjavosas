@@ -16,11 +16,15 @@ import clases.Reserva;
 import clases.Inmueble;
 import clases.Cliente;
 import clases.Datos;
+import java.io.File;
+import java.io.FileWriter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ReservaInmueble extends javax.swing.JFrame {
 
@@ -93,6 +97,11 @@ public class ReservaInmueble extends javax.swing.JFrame {
         });
 
         jButton2.setText("Volver a los detalles");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,15 +185,87 @@ public class ReservaInmueble extends javax.swing.JFrame {
                 ocupado = true; 
             }
         } if (ocupado==false) {
-            Reserva reserva = new Reserva(cliente, inmueble, fechaEntrada, fechaSalida);
-            System.out.println("Reserva creada");
-            System.out.println("Datos de la reserva: "+reserva.toString());
-            Datos.lista_reservas.add(reserva);
-            System.out.println(Datos.lista_reservas.toString());
+            long dias = ChronoUnit.DAYS.between(fechaEntrada, fechaSalida);
+            double importe;
+            if (cliente.isVip()==true) {
+                importe = (inmueble.getPrecioNoche() * dias) * 0.9;
+            } else {
+                importe = inmueble.getPrecioNoche() * dias;
+            }
+            String mensaje = "El importe total de la reserva queda en: "+importe+
+                    "\n\n"+ "¿Desea proceder con la transacción?";
+            Object[] options = {"Si", "No, volver"};
+            int ok = JOptionPane.showOptionDialog(null, mensaje, "Información de la reserva",
+                    JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,
+                    null,options,options[0]);
+            if (ok == JOptionPane.YES_OPTION) {
+                Reserva reserva = new Reserva(cliente.getEmail(), inmueble.getTitulo(), fechaEntrada, fechaSalida, importe);
+                System.out.println("Reserva creada");
+                System.out.println("Datos de la reserva: "+reserva.toString());
+                Datos.lista_reservas.add(reserva);
+                System.out.println(Datos.lista_reservas.toString());
+                // Creación de factura
+                String directorio = System.getProperty("user.dir")+"/facturas/";
+                int numFactura = Datos.lista_reservas.indexOf(reserva);
+                String nombreFactura = "factura_"+numFactura+".txt";
+                try (FileWriter factura = new FileWriter(new File(directorio, nombreFactura))) {
+                    factura.write("\n    JavaBnB\n");
+                    factura.write("---------------");
+                    factura.write("\n\nInmueble reservado:");
+                    factura.write("\n\n"+inmueble.getTitulo());
+                    factura.write("\n"+inmueble.getDireccion().getCalle()+", "+inmueble.getDireccion().getNumero()+
+                            "\n"+inmueble.getDireccion().getCodigoPostal()+
+                            "\n"+inmueble.getDireccion().getCiudad());
+                    factura.write("\n\n"+"Tipo de inmueble: "+inmueble.getTipoPropiedad());
+                    factura.write("\nCapacidad de "+inmueble.getDatos().getHuespedes()+" huéspedes.");
+                    factura.write("\nContiene "+inmueble.getDatos().getHabitaciones()+" habitaciones, "+
+                            inmueble.getDatos().getCamas()+" camas y "+
+                            inmueble.getDatos().getBaños()+" baños.");
+                    factura.write("\n\nListado de servicios: ");
+                    String serviciosFactura = "";
+                    if (inmueble.getServicios().isEmpty()) {
+                        factura.write("\n");
+                    } else if (inmueble.getServicios().size()==1) {
+                        factura.write("\n"+inmueble.getServicios().get(0));
+                    } else {
+                        for (int i = 0;i < inmueble.getServicios().size()-1;i++) {
+                            serviciosFactura += inmueble.getServicios().get(i)+", ";
+                        } serviciosFactura += inmueble.getServicios().get(inmueble.getServicios().size()-1);
+                        factura.write("\n"+serviciosFactura);
+                    }
+                    factura.write("\n\n---------------");
+                    factura.write("\n\nFecha de entrada: "+fe);
+                    factura.write("\nFecha de salida: "+fs);
+                    factura.write("\n\nPrecio por noche: "+inmueble.getPrecioNoche()+" €");
+                    factura.write("\nNúmero de días reservados: "+dias);
+                    factura.write("\nImporte total: "+importe+" €");
+                    if (cliente.isVip()) {
+                        factura.write("\n\n(Se le ha aplicado un descuento del 10% por ser cliente V.I.P)");
+                    }
+                    factura.write("\n\n---------------");
+                    factura.write("\n\nNombre del cliente: "+cliente.getNombre());
+                    factura.write("\nEmail: "+cliente.getEmail());
+                    factura.write("\nTeléfono: "+cliente.getTeléfono());
+                    factura.write("\nTitular de la tarjeta: "+cliente.getTarjeta_de_crédito().getTitular());
+                    factura.write("\n\n---------------");
+                    factura.close();
+                    System.out.println("Factura ubicada en: "+directorio);
+                } catch (Exception e) {
+                    e.toString();
+                }
+            } else {
+                JOptionPane.getRootFrame().dispose();
+            }
         } else {
             System.out.println("inmueble ocupado ):");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.main.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
