@@ -505,17 +505,17 @@ public class EdicionInmuebles extends javax.swing.JFrame {
         System.out.println(codigoPostal);
         String ciudad = this.jTextFieldCiudad.getText();
         System.out.println(ciudad);
-        int huespedes = ((Number) this.jFormattedTextFieldNhuespedes.getValue()).intValue();
+        int huespedes = Integer.parseInt(this.jFormattedTextFieldNhuespedes.getText());
         System.out.println(huespedes);
-        int habitaciones = ((Number) this.jFormattedTextFieldNhabitaciones.getValue()).intValue();
+        int habitaciones = Integer.parseInt(this.jFormattedTextFieldNhabitaciones.getText());
         System.out.println(habitaciones);
-        int camas = ((Number) this.jFormattedTextFieldNcamas.getValue()).intValue();
+        int camas = Integer.parseInt(this.jFormattedTextFieldNcamas.getText());
         System.out.println(camas);
-        int baños = ((Number) this.jFormattedTextFieldNbaños.getValue()).intValue();
+        int baños = Integer.parseInt(this.jFormattedTextFieldNbaños.getText());
         System.out.println(baños);
         String tipoPropiedad = this.jComboBoxTipo.getSelectedItem().toString();
         System.out.println(tipoPropiedad);
-        double precioNoche = ((Number) this.jFormattedTextFieldPrecioNoche.getValue()).doubleValue();
+        double precioNoche = Integer.parseInt(this.jFormattedTextFieldPrecioNoche.getText());
         System.out.println(precioNoche);
         ArrayList<String> servicios = new ArrayList<>(); // funcionamiento a añadir
         for (int i = 0;i < modelin.getSize();i++) {

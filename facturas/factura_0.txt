@@ -4,26 +4,26 @@
 
 Inmueble reservado:
 
-bbb
-x, 1
-x
-c
+titulititulo
+3, 3
+3
+3
 
-Tipo de inmueble: Apartamento
-Capacidad de 1 huéspedes.
-Contiene 1 habitaciones, 1 camas y 1 baños.
+Tipo de inmueble: Casa
+Capacidad de 3 huéspedes.
+Contiene 3 habitaciones, 3 camas y 3 baños.
 
 Listado de servicios: 
-a
+josepaja, josepaja2
 
 ---------------
 
-Fecha de entrada: 2012-12-12
-Fecha de salida: 2012-12-15
+Fecha de entrada: 2000-01-01
+Fecha de salida: 2000-01-01
 
-Precio por noche: 1.0 €
-Número de días reservados: 3
-Importe total: 3.0 €
+Precio por noche: 3.0 €
+Número de días reservados: 0
+Importe total: 0.0 €
 
 ---------------
 

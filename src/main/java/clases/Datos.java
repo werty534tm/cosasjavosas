@@ -39,13 +39,13 @@ public class Datos {
             writer.write("Clientes:\n");
             for (String email : correos_clientes) {
                 Cliente cliente = lista_clientes.get(email);
-                writer.write(email + " " + cliente.toString() + "\n");
+                writer.write(email + "ඞ" + cliente.toString() + "\n");
             }
 
             writer.write("\nAnfitriones:\n");
             for (String email : correos_anfitriones) {
                 Anfitrión anfitrion = lista_anfitriones.get(email);
-                writer.write(email + " " + anfitrion.toString() + "\n");
+                writer.write(email + "ඞ" + anfitrion.toString() + "\n");
             }
             
             writer.write("\nInmuebles:\n");
@@ -82,7 +82,7 @@ public class Datos {
                     sección = "reservas";
                 } else if (!line.isEmpty()) {
                     if(sección.equals("clientes")){
-                        String[] parts = line.split(" ", 10);
+                        String[] parts = line.split("ඞ", 10);
                         if (parts.length == 10) {
                             String email = parts[0];
                             String nombre = parts[1];
@@ -108,7 +108,7 @@ public class Datos {
                         }
                     }
                     else if(sección.equals("anfitriones")){
-                        String[] parts = line.split(" ", 8);
+                        String[] parts = line.split("ඞ", 8);
                         if (parts.length == 8) {
                             String email = parts[0];
                             String nombre = parts[1];

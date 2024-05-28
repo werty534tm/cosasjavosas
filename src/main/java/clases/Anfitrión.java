@@ -30,7 +30,7 @@ public class Anfitrión extends Persona{
 
     @Override
     public String toString() {
-        return nombre+' '+DNI+' '+teléfono+' '+email+' '+clave+' '+fecha_de_registro+' '+superanfitrión;
+        return nombre+'ඞ'+DNI+'ඞ'+teléfono+'ඞ'+email+'ඞ'+clave+'ඞ'+fecha_de_registro+'ඞ'+superanfitrión;
     }
     
     public void actualizarDatos(String nombre, String DNI, String teléfono,
