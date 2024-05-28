@@ -4,32 +4,34 @@
 
 Inmueble reservado:
 
-a
-x, 1
-x
-x
+La casa de papel
+Calle Papel Maché, 420
+69420
+Papelandia
 
 Tipo de inmueble: Casa
-Capacidad de 1 huéspedes.
-Contiene 1 habitaciones, 1 camas y 1 baños.
+Capacidad de 0 huéspedes.
+Contiene 0 habitaciones, 0 camas y 0 baños.
 
 Listado de servicios: 
-x
+Desinfectante para los cortes con papel, Hegemonía hispánica
 
 ---------------
 
-Fecha de entrada: 2012-12-12
-Fecha de salida: 2012-12-15
+Fecha de entrada: 2010-03-17
+Fecha de salida: 2020-01-01
 
-Precio por noche: 1.0 €
-Número de días reservados: 3
-Importe total: 3.0 €
+Precio por noche: 20.0 €
+Número de días reservados: 3577
+Importe total: 64386.0 €
+
+(Se le ha aplicado un descuento del 10% por ser cliente V.I.P)
 
 ---------------
 
-Nombre del cliente: 1
-Email: 1
-Teléfono: 1
-Titular de la tarjeta: 1
+Nombre del cliente: Tomás Cano
+Email: correoreal@gmail.com
+Teléfono: 987654321
+Titular de la tarjeta: Tomás Cano
 
 ---------------

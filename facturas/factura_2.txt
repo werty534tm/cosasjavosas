@@ -4,32 +4,32 @@
 
 Inmueble reservado:
 
-titulititulo
-3, 3
-3
-3
+Casa asquerosa
+Tercera a la izquierda, 8
+88888
+Vaya asco de cuidad
 
 Tipo de inmueble: Casa
-Capacidad de 3 huéspedes.
-Contiene 3 habitaciones, 3 camas y 3 baños.
+Capacidad de 10 huéspedes.
+Contiene 0 habitaciones, 0 camas y 1 baños.
 
 Listado de servicios: 
-josepaja, josepaja2
+Vivir en una porquería de casa
 
 ---------------
 
-Fecha de entrada: 2012-12-20
-Fecha de salida: 2012-12-30
+Fecha de entrada: 2024-03-05
+Fecha de salida: 2024-03-20
 
-Precio por noche: 3.0 €
-Número de días reservados: 10
-Importe total: 30.0 €
+Precio por noche: 1.0 €
+Número de días reservados: 15
+Importe total: 15.0 €
 
 ---------------
 
-Nombre del cliente: 1
-Email: 1
-Teléfono: 1
-Titular de la tarjeta: 1
+Nombre del cliente: Luver Emir
+Email: bombardeenrenfecercanías@hotmail.com
+Teléfono: 1324576879
+Titular de la tarjeta: Luvier
 
 ---------------

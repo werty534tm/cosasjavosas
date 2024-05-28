@@ -4,32 +4,34 @@
 
 Inmueble reservado:
 
-titulititulo
-3, 3
-3
-3
+Casa de campo en Patones
+Calle del Buen Suceso, 7
+28189
+Patones de Arriba
 
 Tipo de inmueble: Casa
-Capacidad de 3 huéspedes.
-Contiene 3 habitaciones, 3 camas y 3 baños.
+Capacidad de 4 huéspedes.
+Contiene 3 habitaciones, 4 camas y 69 baños.
 
 Listado de servicios: 
-josepaja, josepaja2
+Deportación de inmigrantes ilegales
 
 ---------------
 
 Fecha de entrada: 2000-01-01
-Fecha de salida: 2000-01-01
+Fecha de salida: 2010-01-01
 
-Precio por noche: 3.0 €
-Número de días reservados: 0
-Importe total: 0.0 €
+Precio por noche: 30.0 €
+Número de días reservados: 3653
+Importe total: 98631.0 €
+
+(Se le ha aplicado un descuento del 10% por ser cliente V.I.P)
 
 ---------------
 
-Nombre del cliente: 1
-Email: 1
-Teléfono: 1
-Titular de la tarjeta: 1
+Nombre del cliente: Tomás Cano
+Email: correoreal@gmail.com
+Teléfono: 987654321
+Titular de la tarjeta: Tomás Cano
 
 ---------------
